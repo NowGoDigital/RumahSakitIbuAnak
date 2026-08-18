@@ -1,1 +1,779 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klinik Gumitri Medika — Sehat Bersama Kami | Lombok Barat</title>
+<meta name="description" content="Klinik Gumitri Medika — UGD 24 Jam, Rawat Inap, Persalinan, KIA & KB, Poli Gigi, Apotek, Laboratorium, Ambulan. Ramah, Jujur, Disiplin dan Bertanggungjawab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --green:#0E6B5A;--green-d:#094A3E;--green-l:#1B9E86;--mint:#DFF2EC;--mint-2:#F2F9F6;
+  --gold:#F6B800;--gold-d:#C98F00;--gold-l:#FFD54D;
+  --red:#D62828;--red-d:#B01E1E;
+  --ink:#12332C;--mut:#5C7A70;--line:#E3EEE9;--white:#fff;
+  --sh-s:0 2px 8px rgba(14,107,90,.07);--sh-m:0 10px 25px rgba(14,107,90,.10);--sh-l:0 20px 50px rgba(14,107,90,.15);
+  --sh-g:0 12px 30px rgba(246,184,0,.30);
+  --r-s:8px;--r-m:14px;--r-l:20px;--r-x:28px;--r-f:999px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);line-height:1.6;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+.scr{font-family:'Caveat',cursive}
 
+/* ===== TOPBAR ===== */
+.tb{background:var(--green-d);color:#fff;padding:7px 0;font-size:12px;position:relative;z-index:100}
+.tb-in{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tb-l{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.tb-l span{display:flex;align-items:center;gap:6px}
+.tb-l i{color:var(--gold-l);font-size:11px}
+.tb .emg{background:var(--red);padding:3px 10px;border-radius:var(--r-f);font-weight:700;font-size:10.5px;letter-spacing:.5px;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.75}}
+.tb-r{display:flex;gap:12px;align-items:center}
+.tb-r a{color:#fff;text-decoration:none;font-size:11.5px;display:flex;align-items:center;gap:5px;transition:.3s}
+.tb-r a:hover{color:var(--gold-l)}
+
+/* ===== NAVBAR ===== */
+.nv{background:#fff;position:sticky;top:0;z-index:999;border-bottom:1px solid var(--line);transition:.4s}
+.nv.scrolled{box-shadow:var(--sh-m)}
+.nv-in{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--gold-l),var(--gold));display:flex;align-items:center;justify-content:center;position:relative;box-shadow:var(--sh-g);flex-shrink:0}
+.logo-mark b{font-size:22px;font-weight:800;color:var(--green-d);line-height:1}
+.logo-mark i{position:absolute;right:-2px;bottom:-2px;width:18px;height:18px;background:var(--green);color:#fff;border-radius:50%;font-size:9px;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+.logo-txt h1{font-size:17px;font-weight:800;color:var(--green-d);line-height:1.1;letter-spacing:-.3px}
+.logo-txt h1 em{color:var(--red);font-style:normal}
+.logo-txt p{font-size:9px;color:var(--mut);letter-spacing:.5px;font-weight:600;margin-top:2px;text-transform:uppercase}
+.nv-links{display:flex;gap:22px;list-style:none}
+.nv-links a{text-decoration:none;color:var(--ink);font-size:13.5px;font-weight:600;padding:6px 0;position:relative;transition:.3s}
+.nv-links a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--gold);transition:.3s;transform:translateX(-50%)}
+.nv-links a:hover{color:var(--green)}
+.nv-links a:hover::after{width:100%}
+.btn{padding:9px 18px;border-radius:var(--r-f);font-size:13px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:7px;cursor:pointer;transition:.3s;border:none;font-family:inherit;white-space:nowrap}
+.btn-p{background:linear-gradient(135deg,var(--green) 0%,var(--green-l) 100%);color:#fff;box-shadow:0 10px 25px rgba(14,107,90,.3)}
+.btn-p:hover{transform:translateY(-2px)}
+.btn-g{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-l) 100%);color:var(--green-d);box-shadow:var(--sh-g)}
+.btn-g:hover{transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+.btn-o:hover{background:var(--green);color:#fff}
+.btn-w{background:#fff;color:var(--green-d)}
+.btn-w:hover{transform:translateY(-2px);box-shadow:var(--sh-l)}
+.btn-lg{padding:12px 24px;font-size:13.5px}
+.menu-tgl{display:none;background:none;border:none;color:var(--green);font-size:22px;cursor:pointer}
+
+/* ===== HERO ===== */
+.hero{position:relative;padding:50px 0 80px;background:linear-gradient(135deg,var(--mint-2) 0%,#FFFDF4 100%);overflow:hidden}
+.hero::before,.hero::after{content:'';position:absolute;border-radius:50%}
+.hero::before{top:-100px;right:-100px;width:450px;height:450px;background:radial-gradient(circle,rgba(14,107,90,.08),transparent 70%)}
+.hero::after{bottom:-120px;left:-120px;width:360px;height:360px;background:radial-gradient(circle,rgba(246,184,0,.12),transparent 70%)}
+.hero-in{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+.go-ribbon{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;background:linear-gradient(135deg,var(--red) 0%,#E63946 100%);color:#fff;border-radius:var(--r-f);font-size:11.5px;font-weight:800;letter-spacing:1px;margin-bottom:16px;box-shadow:0 8px 20px rgba(214,40,40,.3);text-transform:uppercase}
+.go-ribbon i{color:var(--gold-l)}
+.hero h2{font-size:clamp(32px,4.5vw,50px);font-weight:800;line-height:1.08;letter-spacing:-1.2px;color:var(--green-d);margin-bottom:6px}
+.hero h2 .hl{color:var(--red);position:relative}
+.hero .scr-line{font-family:'Caveat',cursive;font-size:clamp(20px,2.5vw,28px);color:var(--gold-d);margin-bottom:14px;transform:rotate(-1.5deg);display:inline-block}
+.hero p.desc{font-size:15px;color:var(--mut);margin-bottom:24px;max-width:500px;line-height:1.7}
+.hero-act{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.hero-trust{display:flex;align-items:center;gap:16px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap}
+.avatars{display:flex}
+.avatars span{width:36px;height:36px;border-radius:50%;background-size:cover;background-position:center;border:3px solid #fff;margin-left:-9px;box-shadow:var(--sh-s)}
+.avatars span:first-child{margin-left:0}
+.avatars span:nth-child(1){background-image:url('https://images.unsplash.com/photo-1544126566-47a3e6a983eb?auto=format&fit=crop&w=200&q=80')}
+.avatars span:nth-child(2){background-image:url('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=200&q=80')}
+.avatars span:nth-child(3){background-image:url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=200&q=80')}
+.trust-txt{font-size:11.5px;color:var(--mut)}
+.trust-txt strong{color:var(--green-d)}
+.trust-div{width:1px;height:32px;background:var(--line)}
+.trust-item .n{font-size:20px;font-weight:800;color:var(--green);line-height:1}
+.trust-item .l{font-size:10px;color:var(--mut);letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-top:2px}
+.hero-vis{position:relative;height:480px}
+.hero-img{position:absolute;top:0;left:20px;width:90%;height:420px;border-radius:28px;background:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80') center/cover;box-shadow:var(--sh-l);border:7px solid #fff}
+.float{position:absolute;background:#fff;border-radius:var(--r-l);padding:14px 16px;box-shadow:var(--sh-l);display:flex;align-items:center;gap:10px;z-index:3;animation:fl 4s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.float .ic{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.float h4{font-size:12.5px;font-weight:800;color:var(--ink)}
+.float p{font-size:11px;color:var(--mut)}
+.f1{top:20px;right:0}.f1 .ic{background:#FDE8E8;color:var(--red)}
+.f2{bottom:50px;left:0;animation-delay:1s}.f2 .ic{background:var(--mint);color:var(--green)}
+.f3{bottom:180px;right:8px;animation-delay:2s}.f3 .ic{background:#FFF4CC;color:var(--gold-d)}
+
+/* ===== QUICK BOOK ===== */
+.qb{max-width:1140px;margin:-48px auto 0;padding:0 24px;position:relative;z-index:10}
+.qb-in{background:#fff;border-radius:var(--r-x);padding:22px 26px;box-shadow:var(--sh-l);border-top:4px solid var(--gold)}
+.qb-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.qb-h h3{font-size:17px;font-weight:800;color:var(--green-d)}
+.qb-h p{font-size:12px;color:var(--mut)}
+.qb-form{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:10px;align-items:end}
+.fld label{display:block;font-size:10px;font-weight:800;color:var(--green-d);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.fld-in{position:relative}
+.fld-in i{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--green);font-size:13px}
+.fld-in input,.fld-in select{width:100%;padding:11px 12px 11px 38px;background:var(--mint-2);border:1.5px solid var(--line);border-radius:var(--r-m);font-size:13px;color:var(--ink);font-family:inherit;font-weight:600;outline:none;transition:.3s;appearance:none}
+.fld-in input:focus,.fld-in select:focus{border-color:var(--green);background:#fff;box-shadow:0 0 0 3px rgba(14,107,90,.1)}
+.qb-form .btn{height:44px;padding:0 22px}
+
+/* ===== STATS ===== */
+.stats{padding:50px 0 20px}
+.stats-g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{text-align:center;padding:20px 14px;background:linear-gradient(135deg,var(--mint-2),#fff);border-radius:var(--r-l);border:1px solid var(--line);transition:.3s}
+.stat:hover{transform:translateY(-3px);box-shadow:var(--sh-m);border-color:var(--green-l)}
+.stat .ic{width:48px;height:48px;margin:0 auto 12px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--green-l));color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 10px 25px rgba(14,107,90,.28)}
+.stat .v{font-size:30px;font-weight:800;color:var(--green-d);line-height:1;margin-bottom:4px;letter-spacing:-1px}
+.stat .l{font-size:10.5px;color:var(--mut);letter-spacing:1.2px;text-transform:uppercase;font-weight:700}
+
+/* ===== SECTION COMMON ===== */
+.sec{padding:70px 0;position:relative}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--mint);color:var(--green);border-radius:var(--r-f);font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.tag i{font-size:9px;color:var(--gold-d)}
+.sec-t{font-size:clamp(24px,3.5vw,36px);font-weight:800;color:var(--green-d);line-height:1.15;margin-bottom:14px;letter-spacing:-1px}
+.sec-t .ac{color:var(--red)}
+.sec-d{font-size:14.5px;color:var(--mut);max-width:600px;line-height:1.7}
+.sec-hd{text-align:center;margin-bottom:40px}
+.sec-hd .sec-d{margin:0 auto}
+.sec-hd .scr-line{font-family:'Caveat',cursive;font-size:22px;color:var(--gold-d)}
+
+/* ===== LAYANAN ===== */
+.svc{background:var(--mint-2)}
+.svc-g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.svc-c{background:#fff;border-radius:var(--r-l);padding:22px 18px;border:1px solid var(--line);transition:.3s;position:relative;overflow:hidden}
+.svc-c::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--green),var(--gold));transform:scaleX(0);transform-origin:left;transition:.3s}
+.svc-c:hover{transform:translateY(-5px);box-shadow:var(--sh-l)}
+.svc-c:hover::before{transform:scaleX(1)}
+.svc-ic{width:48px;height:48px;border-radius:13px;background:var(--mint);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:14px;transition:.3s}
+.svc-c:hover .svc-ic{background:linear-gradient(135deg,var(--green),var(--green-l));color:#fff;transform:scale(1.05)}
+.svc-c.red .svc-ic{background:#FDE8E8;color:var(--red)}
+.svc-c.red:hover .svc-ic{background:linear-gradient(135deg,var(--red),#E63946);color:#fff}
+.svc-c.gold .svc-ic{background:#FFF4CC;color:var(--gold-d)}
+.svc-c.gold:hover .svc-ic{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:var(--green-d)}
+.svc-c h3{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.svc-c p{font-size:12px;color:var(--mut);margin-bottom:12px;line-height:1.55}
+.svc-ft{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--line)}
+.svc-hrs{font-size:10px;font-weight:800;padding:3px 9px;border-radius:var(--r-f)}
+.hrs-24{background:#FDE8E8;color:var(--red)}
+.hrs-sc{background:var(--mint);color:var(--green)}
+.hrs-gd{background:#FFF4CC;color:var(--gold-d)}
+.svc-ar{width:26px;height:26px;border-radius:50%;background:var(--mint);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:9px;transition:.3s}
+.svc-c:hover .svc-ar{background:var(--green);color:#fff;transform:translateX(3px)}
+
+/* ===== KEUNGGULAN ===== */
+.why-g{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.why-img{position:relative;height:420px}
+.why-img .main{position:absolute;inset:0;border-radius:28px;background:url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=80') center/cover;box-shadow:var(--sh-l);border:7px solid #fff}
+.why-badge{position:absolute;bottom:20px;left:20px;right:20px;background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff;border-radius:var(--r-l);padding:16px 20px;display:flex;align-items:center;gap:12px;box-shadow:var(--sh-l)}
+.why-badge .ic{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--gold-l);flex-shrink:0}
+.why-badge h4{font-size:14px;font-weight:800}
+.why-badge p{font-size:11.5px;color:rgba(255,255,255,.8)}
+.why-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 24px}
+.why-c{padding:16px 16px;background:#fff;border:1px solid var(--line);border-radius:var(--r-l);transition:.3s}
+.why-c:hover{transform:translateY(-3px);box-shadow:var(--sh-m);border-color:var(--gold)}
+.why-c .ic{width:44px;height:44px;border-radius:11px;background:var(--mint);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:10px}
+.why-c:nth-child(even) .ic{background:#FFF4CC;color:var(--gold-d)}
+.why-c h4{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.why-c p{font-size:11.5px;color:var(--mut);line-height:1.55}
+
+/* ===== TENAGA MEDIS ===== */
+.med{background:var(--mint-2)}
+.med-g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.med-c{background:#fff;border-radius:var(--r-l);overflow:hidden;border:1px solid var(--line);transition:.4s}
+.med-c:hover{transform:translateY(-6px);box-shadow:var(--sh-l)}
+.med-img{height:200px;background-size:cover;background-position:center top;position:relative}
+.med-c:nth-child(1) .med-img{background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80')}
+.med-c:nth-child(2) .med-img{background-image:url('https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80')}
+.med-c:nth-child(3) .med-img{background-image:url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80')}
+.med-c:nth-child(4) .med-img{background-image:url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=600&q=80')}
+.med-bdg{position:absolute;top:10px;left:10px;background:#fff;color:var(--green-d);padding:4px 10px;border-radius:var(--r-f);font-size:10px;font-weight:800;box-shadow:var(--sh-s)}
+.med-bdg.red{background:var(--red);color:#fff}
+.med-bd{padding:16px}
+.med-bd h3{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:2px}
+.med-bd .sp{font-size:11.5px;color:var(--green);font-weight:700;margin-bottom:10px}
+.med-bd p.d{font-size:11.5px;color:var(--mut);line-height:1.55;margin-bottom:12px}
+.med-bd .btn{width:100%;justify-content:center;padding:9px}
+
+/* ===== TESTIMONI ===== */
+.tst-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tst{background:linear-gradient(135deg,var(--mint-2),#fff);border:1px solid var(--line);border-radius:var(--r-l);padding:22px;transition:.3s;position:relative}
+.tst:hover{transform:translateY(-5px);box-shadow:var(--sh-l);border-color:var(--gold)}
+.tst .q{font-size:44px;color:var(--gold);line-height:.5;margin-bottom:14px;opacity:.5;font-family:serif}
+.tst .rt{color:var(--gold);font-size:11.5px;margin-bottom:10px;display:flex;gap:2px}
+.tst p.tx{font-size:12.5px;color:var(--mut);line-height:1.7;margin-bottom:16px;font-style:italic}
+.tst-ft{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
+.tst-ft .av{width:42px;height:42px;border-radius:50%;background-size:cover;background-position:center;border:2px solid var(--mint)}
+.tst:nth-child(1) .av{background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80')}
+.tst:nth-child(2) .av{background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80')}
+.tst:nth-child(3) .av{background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80')}
+.tst-ft h4{font-size:13px;font-weight:800;color:var(--ink)}
+.tst-ft p{font-size:11px;color:var(--mut)}
+.tst-ft .sv{margin-left:auto;padding:3px 9px;background:var(--mint);color:var(--green);border-radius:var(--r-f);font-size:9.5px;font-weight:800}
+
+/* ===== FAQ ===== */
+.faq{background:var(--mint-2)}
+.faq-g{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:start}
+.faq-ct{background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff;padding:22px;border-radius:var(--r-l);box-shadow:var(--sh-l);margin-top:18px}
+.faq-ct h4{font-size:16px;font-weight:800;margin-bottom:6px}
+.faq-ct p{font-size:12.5px;color:rgba(255,255,255,.85);margin-bottom:14px}
+.faq-ct .row{display:flex;gap:8px;flex-wrap:wrap}
+.faq-items{display:flex;flex-direction:column;gap:10px}
+.fq{background:#fff;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;transition:.3s}
+.fq.active{border-color:var(--green);box-shadow:var(--sh-m)}
+.fq-q{padding:15px 18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.fq-q h4{font-size:13.5px;font-weight:700;color:var(--ink);flex:1;padding-right:12px}
+.fq.active .fq-q h4{color:var(--green)}
+.fq-t{width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;transition:.3s}
+.fq.active .fq-t{background:var(--green);color:#fff;transform:rotate(180deg)}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.fq-a div{padding:0 18px 18px;font-size:12.5px;color:var(--mut);line-height:1.65}
+
+/* ===== CTA ===== */
+.cta{background:linear-gradient(135deg,var(--green-d),var(--green));color:#fff;padding:60px 0;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(246,184,0,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.08),transparent 50%)}
+.cta-in{position:relative;z-index:2;max-width:680px;margin:0 auto;padding:0 24px}
+.cta .go{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:var(--green-d);padding:8px 18px;border-radius:var(--r-f);font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;box-shadow:var(--sh-g)}
+.cta h2{font-size:clamp(22px,3.5vw,32px);font-weight:800;margin-bottom:12px;line-height:1.2}
+.cta p{font-size:14.5px;color:rgba(255,255,255,.85);margin-bottom:22px}
+.cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+/* ===== KONTAK ===== */
+.ct-g{display:grid;grid-template-columns:1fr 1.3fr;gap:30px}
+.ct-info{display:flex;flex-direction:column;gap:12px}
+.ct-c{background:#fff;padding:18px;border-radius:var(--r-m);border:1px solid var(--line);display:flex;gap:12px;transition:.3s}
+.ct-c:hover{border-color:var(--green-l);transform:translateX(3px);box-shadow:var(--sh-m)}
+.ct-c .ic{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,var(--green),var(--green-l));color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ct-c.gold .ic{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:var(--green-d)}
+.ct-c.red .ic{background:linear-gradient(135deg,var(--red),#E63946)}
+.ct-c h4{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:2px}
+.ct-c p{font-size:12px;color:var(--mut);line-height:1.55}
+.ct-c a{color:var(--green);text-decoration:none;font-weight:700}
+.ct-map{border-radius:var(--r-l);overflow:hidden;min-height:420px;box-shadow:var(--sh-m);border:1px solid var(--line)}
+.ct-map iframe{width:100%;height:100%;border:0;min-height:420px}
+
+/* ===== FOOTER ===== */
+.ft{background:var(--green-d);color:rgba(255,255,255,.75);padding:50px 0 0}
+.ft-g{max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:30px;margin-bottom:36px}
+.ft .logo-txt h1{color:#fff}
+.ft .logo-txt p{color:var(--gold-l)}
+.ft-brand>p{font-size:12.5px;margin-top:14px;line-height:1.7;color:rgba(255,255,255,.6)}
+.ft-soc{display:flex;gap:8px;margin-top:14px}
+.ft-soc a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:12px;transition:.3s}
+.ft-soc a:hover{background:var(--gold);color:var(--green-d);border-color:var(--gold);transform:translateY(-2px)}
+.ft-col h4{font-size:13.5px;font-weight:800;color:#fff;margin-bottom:14px;position:relative;padding-bottom:8px}
+.ft-col h4::after{content:'';position:absolute;bottom:0;left:0;width:24px;height:2px;background:var(--gold)}
+.ft-col ul{list-style:none}
+.ft-col ul li{margin-bottom:7px}
+.ft-col ul li a{color:rgba(255,255,255,.65);text-decoration:none;font-size:12.5px;transition:.3s;display:inline-flex;align-items:center;gap:5px}
+.ft-col ul li a:hover{color:var(--gold-l);padding-left:3px}
+.ft-col ul li a i{font-size:7px;color:var(--gold-l)}
+.ft-ci{display:flex;gap:10px;margin-bottom:11px;font-size:12px}
+.ft-ci i{color:var(--gold-l);margin-top:2px;flex-shrink:0}
+.ft-b{max-width:1140px;margin:0 auto;padding:16px 24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:11.5px}
+.ft-b p{color:rgba(255,255,255,.5)}
+.ft-b .lk{display:flex;gap:16px}
+.ft-b .lk a{color:rgba(255,255,255,.5);text-decoration:none}
+.ft-b .lk a:hover{color:var(--gold-l)}
+
+/* ===== FLOAT & MODAL ===== */
+.wa-f{position:fixed;bottom:24px;right:24px;z-index:999;width:52px;height:52px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:23px;text-decoration:none;box-shadow:0 8px 25px rgba(37,211,102,.4);transition:.3s}
+.wa-f:hover{transform:scale(1.1) translateY(-2px)}
+.bt-t{position:fixed;bottom:24px;left:24px;z-index:999;width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;text-decoration:none;opacity:0;visibility:hidden;transition:.3s}
+.bt-t.visible{opacity:1;visibility:visible}
+.mo-ov{position:fixed;inset:0;background:rgba(9,74,62,.75);backdrop-filter:blur(8px);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}
+.mo-ov.active{display:flex;animation:fdi .3s}
+@keyframes fdi{from{opacity:0}to{opacity:1}}
+.mo{background:#fff;border-radius:var(--r-x);max-width:560px;width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;animation:slu .4s}
+@keyframes slu{from{transform:translateY(25px);opacity:0}to{transform:translateY(0);opacity:1}}
+.mo-hd{padding:18px 24px;background:linear-gradient(135deg,var(--green),var(--green-l));color:#fff;display:flex;justify-content:space-between;align-items:center}
+.mo-hd h3{font-size:16px;font-weight:800;display:flex;align-items:center;gap:8px}
+.mo-x{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:12px}
+.mo-bd{padding:22px;overflow-y:auto}
+.dots{display:flex;gap:7px;margin-bottom:18px}
+.dot{flex:1;height:3px;background:var(--line);border-radius:2px;transition:.3s}
+.dot.active{background:linear-gradient(90deg,var(--green),var(--gold))}
+.stp{display:none}
+.stp.active{display:block;animation:fdi .3s}
+.stp h4{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.stp>p{font-size:12px;color:var(--mut);margin-bottom:14px}
+.opt-g{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.opt{padding:11px;background:var(--mint-2);border:2px solid transparent;border-radius:var(--r-m);cursor:pointer;transition:.3s;text-align:left;font-family:inherit}
+.opt:hover{background:var(--mint);border-color:var(--green-l)}
+.opt.sel{background:var(--mint);border-color:var(--green)}
+.opt .ic{width:34px;height:34px;border-radius:9px;background:var(--mint);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:7px}
+.opt.sel .ic{background:var(--green);color:#fff}
+.opt h5{font-size:12.5px;font-weight:800;color:var(--ink);margin-bottom:2px}
+.opt p{font-size:10.5px;color:var(--mut)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px}
+.slot{padding:9px;background:var(--mint-2);border:2px solid transparent;border-radius:var(--r-s);font-size:11.5px;font-weight:700;color:var(--ink);cursor:pointer;font-family:inherit;transition:.3s}
+.slot.sel{background:var(--green);color:#fff}
+.slot.dis{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+.mform{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mform input,.mform select,.mform textarea{width:100%;padding:10px 12px;background:var(--mint-2);border:1.5px solid var(--line);border-radius:var(--r-s);font-size:12.5px;color:var(--ink);font-family:inherit;font-weight:600;outline:none;transition:.3s}
+.mform textarea{resize:vertical;min-height:60px}
+.mform input:focus,.mform select:focus,.mform textarea:focus{border-color:var(--green);background:#fff}
+.sum{background:var(--mint-2);border:1px solid var(--line);border-radius:var(--r-m);padding:14px;margin-bottom:14px}
+.sum h5{font-size:12px;font-weight:800;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.sum h5 i{color:var(--gold-d)}
+.sum-r{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;color:var(--mut)}
+.sum-r strong{color:var(--ink)}
+.mo-act{display:flex;gap:8px;padding-top:14px;border-top:1px solid var(--line)}
+.mo-act .btn{flex:1;justify-content:center}
+.ok-ic{width:70px;height:70px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-l));color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 12px 35px rgba(14,107,90,.3)}
+.ok-c{text-align:center}
+.ok-c h3{font-size:19px;font-weight:800;color:var(--ink);margin-bottom:5px}
+.ok-c>p{font-size:12.5px;color:var(--mut);margin-bottom:16px}
+.bkid{background:#FFF4CC;border:1px dashed var(--gold-d);padding:12px;border-radius:var(--r-m);margin-bottom:14px}
+.bkid p{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px}
+.bkid strong{font-size:16px;color:var(--green-d);letter-spacing:2px}
+
+/* ===== MOBILE MENU & REVEAL ===== */
+.mm{position:fixed;top:72px;left:0;right:0;background:#fff;box-shadow:var(--sh-l);padding:18px;transform:translateY(-120%);transition:.4s;z-index:998;border-bottom:3px solid var(--gold)}
+.mm.active{transform:translateY(0)}
+.mm ul{list-style:none}
+.mm ul li{padding:11px 0;border-bottom:1px solid var(--line)}
+.mm ul li:last-child{border:none}
+.mm ul li a{text-decoration:none;color:var(--ink);font-size:14px;font-weight:700;display:block}
+.rv{opacity:0;transform:translateY(25px);transition:all .7s cubic-bezier(.4,0,.2,1)}
+.rv.visible{opacity:1;transform:translateY(0)}
+.rv1{transition-delay:.1s}.rv2{transition-delay:.2s}.rv3{transition-delay:.3s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+.hero-in{grid-template-columns:1fr;text-align:center}
+.hero p.desc{margin:0 auto 24px}
+.hero-act,.hero-trust{justify-content:center}
+.hero-vis{height:420px;max-width:440px;margin:30px auto 0}
+.svc-g,.med-g{grid-template-columns:repeat(2,1fr)}
+.stats-g{grid-template-columns:repeat(2,1fr)}
+.why-g,.faq-g,.ct-g{grid-template-columns:1fr;gap:30px}
+.tst-g{grid-template-columns:1fr}
+.qb-form{grid-template-columns:1fr 1fr}
+.qb-form .btn{grid-column:span 2}
+.ft-g{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+.tb{display:none}
+.nv-links{display:none}
+.menu-tgl{display:block}
+.sec{padding:50px 0}
+.svc-g,.med-g,.why-list,.opt-g,.mrow{grid-template-columns:1fr}
+.stats-g{grid-template-columns:repeat(2,1fr)}
+.qb-form{grid-template-columns:1fr}
+.qb-form .btn{grid-column:span 1}
+.ft-g{grid-template-columns:1fr}
+.ft-b{flex-direction:column;text-align:center}
+.float{display:none}
+.f1{display:flex}
+.slots{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="tb">
+  <div class="tb-in">
+    <div class="tb-l">
+      <span class="emg"><i class="fas fa-bell"></i> UGD 24 JAM</span>
+      <span><i class="fab fa-whatsapp"></i> 0878-1999-9491</span>
+      <span><i class="fas fa-envelope"></i> gumitrimedika@gmail.com</span>
+    </div>
+    <div class="tb-r">
+      <a href="#"><i class="fab fa-facebook-f"></i> Klinik Gumitri Medika</a>
+      <a href="https://instagram.com/gumitrimedika"><i class="fab fa-instagram"></i> @gumitrimedika</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="nv" id="nv">
+  <div class="nv-in">
+    <a href="#home" class="logo">
+      <div class="logo-mark"><b>G</b><i class="fas fa-plus"></i></div>
+      <div class="logo-txt">
+        <h1>Klinik <em>Gumitri</em> Medika</h1>
+        <p>Ramah · Jujur · Disiplin · Bertanggungjawab</p>
+      </div>
+    </a>
+    <ul class="nv-links">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#keunggulan">Keunggulan</a></li>
+      <li><a href="#medis">Tenaga Medis</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="btn btn-g" onclick="openModal()"><i class="fas fa-calendar-check"></i> Buat Janji</button>
+      <button class="menu-tgl" onclick="tglMenu()"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mm" id="mm">
+  <ul>
+    <li><a href="#home" onclick="tglMenu()">Beranda</a></li>
+    <li><a href="#layanan" onclick="tglMenu()">Layanan</a></li>
+    <li><a href="#keunggulan" onclick="tglMenu()">Keunggulan</a></li>
+    <li><a href="#medis" onclick="tglMenu()">Tenaga Medis</a></li>
+    <li><a href="#kontak" onclick="tglMenu()">Kontak</a></li>
+    <li><a href="#" onclick="tglMenu();openModal();" style="color:var(--green)">Buat Janji Sekarang</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-in">
+      <div>
+        <div class="go-ribbon"><i class="fas fa-star"></i> Grand Opening · 24 Juli 2026</div>
+        <h2>Sehat Bersama <span class="hl">Kami</span></h2>
+        <span class="scr-line">Aman &amp; Nyaman untuk Anda ✨</span>
+        <p class="desc">Klinik Gumitri Medika hadir untuk kesehatan Anda &amp; keluarga di Lombok Barat. UGD 24 jam, persalinan aman, tenaga medis profesional, dengan biaya pasti terjangkau.</p>
+        <div class="hero-act">
+          <button class="btn btn-p btn-lg" onclick="openModal()"><i class="fas fa-calendar-plus"></i> Buat Janji Temu</button>
+          <a href="https://wa.me/6287819999491" class="btn btn-o btn-lg"><i class="fab fa-whatsapp"></i> Hubungi Kami</a>
+        </div>
+        <div class="hero-trust">
+          <div class="avatars"><span></span><span></span><span></span></div>
+          <div class="trust-txt"><strong>Dipercaya keluarga</strong><br>di Lombok Barat &amp; sekitarnya</div>
+          <div class="trust-div"></div>
+          <div class="trust-item"><div class="n">24/7</div><div class="l">UGD Siaga</div></div>
+          <div class="trust-div"></div>
+          <div class="trust-item"><div class="n">8</div><div class="l">Layanan</div></div>
+        </div>
+      </div>
+      <div class="hero-vis">
+        <div class="hero-img"></div>
+        <div class="float f1"><div class="ic"><i class="fas fa-bell"></i></div><div><h4>UGD 24 Jam</h4><p>Siap melayani kondisi darurat</p></div></div>
+        <div class="float f2"><div class="ic"><i class="fas fa-person-pregnant"></i></div><div><h4>Persalinan Aman</h4><p>Tenaga profesional · KIA &amp; KB</p></div></div>
+        <div class="float f3"><div class="ic"><i class="fas fa-flask-vial"></i></div><div><h4>Laboratorium</h4><p>08.00 – 22.00 · Hasil cepat</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK BOOK -->
+<div class="qb">
+  <div class="qb-in">
+    <div class="qb-h">
+      <div><h3><i class="fas fa-bolt" style="color:var(--gold-d)"></i> Pendaftaran Cepat</h3><p>Atur kunjungan Anda dalam 30 detik — tanpa antri panjang.</p></div>
+    </div>
+    <form class="qb-form" onsubmit="event.preventDefault();openModal();">
+      <div class="fld"><label>Layanan</label>
+        <div class="fld-in"><i class="fas fa-stethoscope"></i>
+          <select required><option value="">Pilih layanan...</option><option>Dokter Umum</option><option>Poli Gigi</option><option>Persalinan / KIA / KB</option><option>Laboratorium</option><option>Rawat Inap</option></select>
+        </div>
+      </div>
+      <div class="fld"><label>Tanggal</label>
+        <div class="fld-in"><i class="fas fa-calendar"></i><input type="date" required></div>
+      </div>
+      <div class="fld"><label>Jam</label>
+        <div class="fld-in"><i class="fas fa-clock"></i>
+          <select required><option value="">Pilih jam...</option><option>09:00</option><option>10:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option></select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-p"><i class="fas fa-search"></i> Cari Jadwal</button>
+    </form>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-g">
+      <div class="stat rv"><div class="ic"><i class="fas fa-bell"></i></div><div class="v" data-count="24">0</div><div class="l">Jam Layanan UGD</div></div>
+      <div class="stat rv rv1"><div class="ic"><i class="fas fa-hospital"></i></div><div class="v" data-count="8">0</div><div class="l">Layanan Kesehatan</div></div>
+      <div class="stat rv rv2"><div class="ic"><i class="fas fa-user-nurse"></i></div><div class="v" data-count="15">0+</div><div class="l">Tenaga Medis</div></div>
+      <div class="stat rv rv3"><div class="ic"><i class="fas fa-heart"></i></div><div class="v" data-count="100">0%</div><div class="l">Kepedulian Terbaik</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="sec svc" id="layanan">
+  <div class="container">
+    <div class="sec-hd rv">
+      <div class="tag"><i class="fas fa-plus"></i> Melayani</div>
+      <h2 class="sec-t">Layanan <span class="ac">Lengkap</span> untuk Keluarga</h2>
+      <p class="sec-d">Hadir untuk kesehatan Anda &amp; keluarga — dari kondisi darurat hingga perawatan sehari-hari.</p>
+    </div>
+    <div class="svc-g">
+      <div class="svc-c red rv"><div class="svc-ic"><i class="fas fa-bell"></i></div><h3>UGD</h3><p>Siap melayani dalam kondisi darurat, kapan pun Anda membutuhkan.</p><div class="svc-ft"><span class="svc-hrs hrs-24">24 JAM</span><div class="svc-ar"><i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="svc-c rv rv1"><div class="svc-ic"><i class="fas fa-bed-pulse"></i></div><h3>Rawat Inap</h3><p>Perawatan nyaman dan terpercaya dengan pengawasan tenaga medis.</p><div class="svc-ft"><span class="svc-hrs hrs-24">24 JAM</span><div class="svc-ar"><i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="svc-c rv rv2"><div class="svc-ic"><i class="fas fa-user-doctor"></i></div><h3>Dokter Umum</h3><p>Pelayanan kesehatan untuk seluruh keluarga, setiap hari.</p><div class="svc-ft"><span class="svc-hrs hrs-24">24 JAM</span><div class="svc-ar"><i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="svc-c rv rv3"><div class="svc-ic"><i class="fas fa-tooth"></i></div><h3>Poli Gigi</h3><p>Perawatan gigi berkualitas. Minggu &amp; tanggal merah libur.</p><div class="svc-ft"><span class="svc-hrs hrs-sc">SEN–SAB · 17.00–20.00</span><div class="svc-ar"><i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="svc-c rv"><div class="svc-ic"><i class="fas fa-person-pregnant"></i></div><h3>Persalinan, KIA &amp; KB</h3><p>Persalinan aman dengan tenaga profesional. Kesehatan Ibu &amp; Anak, Keluarga Berencana.</p><div class="svc-ft"><span class="svc-hrs hrs-24">24 JAM</span><div class="svc-ar"><i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="svc-c gold rv rv1"><div class="svc-ic"><i class="fas fa-pills"></i></div><h3>Apotek</h3><p>Menyediakan obat berkualitas dan terjangkau.</p><div class="svc-ft"><span class="svc-hrs hrs-gd">TERJANGKAU</span><div class="svc-ar"><i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="svc-c rv rv2"><div class="svc-ic"><i class="fas fa-flask-vial"></i></div><h3>Laboratorium</h3><p>Pemeriksaan lengkap &amp; akurat, hasil cepat &amp; terpercaya.</p><div class="svc-ft"><span class="svc-hrs hrs-sc">08.00 – 22.00</span><div class="svc-ar"><i class="fas fa-arrow-right"></i></div></div></div>
+      <div class="svc-c red rv rv3"><div class="svc-ic"><i class="fas fa-truck-medical"></i></div><h3>Ambulan</h3><p>Layanan antar jemput pasien, cepat dan aman.</p><div class="svc-ft"><span class="svc-hrs hrs-24">SIAGA</span><div class="svc-ar"><i class="fas fa-arrow-right"></i></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="sec" id="keunggulan">
+  <div class="container">
+    <div class="why-g">
+      <div class="why-img rv">
+        <div class="main"></div>
+        <div class="why-badge">
+          <div class="ic"><i class="fas fa-house-medical"></i></div>
+          <div><h4>Hadir untuk Kesehatan Anda &amp; Keluarga</h4><p>Dusun Tambang Eleh, Desa Jagaraga, Kuripan — Lombok Barat</p></div>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="tag"><i class="fas fa-heart"></i> Kenapa Kami</div>
+        <h2 class="sec-t">Sehat Bersama <span class="ac">Kami</span></h2>
+        <span class="scr-line" style="font-size:22px;color:var(--gold-d)">Aman &amp; Nyaman untuk Anda</span>
+        <p class="sec-d" style="margin-top:8px">Ramah, Jujur, Disiplin dan Bertanggungjawab — komitmen kami dalam setiap pelayanan.</p>
+        <div class="why-list">
+          <div class="why-c"><div class="ic"><i class="fas fa-hand-holding-medical"></i></div><h4>Pelayanan Berkualitas</h4><p>Aman &amp; nyaman untuk seluruh keluarga.</p></div>
+          <div class="why-c"><div class="ic"><i class="fas fa-user-nurse"></i></div><h4>Tenaga Medis Profesional</h4><p>Dokter, bidan &amp; perawat berpengalaman.</p></div>
+          <div class="why-c"><div class="ic"><i class="fas fa-hospital"></i></div><h4>Fasilitas Modern</h4><p>Lengkap: UGD, rawat inap, lab &amp; apotek.</p></div>
+          <div class="why-c"><div class="ic"><i class="fas fa-heart-pulse"></i></div><h4>Kepedulian Terbaik</h4><p>Biaya pasti terjangkau, pelayanan tulus.</p></div>
+        </div>
+        <button class="btn btn-p btn-lg" onclick="openModal()"><i class="fas fa-calendar-check"></i> Kunjungi Klinik</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TENAGA MEDIS -->
+<section class="sec med" id="medis">
+  <div class="container">
+    <div class="sec-hd rv">
+      <div class="tag"><i class="fas fa-user-nurse"></i> Tim Kami</div>
+      <h2 class="sec-t">Tenaga Medis <span class="ac">Profesional</span></h2>
+      <p class="sec-d">Tim dokter, dokter gigi, bidan dan analis laboratorium yang siap melayani Anda dengan ramah.</p>
+    </div>
+    <div class="med-g">
+      <div class="med-c rv"><div class="med-img"><span class="med-bdg red">24 JAM</span></div><div class="med-bd"><h3>Dokter Umum</h3><div class="sp">Pelayanan Kesehatan Keluarga</div><p class="d">Konsultasi kesehatan menyeluruh untuk semua usia, siap setiap hari.</p><button class="btn btn-p" onclick="openModal('Dokter Umum')">Buat Janji</button></div></div>
+      <div class="med-c rv rv1"><div class="med-img"><span class="med-bdg">SEN–SAB</span></div><div class="med-bd"><h3>Dokter Gigi</h3><div class="sp">Poli Gigi · 17.00–20.00</div><p class="d">Perawatan &amp; pemeriksaan gigi untuk dewasa dan anak-anak.</p><button class="btn btn-p" onclick="openModal('Poli Gigi')">Buat Janji</button></div></div>
+      <div class="med-c rv rv2"><div class="med-img"><span class="med-bdg red">24 JAM</span></div><div class="med-bd"><h3>Tim Bidan</h3><div class="sp">Persalinan · KIA · KB</div><p class="d">Pendampingan kehamilan hingga persalinan aman &amp; nyaman.</p><button class="btn btn-p" onclick="openModal('Persalinan / KIA / KB')">Buat Janji</button></div></div>
+      <div class="med-c rv rv3"><div class="med-img"><span class="med-bdg">08.00–22.00</span></div><div class="med-bd"><h3>Analis &amp; Apoteker</h3><div class="sp">Laboratorium · Apotek</div><p class="d">Pemeriksaan lab akurat &amp; obat berkualitas terjangkau.</p><button class="btn btn-p" onclick="openModal('Laboratorium')">Buat Janji</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-hd rv">
+      <div class="tag"><i class="fas fa-quote-left"></i> Testimoni</div>
+      <h2 class="sec-t">Kata <span class="ac">Masyarakat</span></h2>
+      <p class="sec-d">Kepercayaan warga Jagaraga &amp; sekitarnya adalah amanah bagi kami.</p>
+    </div>
+    <div class="tst-g">
+      <div class="tst rv"><div class="q">"</div><div class="rt"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="tx">Persalinan anak kedua saya ditangani bidan yang sangat ramah dan profesional. Rasanya aman dan nyaman sekali, seperti keluarga sendiri.</p><div class="tst-ft"><div class="av"></div><div><h4>Ibu Baiq Sriwahyuni</h4><p>Desa Jagaraga</p></div><span class="sv">Persalinan</span></div></div>
+      <div class="tst rv rv1"><div class="q">"</div><div class="rt"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="tx">Waktu bapak sesak nafas tengah malam, UGD langsung sigap menangani. Alhamdulillah tertolong. Terima kasih Klinik Gumitri Medika!</p><div class="tst-ft"><div class="av"></div><div><h4>Bapak Lalu Manan</h4><p>Kec. Kuripan</p></div><span class="sv">UGD</span></div></div>
+      <div class="tst rv rv2"><div class="q">"</div><div class="rt"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="tx">Poli giginya buka sore hari, jadi cocok untuk saya yang bekerja. Biayanya juga terjangkau, hasilnya rapi. Sangat direkomendasikan!</p><div class="tst-ft"><div class="av"></div><div><h4>Ibu Ni Ketut Riani</h4><p>Lombok Barat</p></div><span class="sv">Poli Gigi</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq">
+  <div class="container">
+    <div class="faq-g">
+      <div class="rv">
+        <div class="tag"><i class="fas fa-circle-question"></i> FAQ</div>
+        <h2 class="sec-t">Pertanyaan <span class="ac">Umum</span></h2>
+        <p class="sec-d">Informasi yang sering ditanyakan pasien &amp; keluarga.</p>
+        <div class="faq-ct">
+          <h4><i class="fas fa-headset"></i> Butuh Bantuan?</h4>
+          <p>Hubungi kami kapan saja — UGD &amp; admin kami siaga 24 jam.</p>
+          <div class="row">
+            <a href="https://wa.me/6287819999491" class="btn btn-w"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="tel:087819999491" class="btn btn-o" style="color:#fff;border-color:rgba(255,255,255,.4)"><i class="fas fa-phone"></i> Telepon</a>
+          </div>
+        </div>
+      </div>
+      <div class="faq-items rv">
+        <div class="fq active"><div class="fq-q" onclick="faq(this)"><h4>Apakah UGD benar-benar buka 24 jam?</h4><div class="fq-t"><i class="fas fa-chevron-down"></i></div></div><div class="fq-a" style="max-height:200px"><div>Ya. UGD, Dokter Umum, Persalinan/KIA/KB, dan Rawat Inap kami siaga 24 jam setiap hari, termasuk Minggu dan tanggal merah. Ambulan juga siap antar jemput pasien.</div></div></div>
+        <div class="fq"><div class="fq-q" onclick="faq(this)"><h4>Kapan jadwal Poli Gigi?</h4><div class="fq-t"><i class="fas fa-chevron-down"></i></div></div><div class="fq-a"><div>Poli Gigi melayani Senin – Sabtu pukul 17.00 – 20.00 WITA. Minggu dan tanggal merah libur. Silakan buat janji agar tidak menunggu.</div></div></div>
+        <div class="fq"><div class="fq-q" onclick="faq(this)"><h4>Berapa biaya berobat di Klinik Gumitri Medika?</h4><div class="fq-t"><i class="fas fa-chevron-down"></i></div></div><div class="fq-a"><div>Kami berkomitmen "Pasti Terjangkau" — biaya transparan dan ramah untuk keluarga. Apotek kami menyediakan obat berkualitas dengan harga terjangkau.</div></div></div>
+        <div class="fq"><div class="fq-q" onclick="faq(this)"><h4>Apakah laboratorium buka setiap hari?</h4><div class="fq-t"><i class="fas fa-chevron-down"></i></div></div><div class="fq-a"><div>Ya, laboratorium melayani setiap hari pukul 08.00 – 22.00 WITA dengan pemeriksaan lengkap &amp; akurat, hasil cepat &amp; terpercaya.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-in">
+    <div class="go"><i class="fas fa-star"></i> Grand Opening · 24 Juli 2026</div>
+    <h2>Hadir untuk Kesehatan Anda &amp; Keluarga</h2>
+    <p>Kunjungi kami di Dusun Tambang Eleh, Desa Jagaraga, Kec. Kuripan, Kab. Lombok Barat. Sehat bersama kami — aman &amp; nyaman untuk Anda.</p>
+    <div class="row">
+      <button class="btn btn-g btn-lg" onclick="openModal()"><i class="fas fa-calendar-check"></i> Buat Janji Sekarang</button>
+      <a href="https://wa.me/6287819999491" class="btn btn-o btn-lg" style="color:#fff;border-color:rgba(255,255,255,.4)"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="sec" id="kontak">
+  <div class="container">
+    <div class="sec-hd rv">
+      <div class="tag"><i class="fas fa-location-dot"></i> Kontak &amp; Lokasi</div>
+      <h2 class="sec-t">Hubungi <span class="ac">Kami</span></h2>
+    </div>
+    <div class="ct-g">
+      <div class="ct-info rv">
+        <div class="ct-c"><div class="ic"><i class="fas fa-location-dot"></i></div><div><h4>Alamat Klinik</h4><p>Dusun Tambang Eleh, Desa Jagaraga<br>Kec. Kuripan, Kab. Lombok Barat</p></div></div>
+        <div class="ct-c"><div class="ic"><i class="fab fa-whatsapp"></i></div><div><h4>WhatsApp / Telepon</h4><p><a href="https://wa.me/6287819999491">0878-1999-9491</a><br><a href="mailto:gumitrimedika@gmail.com">gumitrimedika@gmail.com</a></p></div></div>
+        <div class="ct-c gold"><div class="ic"><i class="fas fa-clock"></i></div><div><h4>Jam Layanan</h4><p>UGD, Dokter Umum, Persalinan: <strong>24 Jam</strong><br>Poli Gigi: Sen–Sab 17.00–20.00 · Lab: 08.00–22.00</p></div></div>
+        <div class="ct-c red"><div class="ic"><i class="fas fa-share-nodes"></i></div><div><h4>Media Sosial</h4><p>FB: Klinik Gumitri Medika · IG: @gumitrimedika</p></div></div>
+      </div>
+      <div class="ct-map rv"><iframe src="https://www.google.com/maps?q=Kuripan%2C+Lombok+Barat&output=embed" loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-g">
+    <div class="ft-brand">
+      <a href="#home" class="logo">
+        <div class="logo-mark"><b>G</b><i class="fas fa-plus"></i></div>
+        <div class="logo-txt"><h1>Klinik Gumitri Medika</h1><p>Ramah · Jujur · Disiplin · Bertanggungjawab</p></div>
+      </a>
+      <p>Hadir untuk kesehatan Anda &amp; keluarga. UGD 24 jam, rawat inap, persalinan, poli gigi, apotek, laboratorium, dan ambulan di Lombok Barat.</p>
+      <div class="ft-soc">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/gumitrimedika" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6287819999491" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:gumitrimedika@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="ft-col"><h4>Layanan</h4><ul>
+      <li><a href="#layanan"><i class="fas fa-chevron-right"></i> UGD 24 Jam</a></li>
+      <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Rawat Inap</a></li>
+      <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Dokter Umum</a></li>
+      <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Poli Gigi</a></li>
+      <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Persalinan, KIA &amp; KB</a></li>
+      <li><a href="#layanan"><i class="fas fa-chevron-right"></i> Laboratorium</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Navigasi</h4><ul>
+      <li><a href="#home"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+      <li><a href="#keunggulan"><i class="fas fa-chevron-right"></i> Keunggulan</a></li>
+      <li><a href="#medis"><i class="fas fa-chevron-right"></i> Tenaga Medis</a></li>
+      <li><a href="#kontak"><i class="fas fa-chevron-right"></i> Kontak</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Kontak</h4>
+      <div class="ft-ci"><i class="fas fa-location-dot"></i><span>Dusun Tambang Eleh, Desa Jagaraga, Kec. Kuripan, Kab. Lombok Barat</span></div>
+      <div class="ft-ci"><i class="fab fa-whatsapp"></i><span>0878-1999-9491</span></div>
+      <div class="ft-ci"><i class="fas fa-envelope"></i><span>gumitrimedika@gmail.com</span></div>
+      <div class="ft-ci"><i class="fas fa-bell"></i><span>UGD Siaga 24 Jam</span></div>
+    </div>
+  </div>
+  <div class="ft-b">
+    <p>&copy; 2026 Klinik Gumitri Medika. All rights reserved. · Grand Opening 24 Juli 2026</p>
+    <div class="lk"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Sitemap</a></div>
+  </div>
+</footer>
+
+<!-- MODAL BOOKING -->
+<div class="mo-ov" id="mo">
+  <div class="mo">
+    <div class="mo-hd"><h3><i class="fas fa-calendar-check"></i> <span id="moT">Buat Janji Temu</span></h3><button class="mo-x" onclick="closeModal()"><i class="fas fa-times"></i></button></div>
+    <div class="mo-bd">
+      <div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+
+      <div class="stp active" data-s="1">
+        <h4>Pilih Layanan</h4><p>Pilih layanan yang Anda butuhkan.</p>
+        <div class="opt-g">
+          <button class="opt" onclick="selSvc(this,'Dokter Umum')"><div class="ic"><i class="fas fa-user-doctor"></i></div><h5>Dokter Umum</h5><p>24 Jam</p></button>
+          <button class="opt" onclick="selSvc(this,'Poli Gigi')"><div class="ic"><i class="fas fa-tooth"></i></div><h5>Poli Gigi</h5><p>Sen–Sab 17.00–20.00</p></button>
+          <button class="opt" onclick="selSvc(this,'Persalinan / KIA / KB')"><div class="ic"><i class="fas fa-person-pregnant"></i></div><h5>Persalinan / KIA / KB</h5><p>24 Jam</p></button>
+          <button class="opt" onclick="selSvc(this,'Laboratorium')"><div class="ic"><i class="fas fa-flask-vial"></i></div><h5>Laboratorium</h5><p>08.00–22.00</p></button>
+          <button class="opt" onclick="selSvc(this,'Rawat Inap')"><div class="ic"><i class="fas fa-bed-pulse"></i></div><h5>Rawat Inap</h5><p>24 Jam</p></button>
+          <button class="opt" onclick="selSvc(this,'UGD / Darurat')"><div class="ic"><i class="fas fa-bell"></i></div><h5>UGD</h5><p>24 Jam · Darurat</p></button>
+        </div>
+        <div class="mo-act"><button class="btn btn-o" onclick="closeModal()">Batal</button><button class="btn btn-p" id="nx1" disabled onclick="go(2)">Lanjut <i class="fas fa-arrow-right"></i></button></div>
+      </div>
+
+      <div class="stp" data-s="2">
+        <h4>Pilih Tanggal &amp; Jam</h4><p>Slot jam menyesuaikan layanan pilihan Anda.</p>
+        <div class="fld" style="margin-bottom:12px"><label>Tanggal</label><div class="fld-in"><i class="fas fa-calendar"></i><input type="date" id="bDate" onchange="bD()"></div></div>
+        <label style="display:block;font-size:10px;font-weight:800;color:var(--green-d);letter-spacing:1px;text-transform:uppercase;margin-bottom:7px">Jam</label>
+        <div class="slots">
+          <button class="slot" onclick="selT(this,'08:00')">08:00</button><button class="slot" onclick="selT(this,'09:00')">09:00</button><button class="slot" onclick="selT(this,'10:00')">10:00</button><button class="slot dis">11:00</button><button class="slot" onclick="selT(this,'16:00')">16:00</button><button class="slot" onclick="selT(this,'17:00')">17:00</button><button class="slot" onclick="selT(this,'18:00')">18:00</button><button class="slot" onclick="selT(this,'19:00')">19:00</button>
+        </div>
+        <div class="mo-act"><button class="btn btn-o" onclick="go(1)"><i class="fas fa-arrow-left"></i> Kembali</button><button class="btn btn-p" id="nx2" disabled onclick="go(3)">Lanjut <i class="fas fa-arrow-right"></i></button></div>
+      </div>
+
+      <div class="stp" data-s="3">
+        <h4>Data Pasien</h4><p>Lengkapi data untuk registrasi.</p>
+        <div class="mform">
+          <div class="mrow"><div><input type="text" id="pN" placeholder="Nama Lengkap *"></div><div><input type="tel" id="pP" placeholder="No. HP / WhatsApp *"></div></div>
+          <div class="mrow"><div><select id="pG"><option value="">Jenis Kelamin *</option><option>Laki-laki</option><option>Perempuan</option></select></div><div><input type="number" id="pA" placeholder="Usia *"></div></div>
+          <textarea id="pC" placeholder="Keluhan (opsional)..."></textarea>
+        </div>
+        <div class="mo-act"><button class="btn btn-o" onclick="go(2)"><i class="fas fa-arrow-left"></i> Kembali</button><button class="btn btn-p" onclick="go(4)">Lanjut <i class="fas fa-arrow-right"></i></button></div>
+      </div>
+
+      <div class="stp" data-s="4">
+        <h4>Konfirmasi Janji</h4><p>Periksa kembali detail janji Anda.</p>
+        <div class="sum">
+          <h5><i class="fas fa-receipt"></i> Ringkasan</h5>
+          <div class="sum-r"><span>Layanan:</span><strong id="sS">-</strong></div>
+          <div class="sum-r"><span>Jadwal:</span><strong id="sJ">-</strong></div>
+          <div class="sum-r"><span>Pasien:</span><strong id="sP">-</strong></div>
+          <div class="sum-r"><span>Biaya:</span><strong>Pasti Terjangkau ✓</strong></div>
+        </div>
+        <div class="mo-act"><button class="btn btn-o" onclick="go(3)"><i class="fas fa-arrow-left"></i> Kembali</button><button class="btn btn-g" onclick="confirm()"><i class="fas fa-check"></i> Konfirmasi Janji</button></div>
+      </div>
+
+      <div class="stp" data-s="5">
+        <div class="ok-c">
+          <div class="ok-ic"><i class="fas fa-check"></i></div>
+          <h3>Janji Berhasil Dibuat!</h3>
+          <p>Simpan kode booking ini &amp; tunjukkan saat datang ke klinik.</p>
+          <div class="bkid"><p>Kode Booking</p><strong id="bkId">GM-2026-00000</strong></div>
+          <div class="sum" style="text-align:left">
+            <div class="sum-r"><span>Layanan:</span><strong id="fS">-</strong></div>
+            <div class="sum-r"><span>Jadwal:</span><strong id="fJ">-</strong></div>
+          </div>
+          <div class="mo-act"><button class="btn btn-o" onclick="closeModal()">Tutup</button><a class="btn btn-p" id="waLink" href="#" target="_blank"><i class="fab fa-whatsapp"></i> Konfirmasi via WA</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/6287819999491" class="wa-f" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="#home" class="bt-t" id="bt" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></a>
+
+<script>
+const nv=document.getElementById('nv'),bt=document.getElementById('bt');
+window.addEventListener('scroll',()=>{nv.classList.toggle('scrolled',scrollY>50);bt.classList.toggle('visible',scrollY>50);});
+function tglMenu(){document.getElementById('mm').classList.toggle('active');}
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+function cnt(el){const t=+el.dataset.count,suf=el.textContent.replace(/[0-9]/g,'');let c=0;const st=t/60;const tm=setInterval(()=>{c+=st;if(c>=t){c=t;clearInterval(tm)}el.textContent=Math.floor(c)+suf;},33);}
+const co=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting&&!x.target.dataset.done){x.target.dataset.done=1;cnt(x.target)}}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){const id=this.getAttribute('href');if(id==='#')return;const t=document.querySelector(id);if(t){e.preventDefault();scrollTo({top:t.getBoundingClientRect().top+pageYOffset-80,behavior:'smooth'});}}));
+function faq(el){const it=el.parentElement,act=it.classList.contains('active');document.querySelectorAll('.fq').forEach(i=>{i.classList.remove('active');i.querySelector('.fq-a').style.maxHeight='0';});if(!act){it.classList.add('active');const a=it.querySelector('.fq-a');a.style.maxHeight=a.scrollHeight+'px';}}
+let B={svc:'',date:'',time:''};
+function openModal(n){document.getElementById('mo').classList.add('active');document.body.style.overflow='hidden';reset();if(n){B.svc=n;document.getElementById('moT').textContent='Buat Janji: '+n;document.getElementById('nx1').disabled=false;}}
+function closeModal(){document.getElementById('mo').classList.remove('active');document.body.style.overflow='';setTimeout(reset,300);}
+function reset(){B={svc:'',date:'',time:''};document.querySelectorAll('.stp').forEach((s,i)=>s.classList.toggle('active',i===0));document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===0));document.querySelectorAll('.opt,.slot').forEach(e=>e.classList.remove('sel'));document.querySelectorAll('.mo input,.mo select,.mo textarea').forEach(e=>e.value='');document.getElementById('nx1').disabled=true;document.getElementById('nx2').disabled=true;}
+function selSvc(el,n){document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));el.classList.add('sel');B.svc=n;document.getElementById('nx1').disabled=false;}
+function bD(){B.date=document.getElementById('bDate').value;chk();}
+function selT(el,t){if(el.classList.contains('dis'))return;document.querySelectorAll('.slot').forEach(s=>s.classList.remove('sel'));el.classList.add('sel');B.time=t;chk();}
+function chk(){document.getElementById('nx2').disabled=!(B.date&&B.time);}
+function go(s){
+ if(s===4){const n=document.getElementById('pN').value.trim(),p=document.getElementById('pP').value.trim(),g=document.getElementById('pG').value,a=document.getElementById('pA').value;if(!n||!p||!g||!a){alert('Mohon lengkapi data bertanda *');return;}
+  document.getElementById('sS').textContent=B.svc;const d=new Date(B.date);document.getElementById('sJ').textContent=d.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+', '+B.time;document.getElementById('sP').textContent=n+' ('+a+' th)';}
+ document.querySelectorAll('.stp').forEach(x=>x.classList.remove('active'));document.querySelector('.stp[data-s="'+s+'"]').classList.add('active');
+ document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i<Math.min(s,4)));}
+function confirm(){const id='GM-2026-'+Math.floor(10000+Math.random()*90000);document.getElementById('bkId').textContent=id;document.getElementById('fS').textContent=B.svc;const d=new Date(B.date);document.getElementById('fJ').textContent=d.toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'})+', '+B.time;
+ const msg=encodeURIComponent('Halo Klinik Gumitri Medika, saya ingin konfirmasi janji:\nKode: '+id+'\nLayanan: '+B.svc+'\nJadwal: '+B.date+' '+B.time+'\nNama: '+document.getElementById('pN').value);
+ document.getElementById('waLink').href='https://wa.me/6287819999491?text='+msg;
+ document.querySelectorAll('.stp').forEach(x=>x.classList.remove('active'));document.querySelector('.stp[data-s="5"]').classList.add('active');document.querySelectorAll('.dot').forEach(d=>d.classList.add('active'));}
+document.getElementById('mo').addEventListener('click',function(e){if(e.target===this)closeModal();});
+</script>
+</body>
+</html>
