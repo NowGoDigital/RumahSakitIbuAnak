@@ -72,43 +72,56 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 .mc-menu-toggle{display:none;background:transparent;border:none;color:var(--primary);font-size:24px;cursor:pointer}
 
 /* HERO */
-.mc-hero{position:relative;padding:70px 0 110px;background:linear-gradient(135deg,var(--sky-light) 0%,var(--sky) 100%);overflow:hidden}
-.mc-hero::before{content:'';position:absolute;top:-120px;right:-120px;width:520px;height:520px;background:radial-gradient(circle,rgba(245,197,28,.16) 0%,transparent 70%);border-radius:50%}
-.mc-hero::after{content:'';position:absolute;bottom:-160px;left:-160px;width:420px;height:420px;background:radial-gradient(circle,rgba(11,93,78,.10) 0%,transparent 70%);border-radius:50%}
-.mc-hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
-.mc-hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:#fff;border:1.5px solid var(--gold);border-radius:var(--radius-full);font-size:12px;font-weight:700;color:var(--primary-dark);margin-bottom:22px;box-shadow:var(--shadow-sm)}
-.mc-hero-badge i{color:var(--red)}
-.mc-hero-title{font-size:clamp(40px,5vw,62px);font-weight:800;color:var(--primary-dark);line-height:1.05;letter-spacing:-1.5px;margin-bottom:6px}
-.mc-hero-title .highlight{color:var(--red);position:relative}
-.mc-hero-script{font-family:'Caveat',cursive;font-size:clamp(24px,3vw,34px);color:var(--primary);margin-bottom:18px;display:block;transform:rotate(-2deg)}
-.mc-hero-script u{text-decoration:none;border-bottom:3px solid var(--gold)}
-.mc-hero-desc{font-size:16.5px;color:var(--gray-600);margin-bottom:30px;max-width:560px;line-height:1.75}
-.mc-hero-desc strong{color:var(--primary-dark)}
-.mc-hero-actions{display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap}
-.mc-hero-values{display:flex;gap:10px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--sky-dark)}
-.mc-value-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:#fff;border:1px solid var(--sky-dark);border-radius:var(--radius-full);font-size:12px;font-weight:700;color:var(--primary-dark)}
-.mc-value-chip i{color:var(--gold-dark);font-size:11px}
-.mc-hero-visual{position:relative;height:560px}
-.mc-hero-board{position:absolute;top:0;left:20px;width:90%;background:linear-gradient(160deg,#fff 0%,var(--sky-light) 100%);border:8px solid #fff;border-radius:28px;box-shadow:var(--shadow-xl);padding:28px;overflow:hidden}
-.mc-hero-board::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,var(--primary),var(--gold),var(--red))}
-.mc-hero-board h3{color:var(--red);font-size:15px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
-.mc-hero-board h2{color:var(--primary-dark);font-size:26px;font-weight:800;margin-bottom:16px}
-.mc-hero-board ul{list-style:none;columns:2;gap:20px}
-.mc-hero-board li{font-size:13px;font-weight:700;color:var(--gray-700);padding:7px 0;border-bottom:1px dashed var(--sky-dark);display:flex;align-items:center;gap:8px;break-inside:avoid}
-.mc-hero-board li i{color:var(--primary);font-size:12px}
-.mc-hero-float{position:absolute;background:#fff;border-radius:var(--radius-lg);padding:16px 18px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:12px;z-index:3}
-.mc-hero-float-1{top:24px;right:0;background:var(--red);color:#fff;animation:floatCard 4s ease-in-out infinite}
-.mc-hero-float-1 .text h4{color:#fff}
-.mc-hero-float-1 .text p{color:rgba(255,255,255,.85)}
-.mc-hero-float-2{bottom:70px;left:0;animation:floatCard 4s ease-in-out infinite 1s}
-.mc-hero-float-3{bottom:230px;right:10px;background:var(--gold);animation:floatCard 4s ease-in-out infinite 2s}
-.mc-hero-float-3 .text h4{color:var(--primary-dark)}
+.mc-hero{position:relative;padding:80px 0 90px;background:linear-gradient(120deg,#F4F9F6 0%,#E9F4EF 55%,#DCEDE6 100%);overflow:hidden}
+.mc-hero::before{content:'';position:absolute;top:-140px;right:-140px;width:520px;height:520px;background:radial-gradient(circle,rgba(245,197,28,.14) 0%,transparent 70%);border-radius:50%}
+.mc-hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;position:relative;z-index:2}
+.mc-hero-badge{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:var(--red);border-radius:var(--radius-full);font-size:12.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margin-bottom:28px;box-shadow:0 12px 30px rgba(200,16,46,.35)}
+.mc-hero-badge i{color:var(--gold);font-size:13px}
+.mc-hero-title{font-size:clamp(42px,5.2vw,68px);font-weight:800;color:var(--primary-dark);line-height:1.08;letter-spacing:-2px;margin-bottom:10px}
+.mc-hero-title .highlight{color:var(--red)}
+.mc-hero-script{font-family:'Caveat',cursive;font-size:clamp(24px,3vw,32px);color:var(--gold-dark);display:inline-block;margin-bottom:20px;transform:rotate(-2deg)}
+.mc-hero-desc{font-size:16.5px;color:var(--gray-600);margin-bottom:32px;max-width:560px;line-height:1.8}
+.mc-hero-actions{display:flex;gap:14px;margin-bottom:42px;flex-wrap:wrap}
+.mc-hero-trust{display:flex;align-items:center;gap:20px;padding-top:28px;border-top:1px solid var(--sky-dark);flex-wrap:wrap}
+.mc-hero-avatars{display:flex;padding-left:12px}
+.mc-hero-avatars span{width:46px;height:46px;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;margin-left:-12px;box-shadow:var(--shadow-sm)}
+.mc-hero-trust-text h4{font-size:14px;font-weight:800;color:var(--gray-900)}
+.mc-hero-trust-text p{font-size:12.5px;color:var(--gray-500)}
+.mc-hero-trust-divider{width:1px;height:38px;background:var(--sky-dark)}
+.mc-hero-trust-stat b{display:block;font-size:24px;font-weight:800;color:var(--primary-dark);line-height:1.1;letter-spacing:-.5px}
+.mc-hero-trust-stat span{font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-500)}
+.mc-hero-visual{position:relative}
+.mc-hero-photo{min-height:560px;border-radius:34px;border:10px solid #fff;background-color:var(--sky-dark);background-size:cover;background-position:center;box-shadow:var(--shadow-xl)}
+.mc-hero-float{position:absolute;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:14px;z-index:3}
+.mc-hero-float .icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.mc-hero-float .icon.red{background:var(--red-light);color:var(--red)}
+.mc-hero-float .icon.gold{background:var(--gold-light);color:var(--gold-dark)}
+.mc-hero-float .icon.green{background:var(--sky);color:var(--primary)}
+.mc-hero-float h4{font-size:14.5px;font-weight:800;color:var(--gray-900);margin-bottom:2px}
+.mc-hero-float p{font-size:12.5px;color:var(--gray-500)}
+.mc-hero-float-1{top:28px;right:-24px;animation:floatCard 4s ease-in-out infinite}
+.mc-hero-float-2{top:47%;right:-36px;animation:floatCard 4s ease-in-out infinite 1s}
+.mc-hero-float-3{bottom:44px;left:-36px;animation:floatCard 4s ease-in-out infinite 2s}
 @keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.mc-hero-float .icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.mc-hero-float-2 .icon{background:var(--sky);color:var(--primary)}
-.mc-hero-float-3 .icon{background:rgba(255,255,255,.5);color:var(--primary-dark)}
-.mc-hero-float .text h4{font-size:13px;font-weight:800;color:var(--gray-900);margin-bottom:2px}
-.mc-hero-float .text p{font-size:11.5px;color:var(--gray-500)}
+@media (max-width:1024px){
+  .mc-hero{padding:60px 0 80px}
+  .mc-hero-inner{grid-template-columns:1fr;gap:56px;text-align:center}
+  .mc-hero-desc{margin:0 auto 32px}
+  .mc-hero-actions,.mc-hero-trust{justify-content:center}
+  .mc-hero-visual{max-width:560px;margin:0 auto}
+  .mc-hero-float-1{right:0}
+  .mc-hero-float-2{right:0}
+  .mc-hero-float-3{left:0}
+}
+@media (max-width:640px){
+  .mc-hero-photo{min-height:440px}
+  .mc-hero-float{padding:12px 16px;border-radius:14px}
+  .mc-hero-float .icon{width:38px;height:38px;font-size:15px}
+  .mc-hero-float h4{font-size:13px}
+  .mc-hero-float p{font-size:11px}
+  .mc-hero-trust{gap:14px}
+  .mc-hero-trust-divider{display:none}
+}
 
 /* QUICK BOOK */
 .mc-quick-book{max-width:1280px;margin:-56px auto 0;padding:0 32px;position:relative;z-index:10}
@@ -498,56 +511,51 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 </div>
 
 <!-- ===== HERO ===== -->
+<!-- ===== HERO ===== -->
 <section class="mc-hero" id="beranda">
   <div class="container">
     <div class="mc-hero-inner">
       <div>
-        <div class="mc-hero-badge"><i class="fas fa-star"></i> GRAND OPENING · 24 JULI 2026</div>
-        <h1 class="mc-hero-title">SEHAT BERSAMA <span class="highlight">KAMI</span></h1>
-        <span class="mc-hero-script"><u>Aman &amp; Nyaman</u> untuk Anda</span>
-        <p class="mc-hero-desc">
-          <strong>Klinik Gumitri Medika</strong> hadir untuk kesehatan Anda &amp; keluarga di Lombok Barat.
-          Dengan semangat <strong>Ramah, Jujur, Disiplin dan Bertanggungjawab</strong>, kami melayani UGD 24 jam,
-          rawat inap, persalinan, hingga laboratorium dengan tenaga medis profesional.
-        </p>
+        <div class="mc-hero-badge"><i class="fas fa-star"></i> Grand Opening · 24 Juli 2026</div>
+        <h1 class="mc-hero-title">Sehat Bersama <span class="highlight">Kami</span></h1>
+        <span class="mc-hero-script">Aman &amp; Nyaman untuk Anda ✨</span>
+        <p class="mc-hero-desc">Klinik Gumitri Medika hadir untuk kesehatan Anda &amp; keluarga di Lombok Barat. UGD 24 jam, persalinan aman, tenaga medis profesional, dengan biaya pasti terjangkau.</p>
         <div class="mc-hero-actions">
-          <button class="mc-btn mc-btn-primary mc-btn-lg" onclick="openBookingModal()"><i class="fas fa-calendar-plus"></i> Booking Sekarang</button>
-          <a href="https://wa.me/6287819999491" target="_blank" class="mc-btn mc-btn-red mc-btn-lg"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+          <button class="mc-btn mc-btn-primary mc-btn-lg" onclick="openBookingModal()"><i class="fas fa-calendar-plus"></i> Buat Janji Temu</button>
+          <a href="https://wa.me/6287819999491" target="_blank" class="mc-btn mc-btn-outline mc-btn-lg"><i class="fab fa-whatsapp"></i> Hubungi Kami</a>
         </div>
-        <div class="mc-hero-values">
-          <span class="mc-value-chip"><i class="fas fa-hand-holding-medical"></i> Pelayanan Berkualitas</span>
-          <span class="mc-value-chip"><i class="fas fa-user-nurse"></i> Tenaga Medis Profesional</span>
-          <span class="mc-value-chip"><i class="fas fa-hospital"></i> Fasilitas Modern</span>
-          <span class="mc-value-chip"><i class="fas fa-heart"></i> Kepedulian Terbaik</span>
+        <div class="mc-hero-trust">
+          <div class="mc-hero-avatars">
+            <span style="background:linear-gradient(135deg,#FFD84D,#F5C51C);color:var(--primary-dark)">H</span>
+            <span style="background:linear-gradient(135deg,var(--primary-light),var(--primary))">N</span>
+            <span style="background:linear-gradient(135deg,#E4506A,var(--red))">L</span>
+          </div>
+          <div class="mc-hero-trust-text">
+            <h4>Dipercaya keluarga</h4>
+            <p>di Lombok Barat &amp; sekitarnya</p>
+          </div>
+          <div class="mc-hero-trust-divider"></div>
+          <div class="mc-hero-trust-stat"><b>24/7</b><span>UGD Siaga</span></div>
+          <div class="mc-hero-trust-divider"></div>
+          <div class="mc-hero-trust-stat"><b>8</b><span>Layanan</span></div>
         </div>
       </div>
 
       <div class="mc-hero-visual">
-        <div class="mc-hero-board">
-          <h3>Klinik</h3>
-          <h2>GUMITRI MEDIKA</h2>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> UGD 24 Jam</li>
-            <li><i class="fas fa-check-circle"></i> Rawat Inap</li>
-            <li><i class="fas fa-check-circle"></i> Dokter Umum</li>
-            <li><i class="fas fa-check-circle"></i> Poli Gigi</li>
-            <li><i class="fas fa-check-circle"></i> Persalinan, KIA &amp; KB</li>
-            <li><i class="fas fa-check-circle"></i> Apotek</li>
-            <li><i class="fas fa-check-circle"></i> Laboratorium</li>
-            <li><i class="fas fa-check-circle"></i> Ambulan</li>
-          </ul>
-        </div>
+        <!-- Ganti url(...) di bawah dengan foto klinik Anda, contoh: 'foto-klinik.jpg' -->
+        <div class="mc-hero-photo" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80')"></div>
+
         <div class="mc-hero-float mc-hero-float-1">
-          <div class="icon"><i class="fas fa-bell"></i></div>
-          <div class="text"><h4>UGD 24 JAM</h4><p>Siap melayani kondisi darurat</p></div>
+          <div class="icon red"><i class="fas fa-bell"></i></div>
+          <div><h4>UGD 24 Jam</h4><p>Siap melayani kondisi darurat</p></div>
         </div>
         <div class="mc-hero-float mc-hero-float-2">
-          <div class="icon"><i class="fas fa-tooth"></i></div>
-          <div class="text"><h4>Poli Gigi</h4><p>Senin–Sabtu · 17.00–20.00</p></div>
+          <div class="icon gold"><i class="fas fa-flask"></i></div>
+          <div><h4>Laboratorium</h4><p>08.00 – 22.00 · Hasil cepat</p></div>
         </div>
         <div class="mc-hero-float mc-hero-float-3">
-          <div class="icon"><i class="fas fa-flask"></i></div>
-          <div class="text"><h4>Laboratorium</h4><p>Setiap hari · 08.00–22.00</p></div>
+          <div class="icon green"><i class="fas fa-person-pregnant"></i></div>
+          <div><h4>Persalinan Aman</h4><p>Tenaga profesional · KIA &amp; KB</p></div>
         </div>
       </div>
     </div>
