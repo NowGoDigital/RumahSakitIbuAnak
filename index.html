@@ -10,29 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* ===== CSS RESET AGRESIF - Menghilangkan SEMUA space ===== */
-*, *::before, *::after { 
-    box-sizing: border-box; 
-    margin: 0 !important; 
-    padding: 0 !important; 
-}
-html, body { 
-    width: 100%; 
-    min-height: 100vh; 
-    margin: 0 !important; 
-    padding: 0 !important; 
-    overflow-x: hidden; 
-    position: relative;
-    top: 0;
-    left: 0;
-}
-body { 
-    font-family:'Plus Jakarta Sans',sans-serif;
-    color:var(--ink);
-    line-height:1.6;
-    background:#fff;
-    -webkit-font-smoothing:antialiased;
-}
+/* ===== RESET TOTAL ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0 !important; padding: 0 !important; }
+html, body { width: 100%; min-height: 100vh; overflow-x: hidden; position: relative; top: 0; left: 0; }
+body { font-family:'Plus Jakarta Sans',sans-serif; color:var(--ink); line-height:1.6; background:#fff; -webkit-font-smoothing:antialiased; }
 
 :root{
   --green:#0E6B5A;--green-d:#094A3E;--green-l:#1B9E86;--mint:#DFF2EC;--mint-2:#F2F9F6;
@@ -47,8 +28,8 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
 .scr{font-family:'Caveat',cursive}
 
-/* ===== TOPBAR ===== */
-.tb{background:var(--green-d);color:#fff;padding:7px 0;font-size:12px;position:relative;z-index:100;width:100%;display:block}
+/* ===== TOPBAR (FIXED: SELALU MUNCUL) ===== */
+.tb{background:var(--green-d);color:#fff;padding:7px 0;font-size:12px;position:relative;z-index:100;width:100%;display:block !important}
 .tb-in{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .tb-l{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .tb-l span{display:flex;align-items:center;gap:6px}
@@ -359,7 +340,7 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}
 .rv.visible{opacity:1;transform:translateY(0)}
 .rv1{transition-delay:.1s}.rv2{transition-delay:.2s}.rv3{transition-delay:.3s}
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE (FIXED: TOPBAR TIDAK HILANG) ===== */
 @media(max-width:1024px){
 .hero-in{grid-template-columns:1fr;text-align:center}
 .hero p.desc{margin:0 auto 24px}
@@ -374,7 +355,7 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}
 .ft-g{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
-.tb{display:none}
+/* .tb{display:none} <--- INI YANG SAYA HAPUS BIAR TOPBAR GAK HILANG */
 .nv-links{display:none}
 .menu-tgl{display:block}
 .sec{padding:50px 0}
@@ -387,6 +368,10 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}
 .float{display:none}
 .f1{display:flex}
 .slots{grid-template-columns:repeat(3,1fr)}
+/* Penyesuaian Topbar di HP biar gak berantakan */
+.tb-in{flex-direction:column;gap:6px;text-align:center}
+.tb-l{justify-content:center}
+.tb-r{justify-content:center}
 }
 </style>
 </head>
