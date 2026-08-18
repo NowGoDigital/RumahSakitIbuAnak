@@ -174,20 +174,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 .mc-section-header{text-align:center;margin-bottom:60px}
 .mc-section-header .mc-section-desc{margin:0 auto}
 
-/* GRAND OPENING */
-.mc-grand{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 100%);color:#fff;padding:80px 0;position:relative;overflow:hidden}
-.mc-grand::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 30%,rgba(245,197,28,.18) 0%,transparent 45%),radial-gradient(circle at 85% 70%,rgba(200,16,46,.18) 0%,transparent 45%)}
-.mc-grand-inner{position:relative;z-index:2;text-align:center;max-width:860px;margin:0 auto}
-.mc-grand-ribbon{display:inline-block;background:var(--red);color:#fff;font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:13px;padding:10px 34px;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,.25);margin-bottom:18px}
-.mc-grand h2{font-size:clamp(34px,5vw,56px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:8px}
-.mc-grand h2 span{color:var(--gold)}
-.mc-grand .script{font-size:clamp(22px,3vw,30px);color:var(--gold-light);display:block;margin-bottom:26px}
-.mc-countdown{display:flex;gap:14px;justify-content:center;margin:30px 0 26px;flex-wrap:wrap}
-.mc-count-box{background:rgba(255,255,255,.08);border:1.5px solid rgba(245,197,28,.5);backdrop-filter:blur(8px);border-radius:var(--radius-lg);min-width:96px;padding:18px 10px}
-.mc-count-box b{display:block;font-size:40px;font-weight:800;color:var(--gold);line-height:1}
-.mc-count-box span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:700}
-.mc-grand p{color:rgba(255,255,255,.9);font-size:15px;margin-bottom:26px}
-
 /* LAYANAN */
 .mc-specialties{background:var(--gray-50)}
 .mc-specialties-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -660,26 +646,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   </div>
 </section>
 
-<!-- ===== GRAND OPENING ===== -->
-<section class="mc-grand" id="grand-opening">
-  <div class="container mc-grand-inner mc-reveal">
-    <div class="mc-grand-ribbon">Grand Opening</div>
-    <h2>KLINIK <span>GUMITRI MEDIKA</span></h2>
-    <span class="script">Hadir untuk Kesehatan Anda &amp; Keluarga</span>
-    <div class="mc-countdown" id="countdown">
-      <div class="mc-count-box"><b id="cdDays">0</b><span>Hari</span></div>
-      <div class="mc-count-box"><b id="cdHours">0</b><span>Jam</span></div>
-      <div class="mc-count-box"><b id="cdMins">0</b><span>Menit</span></div>
-      <div class="mc-count-box"><b id="cdSecs">0</b><span>Detik</span></div>
-    </div>
-    <p id="cdLabel">Menuju pembukaan perdana — <strong style="color:var(--gold)">24 Juli 2026</strong>. Ramah, Jujur, Disiplin dan Bertanggungjawab.</p>
-    <div class="mc-cta-actions">
-      <button class="mc-btn mc-btn-gold mc-btn-lg" onclick="openBookingModal()"><i class="fas fa-calendar-check"></i> Booking Sekarang</button>
-      <a href="#layanan" class="mc-btn mc-btn-lg" style="color:#fff;border:1.5px solid rgba(255,255,255,.4);"><i class="fas fa-stethoscope"></i> Lihat Layanan</a>
-    </div>
-  </div>
-</section>
-
 <!-- ===== LAYANAN ===== -->
 <section class="mc-section mc-specialties" id="layanan">
   <div class="container">
@@ -1068,7 +1034,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
       <h4>Navigasi</h4>
       <ul>
         <li><a href="#beranda"><i class="fas fa-chevron-right"></i> Beranda</a></li>
-        <li><a href="#grand-opening"><i class="fas fa-chevron-right"></i> Grand Opening</a></li>
         <li><a href="#jadwal"><i class="fas fa-chevron-right"></i> Jadwal Layanan</a></li>
         <li><a href="#tim"><i class="fas fa-chevron-right"></i> Tim Medis</a></li>
         <li><a href="#testimoni"><i class="fas fa-chevron-right"></i> Testimoni</a></li>
@@ -1221,26 +1186,6 @@ const mcCIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
   mcCIO.unobserve(el);
 }});},{threshold:.5});
 document.querySelectorAll('.mc-stat-value').forEach(el=>mcCIO.observe(el));
-
-/* ===== COUNTDOWN GRAND OPENING (24 Juli 2026) ===== */
-(function(){
-  const target=new Date('2026-07-24T08:00:00+08:00').getTime();
-  const label=document.getElementById('cdLabel');
-  function tick(){
-    const diff=target-Date.now();
-    if(diff<=0){
-      document.getElementById('countdown').innerHTML='<div class="mc-count-box" style="min-width:280px"><b style="font-size:26px;letter-spacing:1px">RESMI BEROPERASI</b><span>Sejak 24 Juli 2026</span></div>';
-      label.innerHTML='Klinik Gumitri Medika <strong style="color:var(--gold)">telah resmi beroperasi</strong>. Terima kasih atas kepercayaan Anda — kami siap melayani setiap hari.';
-      return;
-    }
-    document.getElementById('cdDays').textContent=Math.floor(diff/86400000);
-    document.getElementById('cdHours').textContent=String(Math.floor(diff/3600000)%24).padStart(2,'0');
-    document.getElementById('cdMins').textContent=String(Math.floor(diff/60000)%60).padStart(2,'0');
-    document.getElementById('cdSecs').textContent=String(Math.floor(diff/1000)%60).padStart(2,'0');
-    setTimeout(tick,1000);
-  }
-  tick();
-})();
 
 /* ===== FAQ ===== */
 document.querySelectorAll('.mc-faq-question').forEach(q=>{
