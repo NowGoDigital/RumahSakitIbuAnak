@@ -1,1 +1,4670 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSIA Bunda Siaga — Layanan Kesehatan Ibu & Anak Terpercaya</title>
+    <meta name="description" content="RSIA Bunda Siaga — Rumah Sakit Ibu dan Anak dengan fasilitas NICU lengkap, dokter spesialis kandungan & anak terbaik, serta layanan persalinan nyaman.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            /* Warna Utama: Pink Soft & Biru Langit (Khas RSIA) */
+            --primary: #EC4899; /* Pink Tua */
+            --primary-dark: #BE185D;
+            --primary-light: #F472B6;
+            --primary-soft: #FBCFE8;
+            
+            --secondary: #0EA5E9; /* Biru Langit untuk elemen netral/anak */
+            --secondary-light: #BAE6FD;
+            
+            --cyan: #06B6D4;
+            --cyan-light: #A5F3FC;
+            
+            --sky: #F0F9FF;
+            --sky-light: #F8FAFC;
+            --sky-dark: #E0F2FE;
+            
+            --white: #FFFFFF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
 
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --info: #3B82F6;
+
+            --shadow-sm: 0 2px 8px rgba(236, 72, 153, 0.06);
+            --shadow-md: 0 10px 25px rgba(236, 72, 153, 0.08);
+            --shadow-lg: 0 20px 50px rgba(236, 72, 153, 0.12);
+            --shadow-xl: 0 30px 80px rgba(236, 72, 153, 0.18);
+            --shadow-pink: 0 15px 40px rgba(236, 72, 153, 0.25);
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 999px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--gray-700);
+            line-height: 1.65;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ===== TOP BAR ===== */
+        .mc-topbar {
+            background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: rgba(255,255,255,0.95);
+            padding: 10px 0;
+            font-size: 12.5px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .mc-topbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mc-topbar-left { display: flex; gap: 26px; align-items: center; }
+        .mc-topbar-left span { display: flex; align-items: center; gap: 7px; }
+        .mc-topbar-left i { color: var(--cyan-light); font-size: 12px; }
+        .mc-topbar-left .emergency {
+            background: var(--danger);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        .mc-topbar-right { display: flex; gap: 18px; align-items: center; }
+        .mc-topbar-right a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .mc-topbar-right a:hover { color: var(--cyan-light); }
+        .mc-topbar-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.2); }
+
+        .mc-lang-switch {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        /* ===== NAVBAR ===== */
+        .mc-navbar {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            transition: all 0.4s;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mc-navbar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .mc-navbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .mc-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .mc-logo-mark {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: var(--shadow-pink);
+            position: relative;
+        }
+
+        .mc-logo-mark::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 2px solid var(--sky);
+            border-radius: 16px;
+            opacity: 0.7;
+        }
+
+        .mc-logo-text h1 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1;
+            letter-spacing: -0.3px;
+        }
+
+        .mc-logo-text p {
+            font-size: 10.5px;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .mc-nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .mc-nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .mc-nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .mc-nav-links a:hover { color: var(--primary); }
+        .mc-nav-links a:hover::after { width: 100%; }
+
+        .mc-nav-actions { display: flex; gap: 10px; align-items: center; }
+
+        .mc-btn {
+            padding: 11px 22px;
+            border-radius: var(--radius-full);
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .mc-btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            box-shadow: var(--shadow-pink);
+        }
+        .mc-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.35);
+        }
+
+        .mc-btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+        .mc-btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .mc-btn-ghost {
+            background: transparent;
+            color: var(--gray-700);
+        }
+        .mc-btn-ghost:hover { color: var(--primary); background: var(--sky-light); }
+
+        .mc-btn-cyan {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--cyan) 100%);
+            color: white;
+            box-shadow: 0 15px 40px rgba(14, 165, 233, 0.3);
+        }
+        .mc-btn-cyan:hover { transform: translateY(-2px); }
+
+        .mc-btn-white {
+            background: white;
+            color: var(--primary);
+        }
+        .mc-btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+        .mc-btn-lg { padding: 15px 30px; font-size: 14.5px; }
+
+        .mc-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .mc-hero {
+            position: relative;
+            padding: 70px 0 100px;
+            background: linear-gradient(135deg, #FFF1F2 0%, #F0F9FF 100%); /* Pink ke Biru sangat soft */
+            overflow: hidden;
+        }
+
+        .mc-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .mc-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .mc-hero-inner {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mc-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid var(--primary-soft);
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 22px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mc-hero-badge i { color: var(--success); }
+        .mc-hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .mc-hero-title {
+            font-size: clamp(38px, 5vw, 60px);
+            font-weight: 800;
+            color: var(--gray-900);
+            line-height: 1.08;
+            letter-spacing: -1.5px;
+            margin-bottom: 22px;
+        }
+
+        .mc-hero-title .highlight {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .mc-hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: var(--primary-soft);
+            opacity: 0.4;
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .mc-hero-desc {
+            font-size: 17px;
+            color: var(--gray-600);
+            margin-bottom: 32px;
+            max-width: 560px;
+            line-height: 1.75;
+        }
+
+        .mc-hero-actions {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .mc-hero-trust {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding-top: 28px;
+            border-top: 1px solid var(--primary-soft);
+        }
+
+        .mc-trust-avatars {
+            display: flex;
+        }
+
+        .mc-trust-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid white;
+            margin-left: -10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mc-trust-avatar:first-child { margin-left: 0; }
+        /* Gambar Ibu dan Anak */
+        .mc-trust-avatar:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1544126566-47a3e6a983eb?auto=format&fit=crop&w=200&q=80'); }
+        .mc-trust-avatar:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=200&q=80'); }
+        .mc-trust-avatar:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=200&q=80'); }
+        .mc-trust-avatar:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=200&q=80'); }
+
+        .mc-trust-info .rating {
+            display: flex;
+            gap: 3px;
+            color: var(--warning);
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .mc-trust-info .text {
+            font-size: 12.5px;
+            color: var(--gray-600);
+        }
+
+        .mc-trust-info .text strong { color: var(--gray-900); }
+
+        .mc-trust-divider {
+            width: 1px;
+            height: 40px;
+            background: var(--primary-soft);
+        }
+
+        .mc-trust-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mc-trust-item .num {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+
+        .mc-trust-item .lbl {
+            font-size: 11px;
+            color: var(--gray-500);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        /* Hero Visual */
+        .mc-hero-visual {
+            position: relative;
+            height: 580px;
+        }
+
+        .mc-hero-img-main {
+            position: absolute;
+            top: 0;
+            left: 30px;
+            width: 88%;
+            height: 500px;
+            border-radius: 32px;
+            /* Gambar Ibu Hamil/Bayi */
+            background: url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1000&q=80') center/cover;
+            box-shadow: var(--shadow-xl);
+            border: 8px solid white;
+        }
+
+        .mc-hero-float {
+            position: absolute;
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 3;
+        }
+
+        .mc-hero-float-1 {
+            top: 30px;
+            right: 0;
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        .mc-hero-float-2 {
+            bottom: 60px;
+            left: 0;
+            animation: floatCard 4s ease-in-out infinite 1s;
+        }
+
+        .mc-hero-float-3 {
+            bottom: 200px;
+            right: 20px;
+            animation: floatCard 4s ease-in-out infinite 2s;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .mc-hero-float .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .mc-hero-float-1 .icon { background: #FCE7F3; color: var(--primary); }
+        .mc-hero-float-2 .icon { background: #DCFCE7; color: var(--success); }
+        .mc-hero-float-3 .icon { background: #E0F2FE; color: var(--secondary); }
+
+        .mc-hero-float .text h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+
+        .mc-hero-float .text p {
+            font-size: 11.5px;
+            color: var(--gray-500);
+        }
+
+        /* ===== QUICK BOOKING WIDGET ===== */
+        .mc-quick-book {
+            max-width: 1280px;
+            margin: -50px auto 0;
+            padding: 0 32px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .mc-quick-book-inner {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-100);
+        }
+
+        .mc-quick-book-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mc-quick-book-header h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .mc-quick-book-header p {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-top: 2px;
+        }
+
+        .mc-tabs {
+            display: flex;
+            gap: 8px;
+            background: var(--gray-50);
+            padding: 4px;
+            border-radius: var(--radius-full);
+        }
+
+        .mc-tab {
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mc-tab.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mc-quick-book-form {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr auto;
+            gap: 14px;
+            align-items: end;
+        }
+
+        .mc-field label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gray-700);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .mc-field-input {
+            position: relative;
+        }
+
+        .mc-field-input i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 15px;
+        }
+
+        .mc-field-input input,
+        .mc-field-input select {
+            width: 100%;
+            padding: 14px 14px 14px 44px;
+            background: var(--gray-50);
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            color: var(--gray-800);
+            font-family: inherit;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.3s;
+            appearance: none;
+        }
+
+        .mc-field-input select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23EC4899' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .mc-field-input input:focus,
+        .mc-field-input select:focus {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
+        }
+
+        .mc-quick-book-form .mc-btn {
+            height: 50px;
+            padding: 0 28px;
+        }
+
+        /* ===== STATS BAR ===== */
+        .mc-stats {
+            padding: 70px 0 40px;
+            background: var(--white);
+        }
+
+        .mc-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .mc-stat {
+            text-align: center;
+            padding: 28px 20px;
+            background: linear-gradient(135deg, #FFF1F2 0%, white 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--primary-soft);
+            transition: all 0.3s;
+        }
+
+        .mc-stat:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .mc-stat-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: var(--shadow-pink);
+        }
+
+        .mc-stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1;
+            margin-bottom: 6px;
+            letter-spacing: -1px;
+        }
+
+        .mc-stat-label {
+            font-size: 12px;
+            color: var(--gray-500);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* ===== SECTION COMMON ===== */
+        .mc-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .mc-section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 16px;
+            background: #FCE7F3; /* Pink bg */
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .mc-section-tag i { font-size: 10px; }
+
+        .mc-section-title {
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: 800;
+            color: var(--gray-900);
+            line-height: 1.15;
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+
+        .mc-section-title .accent {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .mc-section-desc {
+            font-size: 16px;
+            color: var(--gray-600);
+            max-width: 640px;
+            line-height: 1.75;
+        }
+
+        .mc-section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .mc-section-header .mc-section-desc { margin: 0 auto; }
+
+        /* ===== SPECIALTIES ===== */
+        .mc-specialties { background: var(--gray-50); }
+
+        .mc-specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .mc-specialty {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mc-specialty::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .mc-specialty:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-soft);
+        }
+
+        .mc-specialty:hover::before { transform: scaleX(1); }
+
+        .mc-specialty-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #FCE7F3 0%, #F0F9FF 100%);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+            transition: all 0.3s;
+        }
+
+        .mc-specialty:hover .mc-specialty-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .mc-specialty h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+
+        .mc-specialty p {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .mc-specialty-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .mc-specialty-count {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .mc-specialty-arrow {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #FCE7F3;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            transition: all 0.3s;
+        }
+
+        .mc-specialty:hover .mc-specialty-arrow {
+            background: var(--primary);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .mc-how { background: white; }
+
+        .mc-how-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .mc-how-grid::before {
+            content: '';
+            position: absolute;
+            top: 36px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-soft) 0%, var(--primary) 50%, var(--primary-soft) 100%);
+            z-index: 0;
+        }
+
+        .mc-how-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mc-how-num {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .mc-how-step:hover .mc-how-num {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .mc-how-num i {
+            font-size: 26px;
+            color: var(--primary);
+        }
+
+        .mc-how-num span {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-pink);
+        }
+
+        .mc-how-step h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .mc-how-step p {
+            font-size: 13.5px;
+            color: var(--gray-500);
+            line-height: 1.65;
+        }
+
+        /* ===== DOCTORS ===== */
+        .mc-doctors { background: var(--gray-50); }
+
+        .mc-doctors-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .mc-filter-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .mc-pill {
+            padding: 8px 18px;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-full);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .mc-pill.active,
+        .mc-pill:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .mc-doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .mc-doctor {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--gray-100);
+            transition: all 0.4s;
+        }
+
+        .mc-doctor:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-soft);
+        }
+
+        .mc-doctor-img {
+            height: 260px;
+            background-size: cover;
+            background-position: center top;
+            position: relative;
+        }
+
+        /* Gambar Dokter Wanita/Pria Ramah Anak */
+        .mc-doctor:nth-child(1) .mc-doctor-img { background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80'); }
+        .mc-doctor:nth-child(2) .mc-doctor-img { background-image: url('https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80'); }
+        .mc-doctor:nth-child(3) .mc-doctor-img { background-image: url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80'); }
+        .mc-doctor:nth-child(4) .mc-doctor-img { background-image: url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80'); }
+        .mc-doctor:nth-child(5) .mc-doctor-img { background-image: url('https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80'); }
+        .mc-doctor:nth-child(6) .mc-doctor-img { background-image: url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=600&q=80'); }
+        .mc-doctor:nth-child(7) .mc-doctor-img { background-image: url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=600&q=80'); }
+        .mc-doctor:nth-child(8) .mc-doctor-img { background-image: url('https://images.unsplash.com/photo-1638202830282-79a42d5d79b2?auto=format&fit=crop&w=600&q=80'); }
+
+        .mc-doctor-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: white;
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mc-doctor-online {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--success);
+            color: white;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .mc-doctor-online::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .mc-doctor-body {
+            padding: 22px;
+        }
+
+        .mc-doctor-body h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .mc-doctor-spec {
+            font-size: 12.5px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .mc-doctor-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-top: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--gray-100);
+            margin-bottom: 14px;
+        }
+
+        .mc-doctor-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+
+        .mc-doctor-meta-item i {
+            color: var(--primary);
+            font-size: 11px;
+        }
+
+        .mc-doctor-meta-item .rating {
+            color: var(--warning);
+        }
+
+        .mc-doctor-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .mc-doctor-actions .mc-btn {
+            padding: 9px 10px;
+            font-size: 12px;
+            justify-content: center;
+        }
+
+        /* ===== TELEMEDICINE ===== */
+        .mc-telemedicine {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mc-telemedicine::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .mc-telemedicine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 70px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mc-telemedicine-info .mc-section-tag {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .mc-telemedicine-info .mc-section-title {
+            color: white;
+        }
+
+        .mc-telemedicine-info .mc-section-desc {
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+        }
+
+        .mc-tele-features {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .mc-tele-feature {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .mc-tele-feature:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(6px);
+        }
+
+        .mc-tele-feature .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .mc-tele-feature h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .mc-tele-feature p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+        }
+
+        .mc-tele-visual {
+            position: relative;
+            height: 540px;
+        }
+
+        .mc-video-call {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mc-video-header {
+            padding: 16px 20px;
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mc-video-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mc-video-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80') center/cover;
+            border: 2px solid var(--success);
+        }
+
+        .mc-video-header-info h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .mc-video-header-info p {
+            font-size: 11px;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .mc-video-header-info p::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: var(--success);
+            border-radius: 50%;
+        }
+
+        .mc-video-quality {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mc-video-quality span {
+            padding: 3px 8px;
+            background: #FCE7F3;
+            color: var(--primary);
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .mc-video-main {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80') center/cover; /* Ibu dan bayi */
+            position: relative;
+            min-height: 300px;
+        }
+
+        .mc-video-pip {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 130px;
+            height: 100px;
+            background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80') center/cover;
+            border-radius: 12px;
+            border: 3px solid white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .mc-video-time {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .mc-video-controls {
+            padding: 18px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .mc-video-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--gray-50);
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mc-video-btn:hover { background: #FCE7F3; color: var(--primary); }
+
+        .mc-video-btn.end {
+            background: var(--danger);
+            color: white;
+            width: 54px;
+        }
+
+        .mc-video-btn.end:hover { background: #DC2626; }
+
+        /* ===== MEDICAL RECORDS ===== */
+        .mc-records { background: white; }
+
+        .mc-records-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .mc-records-info .mc-section-desc {
+            margin-bottom: 30px;
+        }
+
+        .mc-records-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .mc-record-feature {
+            display: flex;
+            gap: 12px;
+            padding: 14px;
+            background: #F0F9FF;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--secondary);
+        }
+
+        .mc-record-feature i {
+            color: var(--secondary);
+            font-size: 18px;
+            margin-top: 3px;
+        }
+
+        .mc-record-feature h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3px;
+        }
+
+        .mc-record-feature p {
+            font-size: 12px;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        .mc-record-preview {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-100);
+        }
+
+        .mc-record-preview-header {
+            padding: 20px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mc-record-preview-header h3 {
+            font-size: 17px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mc-record-preview-header .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .mc-record-preview-body { padding: 24px; }
+
+        .mc-record-patient {
+            display: flex;
+            gap: 14px;
+            padding: 16px;
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            margin-bottom: 18px;
+        }
+
+        .mc-record-patient-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80') center/cover;
+            border: 2px solid var(--primary-soft);
+        }
+
+        .mc-record-patient-info h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3px;
+        }
+
+        .mc-record-patient-info p {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .mc-record-tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mc-record-tab {
+            padding: 10px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-500);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            font-family: inherit;
+        }
+
+        .mc-record-tab.active {
+            color: var(--primary);
+        }
+
+        .mc-record-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .mc-record-item {
+            display: flex;
+            gap: 14px;
+            padding: 14px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-100);
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .mc-record-item:hover {
+            border-color: var(--primary-soft);
+            background: #FDF2F8;
+        }
+
+        .mc-record-item-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #FCE7F3;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .mc-record-item-info {
+            flex: 1;
+        }
+
+        .mc-record-item-info h5 {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3px;
+        }
+
+        .mc-record-item-info p {
+            font-size: 11.5px;
+            color: var(--gray-500);
+        }
+
+        .mc-record-item-action {
+            color: var(--primary);
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* ===== PAYMENT ===== */
+        .mc-payment {
+            background: var(--gray-50);
+        }
+
+        .mc-payment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .mc-payment-info .mc-section-desc {
+            margin-bottom: 28px;
+        }
+
+        .mc-payment-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .mc-payment-benefit {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .mc-payment-benefit .check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--success);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .mc-payment-benefit p {
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .mc-payment-benefit strong {
+            color: var(--gray-900);
+        }
+
+        .mc-payment-methods {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-100);
+        }
+
+        .mc-payment-methods h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mc-payment-methods h3 i {
+            color: var(--primary);
+        }
+
+        .mc-payment-group {
+            margin-bottom: 20px;
+        }
+
+        .mc-payment-group-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gray-500);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .mc-payment-logos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .mc-payment-logo {
+            padding: 14px 10px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius-sm);
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gray-700);
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .mc-payment-logo:hover {
+            border-color: var(--primary);
+            background: #FDF2F8;
+            transform: translateY(-2px);
+        }
+
+        .mc-payment-logo i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .mc-testimonials { background: white; }
+
+        .mc-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .mc-testimonial {
+            background: linear-gradient(135deg, #FDF2F8 0%, white 100%);
+            border: 1px solid var(--primary-soft);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .mc-testimonial:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .mc-testimonial-quote {
+            font-size: 54px;
+            color: var(--primary);
+            line-height: 0.5;
+            margin-bottom: 18px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .mc-testimonial-rating {
+            color: var(--warning);
+            font-size: 13px;
+            margin-bottom: 14px;
+            display: flex;
+            gap: 2px;
+        }
+
+        .mc-testimonial-text {
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.75;
+            margin-bottom: 22px;
+            font-style: italic;
+        }
+
+        .mc-testimonial-foot {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 18px;
+            border-top: 1px solid var(--primary-soft);
+        }
+
+        .mc-testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid var(--primary-soft);
+        }
+
+        .mc-testimonial:nth-child(1) .mc-testimonial-avatar { background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80'); }
+        .mc-testimonial:nth-child(2) .mc-testimonial-avatar { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'); }
+        .mc-testimonial:nth-child(3) .mc-testimonial-avatar { background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'); }
+
+        .mc-testimonial-info h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+
+        .mc-testimonial-info p {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .mc-testimonial-service {
+            margin-left: auto;
+            padding: 5px 10px;
+            background: #FCE7F3;
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-size: 10.5px;
+            font-weight: 700;
+        }
+
+        /* ===== FAQ ===== */
+        .mc-faq { background: var(--gray-50); }
+
+        .mc-faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .mc-faq-info .mc-section-desc {
+            margin-bottom: 24px;
+        }
+
+        .mc-faq-contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 26px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-pink);
+        }
+
+        .mc-faq-contact h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .mc-faq-contact p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .mc-faq-contact-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .mc-faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mc-faq-item {
+            background: white;
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .mc-faq-item.active {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mc-faq-question {
+            padding: 18px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mc-faq-question:hover { background: var(--gray-50); }
+
+        .mc-faq-question h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--gray-900);
+            flex: 1;
+            padding-right: 16px;
+        }
+
+        .mc-faq-item.active .mc-faq-question h4 { color: var(--primary); }
+
+        .mc-faq-toggle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #FCE7F3;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .mc-faq-item.active .mc-faq-toggle {
+            background: var(--primary);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .mc-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .mc-faq-answer-inner {
+            padding: 0 22px 22px;
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* ===== BLOG ===== */
+        .mc-blog { background: white; }
+
+        .mc-blog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .mc-blog-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 24px;
+        }
+
+        .mc-article {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--gray-100);
+            transition: all 0.4s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mc-article:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-soft);
+        }
+
+        .mc-article-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .mc-article.featured .mc-article-img { height: 320px; }
+
+        .mc-article:nth-child(1) .mc-article-img { background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=80'); }
+        .mc-article:nth-child(2) .mc-article-img { background-image: url('https://images.unsplash.com/photo-1544126566-47a3e6a983eb?auto=format&fit=crop&w=700&q=80'); }
+        .mc-article:nth-child(3) .mc-article-img { background-image: url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=700&q=80'); }
+
+        .mc-article-category {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: white;
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mc-article-body {
+            padding: 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mc-article-meta {
+            display: flex;
+            gap: 14px;
+            font-size: 11.5px;
+            color: var(--gray-500);
+            margin-bottom: 10px;
+        }
+
+        .mc-article-meta i { color: var(--primary); margin-right: 4px; }
+
+        .mc-article-body h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .mc-article.featured h3 { font-size: 22px; }
+
+        .mc-article-body p {
+            font-size: 13px;
+            color: var(--gray-500);
+            line-height: 1.65;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .mc-article-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s;
+        }
+
+        .mc-article-link:hover { gap: 12px; }
+
+        /* ===== CTA ===== */
+        .mc-cta {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mc-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .mc-cta-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .mc-cta h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .mc-cta p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .mc-cta-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== CONTACT ===== */
+        .mc-contact { background: var(--gray-50); }
+
+        .mc-contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 40px;
+        }
+
+        .mc-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .mc-contact-card {
+            background: white;
+            padding: 22px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+            display: flex;
+            gap: 14px;
+        }
+
+        .mc-contact-card:hover {
+            border-color: var(--primary-soft);
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mc-contact-card .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .mc-contact-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .mc-contact-card p {
+            font-size: 13px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .mc-contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .mc-contact-map {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 100%;
+            min-height: 500px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-100);
+        }
+
+        .mc-contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .mc-footer {
+            background: var(--gray-900);
+            color: rgba(255,255,255,0.75);
+            padding: 70px 0 0;
+        }
+
+        .mc-footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .mc-footer-brand .mc-logo-text h1 { color: white; }
+        .mc-footer-brand .mc-logo-text p { color: var(--primary-light); }
+
+        .mc-footer-brand > p {
+            font-size: 13.5px;
+            margin-top: 20px;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .mc-footer-socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .mc-footer-social {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .mc-footer-social:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .mc-footer-col h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .mc-footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .mc-footer-col ul { list-style: none; }
+        .mc-footer-col ul li { margin-bottom: 10px; }
+
+        .mc-footer-col ul li a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 13.5px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mc-footer-col ul li a:hover {
+            color: var(--primary-light);
+            padding-left: 4px;
+        }
+
+        .mc-footer-col ul li a i {
+            font-size: 9px;
+            color: var(--primary-light);
+        }
+
+        .mc-footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 13px;
+        }
+
+        .mc-footer-contact-item i {
+            color: var(--primary-light);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .mc-footer-certif {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .mc-certif-badge {
+            padding: 5px 11px;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 6px;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .mc-footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 32px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 12.5px;
+        }
+
+        .mc-footer-bottom p { color: rgba(255,255,255,0.5); }
+        .mc-footer-bottom a { color: var(--primary-light); text-decoration: none; }
+
+        .mc-footer-bottom-links {
+            display: flex;
+            gap: 22px;
+        }
+
+        .mc-footer-bottom-links a {
+            color: rgba(255,255,255,0.5);
+            transition: color 0.3s;
+        }
+
+        .mc-footer-bottom-links a:hover { color: var(--primary-light); }
+
+        /* ===== FLOATING ===== */
+        .mc-wa-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+        }
+
+        .mc-wa-float:hover { transform: scale(1.1) translateY(-3px); }
+
+        .mc-back-top {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 999;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            text-decoration: none;
+            box-shadow: var(--shadow-pink);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .mc-back-top.visible { opacity: 1; visibility: visible; }
+        .mc-back-top:hover { background: var(--primary-dark); }
+
+        /* ===== MODAL ===== */
+        .mc-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.75);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .mc-modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .mc-modal {
+            background: white;
+            border-radius: var(--radius-xl);
+            max-width: 640px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.4s;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .mc-modal-header {
+            padding: 22px 28px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mc-modal-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mc-modal-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .mc-modal-close:hover { background: rgba(255,255,255,0.3); }
+
+        .mc-modal-body {
+            padding: 28px;
+            overflow-y: auto;
+        }
+
+        .mc-steps-indicator {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .mc-step-dot {
+            flex: 1;
+            height: 4px;
+            background: var(--gray-200);
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
+
+        .mc-step-dot.active {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .mc-modal-step {
+            display: none;
+        }
+
+        .mc-modal-step.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .mc-modal-step h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+
+        .mc-modal-step > p {
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+
+        .mc-option-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mc-option {
+            padding: 14px;
+            background: var(--gray-50);
+            border: 2px solid transparent;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .mc-option:hover {
+            background: #FDF2F8;
+            border-color: var(--primary-soft);
+        }
+
+        .mc-option.selected {
+            background: #FDF2F8;
+            border-color: var(--primary);
+        }
+
+        .mc-option-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #FCE7F3;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .mc-option.selected .mc-option-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .mc-option h5 {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3px;
+        }
+
+        .mc-option p {
+            font-size: 11.5px;
+            color: var(--gray-500);
+        }
+
+        .mc-doctor-select {
+            padding: 14px;
+            background: var(--gray-50);
+            border: 2px solid transparent;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            gap: 14px;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .mc-doctor-select:hover {
+            background: #FDF2F8;
+            border-color: var(--primary-soft);
+        }
+
+        .mc-doctor-select.selected {
+            background: #FDF2F8;
+            border-color: var(--primary);
+        }
+
+        .mc-doctor-select-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center top;
+            border: 2px solid var(--primary-soft);
+            flex-shrink: 0;
+        }
+
+        .mc-doctor-select-info h5 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3px;
+        }
+
+        .mc-doctor-select-info p {
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+        }
+
+        .mc-doctor-select-price {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .mc-time-slots {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .mc-time-slot {
+            padding: 10px;
+            background: var(--gray-50);
+            border: 2px solid transparent;
+            border-radius: var(--radius-sm);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .mc-time-slot:hover { background: #FDF2F8; }
+        .mc-time-slot.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        .mc-time-slot.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        .mc-payment-option {
+            padding: 14px;
+            background: var(--gray-50);
+            border: 2px solid transparent;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .mc-payment-option:hover {
+            background: #FDF2F8;
+            border-color: var(--primary-soft);
+        }
+
+        .mc-payment-option.selected {
+            background: #FDF2F8;
+            border-color: var(--primary);
+        }
+
+        .mc-payment-option-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--primary);
+            flex-shrink: 0;
+            border: 1px solid var(--gray-200);
+        }
+
+        .mc-payment-option-info { flex: 1; }
+        .mc-payment-option-info h5 {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+        .mc-payment-option-info p {
+            font-size: 11.5px;
+            color: var(--gray-500);
+        }
+
+        .mc-modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .mc-modal-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .mc-modal-form .mc-field label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gray-700);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .mc-modal-form .mc-field-input input,
+        .mc-modal-form .mc-field-input select,
+        .mc-modal-form .mc-field-input textarea {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--gray-50);
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 13.5px;
+            color: var(--gray-800);
+            font-family: inherit;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .mc-modal-form .mc-field-input textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .mc-modal-form .mc-field-input input:focus,
+        .mc-modal-form .mc-field-input select:focus,
+        .mc-modal-form .mc-field-input textarea:focus {
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .mc-booking-summary {
+            background: #FDF2F8;
+            border: 1px solid var(--primary-soft);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .mc-booking-summary h5 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mc-booking-summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 6px 0;
+            color: var(--gray-600);
+        }
+
+        .mc-booking-summary-row strong { color: var(--gray-900); }
+
+        .mc-booking-summary-total {
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 1px dashed var(--primary-soft);
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mc-modal-actions {
+            display: flex;
+            gap: 10px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .mc-modal-actions .mc-btn {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .mc-success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--success) 0%, #34D399 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 15px 40px rgba(16,185,129,0.3);
+        }
+
+        .mc-success-content {
+            text-align: center;
+        }
+
+        .mc-success-content h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .mc-success-content > p {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: 24px;
+        }
+
+        .mc-booking-id {
+            background: #FDF2F8;
+            border: 1px dashed var(--primary);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+        }
+
+        .mc-booking-id p {
+            font-size: 11px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        .mc-booking-id strong {
+            font-size: 18px;
+            color: var(--primary-dark);
+            letter-spacing: 2px;
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mc-mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: var(--shadow-lg);
+            padding: 24px;
+            transform: translateY(-120%);
+            transition: transform 0.4s;
+            z-index: 998;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .mc-mobile-menu.active { transform: translateY(0); }
+        .mc-mobile-menu ul { list-style: none; }
+        .mc-mobile-menu ul li { padding: 14px 0; border-bottom: 1px solid var(--gray-100); }
+        .mc-mobile-menu ul li:last-child { border-bottom: none; }
+        .mc-mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-size: 15px;
+            font-weight: 600;
+            display: block;
+        }
+
+        /* ===== REVEAL ===== */
+        .mc-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mc-reveal.visible { opacity: 1; transform: translateY(0); }
+        .mc-reveal-delay-1 { transition-delay: 0.1s; }
+        .mc-reveal-delay-2 { transition-delay: 0.2s; }
+        .mc-reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .mc-hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .mc-hero-desc { margin: 0 auto 32px; }
+            .mc-hero-actions { justify-content: center; }
+            .mc-hero-trust { justify-content: center; }
+            .mc-hero-visual { height: 500px; max-width: 500px; margin: 40px auto 0; }
+            .mc-specialties-grid { grid-template-columns: repeat(2, 1fr); }
+            .mc-how-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .mc-how-grid::before { display: none; }
+            .mc-doctors-grid { grid-template-columns: repeat(2, 1fr); }
+            .mc-telemedicine-grid { grid-template-columns: 1fr; gap: 40px; }
+            .mc-tele-visual { height: 450px; }
+            .mc-records-grid { grid-template-columns: 1fr; gap: 40px; }
+            .mc-payment-grid { grid-template-columns: 1fr; gap: 40px; }
+            .mc-faq-grid { grid-template-columns: 1fr; gap: 40px; }
+            .mc-blog-grid { grid-template-columns: 1fr; }
+            .mc-contact-grid { grid-template-columns: 1fr; }
+            .mc-footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .mc-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .mc-testimonials-grid { grid-template-columns: 1fr; }
+            .mc-quick-book-form { grid-template-columns: 1fr 1fr; }
+            .mc-quick-book-form .mc-btn { grid-column: span 2; }
+        }
+
+        @media (max-width: 768px) {
+            .mc-topbar { display: none; }
+            .mc-nav-links { display: none; }
+            .mc-menu-toggle { display: block; }
+            .mc-nav-actions .mc-btn-outline { display: none; }
+            .mc-section { padding: 70px 0; }
+            .mc-specialties-grid { grid-template-columns: 1fr; }
+            .mc-how-grid { grid-template-columns: 1fr; }
+            .mc-doctors-grid { grid-template-columns: 1fr; }
+            .mc-quick-book-form { grid-template-columns: 1fr; }
+            .mc-quick-book-form .mc-btn { grid-column: span 1; }
+            .mc-footer-grid { grid-template-columns: 1fr; }
+            .mc-footer-bottom { flex-direction: column; text-align: center; }
+            .mc-hero-float { display: none; }
+            .mc-hero-float-1 { display: flex; }
+            .mc-records-features { grid-template-columns: 1fr; }
+            .mc-payment-logos { grid-template-columns: repeat(3, 1fr); }
+            .mc-option-grid { grid-template-columns: 1fr; }
+            .mc-time-slots { grid-template-columns: repeat(3, 1fr); }
+            .mc-modal-form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="mc-topbar">
+        <div class="mc-topbar-inner">
+            <div class="mc-topbar-left">
+                <span class="emergency"><i class="fas fa-phone-alt"></i> Emergency 24/7</span>
+                <span><i class="fas fa-phone"></i> +62 21 5555 8888</span>
+                <span><i class="fas fa-envelope"></i> info@rsiabundasiaga.id</span>
+                <span><i class="fas fa-map-marker-alt"></i> Jakarta · Bandung · Surabaya</span>
+            </div>
+            <div class="mc-topbar-right">
+                <a href="#"><i class="fas fa-user-md"></i> Portal Dokter</a>
+                <div class="mc-topbar-divider"></div>
+                <a href="#"><i class="fas fa-user"></i> Login Pasien</a>
+                <div class="mc-topbar-divider"></div>
+                <div class="mc-lang-switch">
+                    <i class="fas fa-globe"></i> ID / EN
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="mc-navbar" id="mcNavbar">
+        <div class="mc-navbar-inner">
+            <a href="#home" class="mc-logo">
+                <div class="mc-logo-mark"><i class="fas fa-baby"></i></div>
+                <div class="mc-logo-text">
+                    <h1>Bunda Siaga</h1>
+                    <p>Rumah Sakit Ibu & Anak</p>
+                </div>
+            </a>
+
+            <ul class="mc-nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#specialties">Layanan</a></li>
+                <li><a href="#doctors">Dokter</a></li>
+                <li><a href="#telemedicine">Telemedicine</a></li>
+                <li><a href="#records">Rekam Medis</a></li>
+                <li><a href="#blog">Artikel</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+
+            <div class="mc-nav-actions">
+                <a href="#" class="mc-btn mc-btn-ghost"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <button class="mc-btn mc-btn-primary" onclick="openBookingModal()">
+                    <i class="fas fa-calendar-check"></i> Booking Sekarang
+                </button>
+            </div>
+
+            <button class="mc-menu-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mc-mobile-menu" id="mcMobileMenu">
+        <ul>
+            <li><a href="#home" onclick="toggleMobileMenu()">Beranda</a></li>
+            <li><a href="#specialties" onclick="toggleMobileMenu()">Layanan</a></li>
+            <li><a href="#doctors" onclick="toggleMobileMenu()">Dokter</a></li>
+            <li><a href="#telemedicine" onclick="toggleMobileMenu()">Telemedicine</a></li>
+            <li><a href="#records" onclick="toggleMobileMenu()">Rekam Medis</a></li>
+            <li><a href="#blog" onclick="toggleMobileMenu()">Artikel Kesehatan</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Kontak</a></li>
+            <li><a href="#" onclick="toggleMobileMenu(); openBookingModal();" style="color: var(--primary);">Booking Sekarang</a></li>
+        </ul>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="mc-hero" id="home">
+        <div class="container">
+            <div class="mc-hero-inner">
+                <div class="mc-hero-text">
+                    <div class="mc-hero-badge">
+                        <span class="dot"></span>
+                        <span>Akreditasi Paripurna KARS · ISO 9001:2015</span>
+                    </div>
+                    <h1 class="mc-hero-title">
+                        Sahabat Terbaik<br>
+                        <span class="highlight">Ibu & Buah Hati</span>
+                    </h1>
+                    <p class="mc-hero-desc">
+                        Rumah Sakit Ibu dan Anak terdepan dengan fasilitas NICU lengkap, dokter spesialis kandungan & anak berpengalaman, serta layanan persalinan yang nyaman dan aman.
+                    </p>
+                    <div class="mc-hero-actions">
+                        <button class="mc-btn mc-btn-primary mc-btn-lg" onclick="openBookingModal()">
+                            <i class="fas fa-calendar-plus"></i> Buat Janji Temu
+                        </button>
+                        <a href="#telemedicine" class="mc-btn mc-btn-outline mc-btn-lg">
+                            <i class="fas fa-video"></i> Konsultasi Online
+                        </a>
+                    </div>
+
+                    <div class="mc-hero-trust">
+                        <div class="mc-trust-avatars">
+                            <div class="mc-trust-avatar"></div>
+                            <div class="mc-trust-avatar"></div>
+                            <div class="mc-trust-avatar"></div>
+                            <div class="mc-trust-avatar"></div>
+                        </div>
+                        <div class="mc-trust-info">
+                            <div class="rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <div class="text"><strong>4.9/5</strong> dari 15.000+ ibu puas</div>
+                        </div>
+                        <div class="mc-trust-divider"></div>
+                        <div class="mc-trust-item">
+                            <div class="num">50K+</div>
+                            <div class="lbl">Kelahiran</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-hero-visual">
+                    <div class="mc-hero-img-main"></div>
+
+                    <div class="mc-hero-float mc-hero-float-1">
+                        <div class="icon"><i class="fas fa-baby-carriage"></i></div>
+                        <div class="text">
+                            <h4>Fasilitas NICU Lengkap</h4>
+                            <p>Perawatan intensif bayi</p>
+                        </div>
+                    </div>
+
+                    <div class="mc-hero-float mc-hero-float-2">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="text">
+                            <h4>BPJS & Asuransi</h4>
+                            <p>Kerjasama 20+ asuransi</p>
+                        </div>
+                    </div>
+
+                    <div class="mc-hero-float mc-hero-float-3">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div class="text">
+                            <h4>IGD 24 Jam</h4>
+                            <p>Siap sedia kapan saja</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUICK BOOKING ===== -->
+    <div class="mc-quick-book">
+        <div class="mc-quick-book-inner">
+            <div class="mc-quick-book-header">
+                <div>
+                    <h3><i class="fas fa-bolt" style="color: var(--warning);"></i> Quick Booking</h3>
+                    <p>Jadwalkan pemeriksaan kehamilan atau anak dalam 30 detik!</p>
+                </div>
+                <div class="mc-tabs">
+                    <button class="mc-tab active"><i class="fas fa-hospital"></i> Klinik</button>
+                    <button class="mc-tab"><i class="fas fa-video"></i> Online</button>
+                    <button class="mc-tab"><i class="fas fa-flask"></i> Lab</button>
+                </div>
+            </div>
+
+            <form class="mc-quick-book-form" onsubmit="return handleQuickBook(event)">
+                <div class="mc-field">
+                    <label>Layanan</label>
+                    <div class="mc-field-input">
+                        <i class="fas fa-stethoscope"></i>
+                        <select required>
+                            <option value="">Pilih layanan...</option>
+                            <option>Pemeriksaan Kehamilan (ANC)</option>
+                            <option>Pemeriksaan Anak (Imunisasi/Tumbuh Kembang)</option>
+                            <option>Konsultasi Laktasi</option>
+                            <option>Kesehatan Gigi Anak</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mc-field">
+                    <label>Dokter</label>
+                    <div class="mc-field-input">
+                        <i class="fas fa-user-md"></i>
+                        <select required>
+                            <option value="">Pilih dokter...</option>
+                            <option>dr. Andini, Sp.OG</option>
+                            <option>dr. Budi, Sp.A</option>
+                            <option>dr. Citra, Sp.A</option>
+                            <option>dr. Dimas, Sp.OG</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mc-field">
+                    <label>Tanggal</label>
+                    <div class="mc-field-input">
+                        <i class="fas fa-calendar"></i>
+                        <input type="date" required>
+                    </div>
+                </div>
+
+                <div class="mc-field">
+                    <label>Jam</label>
+                    <div class="mc-field-input">
+                        <i class="fas fa-clock"></i>
+                        <select required>
+                            <option value="">Pilih jam...</option>
+                            <option>09:00</option>
+                            <option>10:00</option>
+                            <option>11:00</option>
+                            <option>14:00</option>
+                            <option>15:00</option>
+                            <option>16:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="mc-btn mc-btn-primary">
+                    <i class="fas fa-search"></i> Cari Jadwal
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== STATS ===== -->
+    <section class="mc-stats">
+        <div class="container">
+            <div class="mc-stats-grid">
+                <div class="mc-stat mc-reveal">
+                    <div class="mc-stat-icon"><i class="fas fa-user-md"></i></div>
+                    <div class="mc-stat-value" data-count="50">0+</div>
+                    <div class="mc-stat-label">Dokter Spesialis</div>
+                </div>
+                <div class="mc-stat mc-reveal mc-reveal-delay-1">
+                    <div class="mc-stat-icon"><i class="fas fa-baby"></i></div>
+                    <div class="mc-stat-value" data-count="50000">0+</div>
+                    <div class="mc-stat-label">Kelahiran Sukses</div>
+                </div>
+                <div class="mc-stat mc-reveal mc-reveal-delay-2">
+                    <div class="mc-stat-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="mc-stat-value" data-count="12">0</div>
+                    <div class="mc-stat-label">Layanan Unggulan</div>
+                </div>
+                <div class="mc-stat mc-reveal mc-reveal-delay-3">
+                    <div class="mc-stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="mc-stat-value" data-count="15">0</div>
+                    <div class="mc-stat-label">Tahun Melayani</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SPECIALTIES ===== -->
+    <section class="mc-section mc-specialties" id="specialties">
+        <div class="container">
+            <div class="mc-section-header mc-reveal">
+                <div class="mc-section-tag"><i class="fas fa-heart"></i> Layanan Kami</div>
+                <h2 class="mc-section-title">Layanan <span class="accent">Komprehensif</span><br>untuk Ibu & Anak</h2>
+                <p class="mc-section-desc">
+                    Dari masa perencanaan kehamilan, persalinan, hingga tumbuh kembang anak, kami hadir dengan layanan medis terbaik.
+                </p>
+            </div>
+
+            <div class="mc-specialties-grid">
+                <div class="mc-specialty mc-reveal">
+                    <div class="mc-specialty-icon"><i class="fas fa-female"></i></div>
+                    <h3>Spesialis Kandungan (ObGyn)</h3>
+                    <p>Pemeriksaan kehamilan, USG 4D, program hamil, dan persalinan normal/caesar.</p>
+                    <div class="mc-specialty-foot">
+                        <span class="mc-specialty-count">8 Dokter</span>
+                        <div class="mc-specialty-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="mc-specialty mc-reveal mc-reveal-delay-1">
+                    <div class="mc-specialty-icon"><i class="fas fa-baby"></i></div>
+                    <h3>Spesialis Anak (Pediatric)</h3>
+                    <p>Imunisasi lengkap, pemantauan tumbuh kembang, dan penanganan penyakit anak.</p>
+                    <div class="mc-specialty-foot">
+                        <span class="mc-specialty-count">10 Dokter</span>
+                        <div class="mc-specialty-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="mc-specialty mc-reveal mc-reveal-delay-2">
+                    <div class="mc-specialty-icon"><i class="fas fa-procedures"></i></div>
+                    <h3>NICU & PICU</h3>
+                    <p>Perawatan intensif untuk bayi baru lahir risiko tinggi dan anak sakit kritis.</p>
+                    <div class="mc-specialty-foot">
+                        <span class="mc-specialty-count">24 Jam</span>
+                        <div class="mc-specialty-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="mc-specialty mc-reveal mc-reveal-delay-3">
+                    <div class="mc-specialty-icon"><i class="fas fa-tooth"></i></div>
+                    <h3>Gigi Anak</h3>
+                    <p>Perawatan gigi khusus anak, pencegahan karies, dan edukasi kesehatan mulut.</p>
+                    <div class="mc-specialty-foot">
+                        <span class="mc-specialty-count">4 Dokter</span>
+                        <div class="mc-specialty-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="mc-specialty mc-reveal">
+                    <div class="mc-specialty-icon"><i class="fas fa-apple-alt"></i></div>
+                    <h3>Konsultasi Laktasi & Gizi</h3>
+                    <p>Bimbingan menyusui (ASI), MPASI, dan nutrisi untuk ibu hamil & anak.</p>
+                    <div class="mc-specialty-foot">
+                        <span class="mc-specialty-count">3 Ahli</span>
+                        <div class="mc-specialty-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="mc-specialty mc-reveal mc-reveal-delay-1">
+                    <div class="mc-specialty-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Tumbuh Kembang Anak</h3>
+                    <p>Deteksi dini autisme, ADHD, keterlambatan bicara, dan stimulasi dini.</p>
+                    <div class="mc-specialty-foot">
+                        <span class="mc-specialty-count">3 Dokter</span>
+                        <div class="mc-specialty-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="mc-specialty mc-reveal mc-reveal-delay-2">
+                    <div class="mc-specialty-icon"><i class="fas fa-syringe"></i></div>
+                    <h3>Imunisasi</h3>
+                    <p>Lengkap dengan vaksin dasar dan tambahan sesuai jadwal IDAI.</p>
+                    <div class="mc-specialty-foot">
+                        <span class="mc-specialty-count">Tersedia</span>
+                        <div class="mc-specialty-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="mc-specialty mc-reveal mc-reveal-delay-3">
+                    <div class="mc-specialty-icon"><i class="fas fa-x-ray"></i></div>
+                    <h3>Radiologi & USG</h3>
+                    <p>USG Kehamilan 2D/3D/4D, Rontgen, dan pemeriksaan diagnostik lainnya.</p>
+                    <div class="mc-specialty-foot">
+                        <span class="mc-specialty-count">Modern</span>
+                        <div class="mc-specialty-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="mc-section mc-how">
+        <div class="container">
+            <div class="mc-section-header mc-reveal">
+                <div class="mc-section-tag"><i class="fas fa-list-ol"></i> Cara Booking</div>
+                <h2 class="mc-section-title">4 Langkah Mudah<br><span class="accent">Booking Online</span></h2>
+                <p class="mc-section-desc">
+                    Tidak perlu antri panjang — cukup 4 langkah sederhana dan Anda siap konsultasi dengan dokter pilihan.
+                </p>
+            </div>
+
+            <div class="mc-how-grid">
+                <div class="mc-how-step mc-reveal">
+                    <div class="mc-how-num">
+                        <i class="fas fa-search"></i>
+                        <span>1</span>
+                    </div>
+                    <h3>Pilih Layanan</h3>
+                    <p>Pilih layanan Obgyn, Anak, Imunisasi, atau USG sesuai kebutuhan.</p>
+                </div>
+
+                <div class="mc-how-step mc-reveal mc-reveal-delay-1">
+                    <div class="mc-how-num">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>2</span>
+                    </div>
+                    <h3>Tentukan Jadwal</h3>
+                    <p>Pilih tanggal & jam yang sesuai dari slot waktu yang tersedia.</p>
+                </div>
+
+                <div class="mc-how-step mc-reveal mc-reveal-delay-2">
+                    <div class="mc-how-num">
+                        <i class="fas fa-credit-card"></i>
+                        <span>3</span>
+                    </div>
+                    <h3>Bayar Online</h3>
+                    <p>Pembayaran aman via kartu, e-wallet, transfer bank, atau BPJS.</p>
+                </div>
+
+                <div class="mc-how-step mc-reveal mc-reveal-delay-3">
+                    <div class="mc-how-num">
+                        <i class="fas fa-check-circle"></i>
+                        <span>4</span>
+                    </div>
+                    <h3>Kunjungan</h3>
+                    <p>Datang tepat waktu ke klinik atau konsultasi online dari rumah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOCTORS ===== -->
+    <section class="mc-section mc-doctors" id="doctors">
+        <div class="container">
+            <div class="mc-doctors-header">
+                <div class="mc-reveal">
+                    <div class="mc-section-tag"><i class="fas fa-user-md"></i> Tim Dokter</div>
+                    <h2 class="mc-section-title">Dokter <span class="accent">Spesialis Terbaik</span></h2>
+                    <p class="mc-section-desc">Profesional bersertifikat dengan pengalaman internasional siap melayani Ibu & Anak.</p>
+                </div>
+                <div class="mc-filter-pills">
+                    <button class="mc-pill active">Semua</button>
+                    <button class="mc-pill">Kandungan</button>
+                    <button class="mc-pill">Anak</button>
+                    <button class="mc-pill">Gigi Anak</button>
+                </div>
+            </div>
+
+            <div class="mc-doctors-grid">
+                <div class="mc-doctor mc-reveal">
+                    <div class="mc-doctor-img">
+                        <span class="mc-doctor-badge">Sp.OG</span>
+                        <span class="mc-doctor-online">Online</span>
+                    </div>
+                    <div class="mc-doctor-body">
+                        <h3>dr. Andini Pratiwi, Sp.OG</h3>
+                        <div class="mc-doctor-spec">Spesialis Kandungan</div>
+                        <div class="mc-doctor-meta">
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-star rating"></i> 4.9 (320)
+                            </div>
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-briefcase"></i> 12 thn
+                            </div>
+                        </div>
+                        <div class="mc-doctor-actions">
+                            <button class="mc-btn mc-btn-outline" style="padding: 9px;">Profile</button>
+                            <button class="mc-btn mc-btn-primary" onclick="openBookingModal('dr. Andini Pratiwi, Sp.OG')" style="padding: 9px;">Booking</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-doctor mc-reveal mc-reveal-delay-1">
+                    <div class="mc-doctor-img">
+                        <span class="mc-doctor-badge">Sp.A</span>
+                        <span class="mc-doctor-online">Online</span>
+                    </div>
+                    <div class="mc-doctor-body">
+                        <h3>dr. Budi Santoso, Sp.A</h3>
+                        <div class="mc-doctor-spec">Spesialis Anak</div>
+                        <div class="mc-doctor-meta">
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-star rating"></i> 4.8 (245)
+                            </div>
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-briefcase"></i> 18 thn
+                            </div>
+                        </div>
+                        <div class="mc-doctor-actions">
+                            <button class="mc-btn mc-btn-outline" style="padding: 9px;">Profile</button>
+                            <button class="mc-btn mc-btn-primary" onclick="openBookingModal('dr. Budi Santoso, Sp.A')" style="padding: 9px;">Booking</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-doctor mc-reveal mc-reveal-delay-2">
+                    <div class="mc-doctor-img">
+                        <span class="mc-doctor-badge">Sp.A</span>
+                    </div>
+                    <div class="mc-doctor-body">
+                        <h3>dr. Citra Dewi, Sp.A</h3>
+                        <div class="mc-doctor-spec">Spesialis Anak (Tumbuh Kembang)</div>
+                        <div class="mc-doctor-meta">
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-star rating"></i> 4.9 (180)
+                            </div>
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-briefcase"></i> 10 thn
+                            </div>
+                        </div>
+                        <div class="mc-doctor-actions">
+                            <button class="mc-btn mc-btn-outline" style="padding: 9px;">Profile</button>
+                            <button class="mc-btn mc-btn-primary" onclick="openBookingModal('dr. Citra Dewi, Sp.A')" style="padding: 9px;">Booking</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-doctor mc-reveal mc-reveal-delay-3">
+                    <div class="mc-doctor-img">
+                        <span class="mc-doctor-badge">Sp.OG</span>
+                        <span class="mc-doctor-online">Online</span>
+                    </div>
+                    <div class="mc-doctor-body">
+                        <h3>dr. Dimas Wicaksono, Sp.OG</h3>
+                        <div class="mc-doctor-spec">Spesialis Kandungan (Fertilitas)</div>
+                        <div class="mc-doctor-meta">
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-star rating"></i> 4.9 (410)
+                            </div>
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-briefcase"></i> 15 thn
+                            </div>
+                        </div>
+                        <div class="mc-doctor-actions">
+                            <button class="mc-btn mc-btn-outline" style="padding: 9px;">Profile</button>
+                            <button class="mc-btn mc-btn-primary" onclick="openBookingModal('dr. Dimas Wicaksono, Sp.OG')" style="padding: 9px;">Booking</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-doctor mc-reveal">
+                    <div class="mc-doctor-img">
+                        <span class="mc-doctor-badge">drg.</span>
+                    </div>
+                    <div class="mc-doctor-body">
+                        <h3>drg. Eka Putri, Sp.KGA</h3>
+                        <div class="mc-doctor-spec">Spesialis Gigi Anak</div>
+                        <div class="mc-doctor-meta">
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-star rating"></i> 4.8 (290)
+                            </div>
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-briefcase"></i> 8 thn
+                            </div>
+                        </div>
+                        <div class="mc-doctor-actions">
+                            <button class="mc-btn mc-btn-outline" style="padding: 9px;">Profile</button>
+                            <button class="mc-btn mc-btn-primary" onclick="openBookingModal('drg. Eka Putri, Sp.KGA')" style="padding: 9px;">Booking</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-doctor mc-reveal mc-reveal-delay-1">
+                    <div class="mc-doctor-img">
+                        <span class="mc-doctor-badge">Sp.OG</span>
+                        <span class="mc-doctor-online">Online</span>
+                    </div>
+                    <div class="mc-doctor-body">
+                        <h3>dr. Farhan Rahman, Sp.OG</h3>
+                        <div class="mc-doctor-spec">Spesialis Onkologi Kebidanan</div>
+                        <div class="mc-doctor-meta">
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-star rating"></i> 4.9 (520)
+                            </div>
+                            <div class="mc-doctor-meta-item">
+                                <i class="fas fa-briefcase"></i> 11 thn
+                            </div>
+                        </div>
+                        <div class="mc-doctor-actions">
+                            <button class="mc-btn mc-btn-outline" style="padding: 9px;">Profile</button>
+                            <button class="mc-btn mc-btn-primary" onclick="openBookingModal('dr. Farhan Rahman, Sp.OG')" style="padding: 9px;">Booking</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TELEMEDICINE ===== -->
+    <section class="mc-section mc-telemedicine" id="telemedicine">
+        <div class="container">
+            <div class="mc-telemedicine-grid">
+                <div class="mc-telemedicine-info mc-reveal">
+                    <div class="mc-section-tag"><i class="fas fa-video"></i> Telemedicine 24/7</div>
+                    <h2 class="mc-section-title">Konsultasi Dokter<br>dari <span style="color: var(--cyan-light);">Rumah</span></h2>
+                    <p class="mc-section-desc">
+                        Khawatir dengan kondisi si kecil atau keluhan kehamilan? Konsultasikan langsung dengan dokter spesialis via video call HD yang aman dan privat.
+                    </p>
+
+                    <div class="mc-tele-features">
+                        <div class="mc-tele-feature">
+                            <div class="icon"><i class="fas fa-video"></i></div>
+                            <div>
+                                <h4>Video Call HD</h4>
+                                <p>Kualitas video jernih dengan enkripsi end-to-end untuk privasi.</p>
+                            </div>
+                        </div>
+                        <div class="mc-tele-feature">
+                            <div class="icon"><i class="fas fa-file-prescription"></i></div>
+                            <div>
+                                <h4>Resep Digital</h4>
+                                <p>Dapat resep elektronik yang bisa ditebus di apotek partner.</p>
+                            </div>
+                        </div>
+                        <div class="mc-tele-feature">
+                            <div class="icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h4>Tersedia 24/7</h4>
+                                <p>Dokter umum & spesialis siap melayani kapan saja.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="mc-btn mc-btn-cyan mc-btn-lg" onclick="openBookingModal()">
+                        <i class="fas fa-video"></i> Mulai Telekonsultasi — Rp 75.000
+                    </button>
+                </div>
+
+                <div class="mc-tele-visual mc-reveal">
+                    <div class="mc-video-call">
+                        <div class="mc-video-header">
+                            <div class="mc-video-header-left">
+                                <div class="mc-video-avatar"></div>
+                                <div class="mc-video-header-info">
+                                    <h4>dr. Andini Pratiwi, Sp.OG</h4>
+                                    <p>Live · Terhubung</p>
+                                </div>
+                            </div>
+                            <div class="mc-video-quality">
+                                <span>HD</span>
+                                <span>🔒 E2E</span>
+                            </div>
+                        </div>
+                        <div class="mc-video-main">
+                            <div class="mc-video-time">● LIVE · 12:34</div>
+                            <div class="mc-video-pip"></div>
+                        </div>
+                        <div class="mc-video-controls">
+                            <button class="mc-video-btn"><i class="fas fa-microphone"></i></button>
+                            <button class="mc-video-btn"><i class="fas fa-video"></i></button>
+                            <button class="mc-video-btn"><i class="fas fa-comment-medical"></i></button>
+                            <button class="mc-video-btn"><i class="fas fa-expand"></i></button>
+                            <button class="mc-video-btn end"><i class="fas fa-phone-slash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MEDICAL RECORDS ===== -->
+    <section class="mc-section mc-records" id="records">
+        <div class="container">
+            <div class="mc-records-grid">
+                <div class="mc-records-info mc-reveal">
+                    <div class="mc-section-tag"><i class="fas fa-file-medical"></i> Rekam Medis Digital</div>
+                    <h2 class="mc-section-title">Pantau Tumbuh Kembang<br>dalam <span class="accent">Satu Aplikasi</span></h2>
+                    <p class="mc-section-desc">
+                        Akses rekam medis Ibu dan Anak kapan saja. Dari riwayat ANC, hasil USG, grafik pertumbuhan anak, hingga jadwal imunisasi — semua tersimpan aman.
+                    </p>
+
+                    <div class="mc-records-features">
+                        <div class="mc-record-feature">
+                            <i class="fas fa-history"></i>
+                            <div>
+                                <h4>Riwayat ANC</h4>
+                                <p>Catatan setiap kunjungan kehamilan</p>
+                            </div>
+                        </div>
+                        <div class="mc-record-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>Grafik Tumbuh Kembang</h4>
+                                <p>Pantau berat & tinggi badan anak</p>
+                            </div>
+                        </div>
+                        <div class="mc-record-feature">
+                            <i class="fas fa-flask"></i>
+                            <div>
+                                <h4>Hasil Lab & USG</h4>
+                                <p>Lihat & unduh hasil pemeriksaan</p>
+                            </div>
+                        </div>
+                        <div class="mc-record-feature">
+                            <i class="fas fa-syringe"></i>
+                            <div>
+                                <h4>Jadwal Imunisasi</h4>
+                                <p>Reminder otomatis jadwal vaksin</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="mc-btn mc-btn-primary mc-btn-lg">
+                        <i class="fas fa-mobile-alt"></i> Download Aplikasi
+                    </button>
+                </div>
+
+                <div class="mc-record-preview mc-reveal">
+                    <div class="mc-record-preview-header">
+                        <h3><i class="fas fa-file-medical-alt"></i> Medical Record</h3>
+                        <span class="badge">Verified</span>
+                    </div>
+                    <div class="mc-record-preview-body">
+                        <div class="mc-record-patient">
+                            <div class="mc-record-patient-avatar"></div>
+                            <div class="mc-record-patient-info">
+                                <h4>Ibu Siti Nurhaliza</h4>
+                                <p>ID: MC-2026-08421 · Hamil 28 Minggu · Gol. Darah: O+</p>
+                            </div>
+                        </div>
+
+                        <div class="mc-record-tabs">
+                            <button class="mc-record-tab active">Kunjungan</button>
+                            <button class="mc-record-tab">USG</button>
+                            <button class="mc-record-tab">Lab</button>
+                            <button class="mc-record-tab">Vaksin</button>
+                        </div>
+
+                        <div class="mc-record-item">
+                            <div class="mc-record-item-icon"><i class="fas fa-stethoscope"></i></div>
+                            <div class="mc-record-item-info">
+                                <h5>Kontrol Kehamilan Trimester 3</h5>
+                                <p>24 Jun 2026 · dr. Andini, Sp.OG</p>
+                            </div>
+                            <div class="mc-record-item-action"><i class="fas fa-chevron-right"></i></div>
+                        </div>
+
+                        <div class="mc-record-item">
+                            <div class="mc-record-item-icon"><i class="fas fa-image"></i></div>
+                            <div class="mc-record-item-info">
+                                <h5>Hasil USG 4D</h5>
+                                <p>20 Jun 2026 · Janin Sehat, Posisi Kepala</p>
+                            </div>
+                            <div class="mc-record-item-action"><i class="fas fa-download"></i></div>
+                        </div>
+
+                        <div class="mc-record-item">
+                            <div class="mc-record-item-icon"><i class="fas fa-prescription"></i></div>
+                            <div class="mc-record-item-info">
+                                <h5>Resep — Vitamin Kehamilan</h5>
+                                <p>24 Jun 2026 · 1x sehari</p>
+                            </div>
+                            <div class="mc-record-item-action"><i class="fas fa-eye"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAYMENT ===== -->
+    <section class="mc-section mc-payment">
+        <div class="container">
+            <div class="mc-payment-grid">
+                <div class="mc-payment-info mc-reveal">
+                    <div class="mc-section-tag"><i class="fas fa-credit-card"></i> Payment Gateway</div>
+                    <h2 class="mc-section-title">Pembayaran <span class="accent">Aman & Mudah</span></h2>
+                    <p class="mc-section-desc">
+                        Pilih metode pembayaran favorit Anda. Semua transaksi dilindungi enkripsi SSL & terverifikasi oleh OJK.
+                    </p>
+
+                    <div class="mc-payment-benefits">
+                        <div class="mc-payment-benefit">
+                            <div class="check"><i class="fas fa-check"></i></div>
+                            <p><strong>Enkripsi SSL 256-bit</strong> untuk semua transaksi data</p>
+                        </div>
+                        <div class="mc-payment-benefit">
+                            <div class="check"><i class="fas fa-check"></i></div>
+                            <p><strong>BPJS Kesehatan</strong> & 20+ asuransi swasta diterima</p>
+                        </div>
+                        <div class="mc-payment-benefit">
+                            <div class="check"><i class="fas fa-check"></i></div>
+                            <p><strong>Cicilan 0%</strong> hingga 12 bulan untuk paket persalinan</p>
+                        </div>
+                        <div class="mc-payment-benefit">
+                            <div class="check"><i class="fas fa-check"></i></div>
+                            <p><strong>Garansi refund</strong> jika pembatalan H-1 kunjungan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-payment-methods mc-reveal">
+                    <h3><i class="fas fa-wallet"></i> Metode Pembayaran</h3>
+
+                    <div class="mc-payment-group">
+                        <div class="mc-payment-group-title">E-Wallet</div>
+                        <div class="mc-payment-logos">
+                            <div class="mc-payment-logo"><i class="fas fa-wallet"></i> GoPay</div>
+                            <div class="mc-payment-logo"><i class="fas fa-wallet"></i> OVO</div>
+                            <div class="mc-payment-logo"><i class="fas fa-wallet"></i> DANA</div>
+                            <div class="mc-payment-logo"><i class="fas fa-wallet"></i> ShopeePay</div>
+                        </div>
+                    </div>
+
+                    <div class="mc-payment-group">
+                        <div class="mc-payment-group-title">Bank Transfer</div>
+                        <div class="mc-payment-logos">
+                            <div class="mc-payment-logo"><i class="fas fa-university"></i> BCA</div>
+                            <div class="mc-payment-logo"><i class="fas fa-university"></i> Mandiri</div>
+                            <div class="mc-payment-logo"><i class="fas fa-university"></i> BNI</div>
+                            <div class="mc-payment-logo"><i class="fas fa-university"></i> BRI</div>
+                        </div>
+                    </div>
+
+                    <div class="mc-payment-group">
+                        <div class="mc-payment-group-title">Asuransi & Lainnya</div>
+                        <div class="mc-payment-logos">
+                            <div class="mc-payment-logo"><i class="fas fa-heartbeat"></i> BPJS</div>
+                            <div class="mc-payment-logo"><i class="fas fa-shield-alt"></i> Prudential</div>
+                            <div class="mc-payment-logo"><i class="fas fa-shield-alt"></i> AIA</div>
+                            <div class="mc-payment-logo"><i class="fas fa-qrcode"></i> QRIS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="mc-section mc-testimonials">
+        <div class="container">
+            <div class="mc-section-header mc-reveal">
+                <div class="mc-section-tag"><i class="fas fa-quote-left"></i> Testimoni</div>
+                <h2 class="mc-section-title">Dipercaya <span class="accent">15.000+ Ibu</span></h2>
+                <p class="mc-section-desc">
+                    Pengalaman nyata dari para ibu yang telah mempercayakan persalinan dan kesehatan anaknya kepada kami.
+                </p>
+            </div>
+
+            <div class="mc-testimonials-grid">
+                <div class="mc-testimonial mc-reveal">
+                    <div class="mc-testimonial-quote">"</div>
+                    <div class="mc-testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="mc-testimonial-text">Proses persalinan saya sangat lancar berkat tim dokter dan bidan yang sigap. Fasilitas kamar bersalinnya juga sangat nyaman seperti di hotel. Terima kasih Bunda Siaga!</p>
+                    <div class="mc-testimonial-foot">
+                        <div class="mc-testimonial-avatar"></div>
+                        <div class="mc-testimonial-info">
+                            <h4>Ibu Sarah Wijaya</h4>
+                            <p>Pasien Persalinan · Jakarta</p>
+                        </div>
+                        <span class="mc-testimonial-service">Persalinan</span>
+                    </div>
+                </div>
+
+                <div class="mc-testimonial mc-reveal mc-reveal-delay-1">
+                    <div class="mc-testimonial-quote">"</div>
+                    <div class="mc-testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="mc-testimonial-text">Anak saya prematur dan butuh perawatan NICU. Alhamdulillah perawatannya sangat intensif dan dokternya selalu memberikan update kondisi bayi dengan jelas. Sangat profesional.</p>
+                    <div class="mc-testimonial-foot">
+                        <div class="mc-testimonial-avatar"></div>
+                        <div class="mc-testimonial-info">
+                            <h4>Bapak Rudi Hartono</h4>
+                            <p>Ayah Bayi Prematur · Bandung</p>
+                        </div>
+                        <span class="mc-testimonial-service">NICU</span>
+                    </div>
+                </div>
+
+                <div class="mc-testimonial mc-reveal mc-reveal-delay-2">
+                    <div class="mc-testimonial-quote">"</div>
+                    <div class="mc-testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="mc-testimonial-text">Aplikasi rekam medisnya sangat membantu. Saya bisa melihat grafik berat badan anak saya dan tidak lupa jadwal imunisasi karena ada reminder. Pelayanan 5 bintang!</p>
+                    <div class="mc-testimonial-foot">
+                        <div class="mc-testimonial-avatar"></div>
+                        <div class="mc-testimonial-info">
+                            <h4>Ibu Dewi Lestari</h4>
+                            <p>Ibu Rumah Tangga · Surabaya</p>
+                        </div>
+                        <span class="mc-testimonial-service">App</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="mc-section mc-faq">
+        <div class="container">
+            <div class="mc-faq-grid">
+                <div class="mc-faq-info mc-reveal">
+                    <div class="mc-section-tag"><i class="fas fa-question-circle"></i> FAQ</div>
+                    <h2 class="mc-section-title">Pertanyaan <span class="accent">Umum</span></h2>
+                    <p class="mc-section-desc">
+                        Jawaban untuk pertanyaan yang sering ditanyakan oleh pasien. Tidak menemukan jawaban? Hubungi tim kami.
+                    </p>
+
+                    <div class="mc-faq-contact">
+                        <h4><i class="fas fa-headset"></i> Butuh Bantuan?</h4>
+                        <p>Tim customer care kami siap membantu 24/7 untuk menjawab pertanyaan Anda.</p>
+                        <div class="mc-faq-contact-actions">
+                            <a href="https://wa.me/6281234567890" class="mc-btn mc-btn-white">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="tel:+622155558888" class="mc-btn mc-btn-ghost" style="color: white; border: 1px solid rgba(255,255,255,0.3);">
+                                <i class="fas fa-phone"></i> Call Center
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-faq-items mc-reveal">
+                    <div class="mc-faq-item active">
+                        <div class="mc-faq-question" onclick="toggleFaq(this)">
+                            <h4>Bagaimana cara booking janji temu online?</h4>
+                            <div class="mc-faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="mc-faq-answer" style="max-height: 200px;">
+                            <div class="mc-faq-answer-inner">
+                                Sangat mudah! Klik tombol "Booking Sekarang", pilih layanan (Obgyn/Anak), tentukan tanggal dan jam, isi data pasien, lalu bayar online. Anda akan menerima konfirmasi via SMS & email.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mc-faq-item">
+                        <div class="mc-faq-question" onclick="toggleFaq(this)">
+                            <h4>Apakah bisa menggunakan BPJS Kesehatan untuk persalinan?</h4>
+                            <div class="mc-faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="mc-faq-answer">
+                            <div class="mc-faq-answer-inner">
+                                Ya, RSIA Bunda Siaga adalah mitra resmi BPJS Kesehatan. Persalinan normal dan caesar (dengan indikasi medis) dapat ditanggung oleh BPJS dengan membawa kartu aktif dan surat rujukan dari Faskes 1.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mc-faq-item">
+                        <div class="mc-faq-question" onclick="toggleFaq(this)">
+                            <h4>Apa saja fasilitas di kamar bersalin?</h4>
+                            <div class="mc-faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="mc-faq-answer">
+                            <div class="mc-faq-answer-inner">
+                                Kami menyediakan berbagai kelas kamar dari Kelas 3 hingga VVIP. Semua kamar dilengkapi AC, TV, lemari, kamar mandi dalam, dan pendamping suami diperbolehkan (suami siaga).
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mc-faq-item">
+                        <div class="mc-faq-question" onclick="toggleFaq(this)">
+                            <h4>Apakah data rekam medis anak saya aman?</h4>
+                            <div class="mc-faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="mc-faq-answer">
+                            <div class="mc-faq-answer-inner">
+                                Sangat aman. Data rekam medis dilindungi dengan enkripsi AES-256, tersimpan di server lokal Indonesia yang bersertifikasi ISO 27001, dan sesuai dengan UU PDP.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG ===== -->
+    <section class="mc-section mc-blog" id="blog">
+        <div class="container">
+            <div class="mc-blog-header">
+                <div class="mc-reveal">
+                    <div class="mc-section-tag"><i class="fas fa-newspaper"></i> Health Blog</div>
+                    <h2 class="mc-section-title">Artikel <span class="accent">Kesehatan Ibu & Anak</span></h2>
+                    <p class="mc-section-desc">Tips, informasi medis, dan update kesehatan dari dokter-dokter kami.</p>
+                </div>
+                <a href="#blog" class="mc-btn mc-btn-outline mc-reveal">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="mc-blog-grid">
+                <article class="mc-article featured mc-reveal">
+                    <div class="mc-article-img">
+                        <span class="mc-article-category">Kehamilan</span>
+                    </div>
+                    <div class="mc-article-body">
+                        <div class="mc-article-meta">
+                            <span><i class="far fa-calendar"></i> 24 Jun 2026</span>
+                            <span><i class="far fa-clock"></i> 7 min</span>
+                        </div>
+                        <h3>10 Makanan Terbaik untuk Ibu Hamil Trimester Pertama agar Bebas Mual</h3>
+                        <p>Masa awal kehamilan seringkali diiringi rasa mual. Dokter gizi kami berbagi tips makanan yang tepat untuk menjaga nutrisi ibu dan janin...</p>
+                        <a href="#" class="mc-article-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="mc-article mc-reveal mc-reveal-delay-1">
+                    <div class="mc-article-img">
+                        <span class="mc-article-category">Parenting</span>
+                    </div>
+                    <div class="mc-article-body">
+                        <div class="mc-article-meta">
+                            <span><i class="far fa-calendar"></i> 20 Jun 2026</span>
+                            <span><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h3>Panduan MPASI Pertama: Kapan Mulai dan Apa Saja Bahannya?</h3>
+                        <p>Memasuki usia 6 bulan, bayi siap menerima makanan pendamping. Simak panduan lengkap dari ahli gizi kami...</p>
+                        <a href="#" class="mc-article-link">Baca <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="mc-article mc-reveal mc-reveal-delay-2">
+                    <div class="mc-article-img">
+                        <span class="mc-article-category">Tumbuh Kembang</span>
+                    </div>
+                    <div class="mc-article-body">
+                        <div class="mc-article-meta">
+                            <span><i class="far fa-calendar"></i> 15 Jun 2026</span>
+                            <span><i class="far fa-clock"></i> 6 min</span>
+                        </div>
+                        <h3>Stimulasi Dini untuk Meningkatkan Kecerdasan Otak Anak</h3>
+                        <p>Masa emas (golden age) hanya terjadi sekali. Lakukan stimulasi ini untuk memaksimalkan potensi si kecil...</p>
+                        <a href="#" class="mc-article-link">Baca <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="mc-cta">
+        <div class="mc-cta-inner">
+            <h2>Siap Memberikan Yang Terbaik untuk Buah Hati?</h2>
+            <p>Bergabunglah dengan 50.000+ keluarga yang telah mempercayakan kesehatannya kepada RSIA Bunda Siaga. Booking sekarang!</p>
+            <div class="mc-cta-actions">
+                <button class="mc-btn mc-btn-white mc-btn-lg" onclick="openBookingModal()">
+                    <i class="fas fa-calendar-check"></i> Booking Sekarang
+                </button>
+                <a href="https://wa.me/6281234567890" class="mc-btn mc-btn-ghost mc-btn-lg" style="color: white; border: 1.5px solid rgba(255,255,255,0.4);">
+                    <i class="fab fa-whatsapp"></i> Chat WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="mc-section mc-contact" id="contact">
+        <div class="container">
+            <div class="mc-section-header mc-reveal">
+                <div class="mc-section-tag"><i class="fas fa-map-marker-alt"></i> Kontak & Lokasi</div>
+                <h2 class="mc-section-title">Hubungi <span class="accent">Kami</span></h2>
+                <p class="mc-section-desc">
+                    Kunjungi klinik kami atau hubungi tim customer care untuk informasi lebih lanjut.
+                </p>
+            </div>
+
+            <div class="mc-contact-grid">
+                <div class="mc-contact-info mc-reveal">
+                    <div class="mc-contact-card">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>RSIA Bunda Siaga (HQ)</h4>
+                            <p>Jl. Sudirman Kav. 52-53<br>Jakarta Selatan 12190</p>
+                        </div>
+                    </div>
+
+                    <div class="mc-contact-card">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Telepon & WhatsApp</h4>
+                            <p>
+                                Call Center: <a href="tel:+622155558888">(021) 5555-8888</a><br>
+                                WhatsApp: <a href="https://wa.me/6281234567890">+62 812 3456 7890</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mc-contact-card">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>
+                                Umum: <a href="mailto:info@rsiabundasiaga.id">info@rsiabundasiaga.id</a><br>
+                                Partnership: <a href="mailto:partner@rsiabundasiaga.id">partner@rsiabundasiaga.id</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mc-contact-card">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>
+                                Poliklinik: Senin - Minggu · 08:00 - 21:00<br>
+                                IGD & Persalinan: <strong style="color: var(--danger);">24/7</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mc-contact-map mc-reveal">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.294!2d106.8229!3d-6.2254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTMnMzEuNCJTIDEwNsKwNDknMjIuNCJF!5e0!3m2!1sid!2sid!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="mc-footer">
+        <div class="mc-footer-grid">
+            <div class="mc-footer-brand">
+                <a href="#home" class="mc-logo">
+                    <div class="mc-logo-mark"><i class="fas fa-baby"></i></div>
+                    <div class="mc-logo-text">
+                        <h1>Bunda Siaga</h1>
+                        <p>Rumah Sakit Ibu & Anak</p>
+                    </div>
+                </a>
+                <p>Rumah Sakit Ibu dan Anak terdepan dengan fasilitas NICU lengkap, dokter spesialis kandungan & anak berpengalaman, serta layanan persalinan yang nyaman dan aman.</p>
+                <div class="mc-footer-socials">
+                    <a href="#" class="mc-footer-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="mc-footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="mc-footer-social" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="mc-footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/6281234567890" class="mc-footer-social" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="mc-footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#specialties"><i class="fas fa-chevron-right"></i> Spesialis Kandungan</a></li>
+                    <li><a href="#specialties"><i class="fas fa-chevron-right"></i> Spesialis Anak</a></li>
+                    <li><a href="#specialties"><i class="fas fa-chevron-right"></i> NICU & PICU</a></li>
+                    <li><a href="#specialties"><i class="fas fa-chevron-right"></i> Imunisasi</a></li>
+                    <li><a href="#specialties"><i class="fas fa-chevron-right"></i> USG 4D</a></li>
+                    <li><a href="#specialties"><i class="fas fa-chevron-right"></i> Paket Persalinan</a></li>
+                </ul>
+            </div>
+
+            <div class="mc-footer-col">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Karir</a></li>
+                    <li><a href="#blog"><i class="fas fa-chevron-right"></i> Health Blog</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Partnership</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="mc-footer-col">
+                <h4>Kontak</h4>
+                <div class="mc-footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Jl. Sudirman Kav. 52-53<br>Jakarta Selatan 12190</span>
+                </div>
+                <div class="mc-footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(021) 5555-8888</span>
+                </div>
+                <div class="mc-footer-contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>+62 812 3456 7890</span>
+                </div>
+                <div class="mc-footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@rsiabundasiaga.id</span>
+                </div>
+
+                <div class="mc-footer-certif">
+                    <span class="mc-certif-badge"><i class="fas fa-award"></i> KARS Paripurna</span>
+                    <span class="mc-certif-badge"><i class="fas fa-certificate"></i> ISO 9001</span>
+                    <span class="mc-certif-badge"><i class="fas fa-heartbeat"></i> BPJS Partner</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mc-footer-bottom">
+            <p>&copy; 2026 RSIA Bunda Siaga. All rights reserved. | Made with 💖 for better healthcare.</p>
+            <div class="mc-footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BOOKING MODAL ===== -->
+    <div class="mc-modal-overlay" id="mcBookingModal">
+        <div class="mc-modal">
+            <div class="mc-modal-header">
+                <h3><i class="fas fa-calendar-check"></i> <span id="mcModalTitle">Booking Janji Temu</span></h3>
+                <button class="mc-modal-close" onclick="closeBookingModal()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="mc-modal-body">
+                <div class="mc-steps-indicator">
+                    <div class="mc-step-dot active" data-step="1"></div>
+                    <div class="mc-step-dot" data-step="2"></div>
+                    <div class="mc-step-dot" data-step="3"></div>
+                    <div class="mc-step-dot" data-step="4"></div>
+                    <div class="mc-step-dot" data-step="5"></div>
+                </div>
+
+                <!-- Step 1: Pilih Layanan -->
+                <div class="mc-modal-step active" data-step="1">
+                    <h4>Pilih Layanan</h4>
+                    <p>Pilih jenis layanan medis yang Anda butuhkan.</p>
+
+                    <div class="mc-option-grid">
+                        <button class="mc-option" onclick="selectSpecialty(this, 'Pemeriksaan Kehamilan', 'Rp 250.000')">
+                            <div class="mc-option-icon"><i class="fas fa-female"></i></div>
+                            <h5>Pemeriksaan Kehamilan</h5>
+                            <p>ANC Rutin & USG</p>
+                        </button>
+                        <button class="mc-option" onclick="selectSpecialty(this, 'Pemeriksaan Anak', 'Rp 200.000')">
+                            <div class="mc-option-icon"><i class="fas fa-baby"></i></div>
+                            <h5>Pemeriksaan Anak</h5>
+                            <p>Sakit / Tumbuh Kembang</p>
+                        </button>
+                        <button class="mc-option" onclick="selectSpecialty(this, 'Imunisasi', 'Rp 150.000')">
+                            <div class="mc-option-icon"><i class="fas fa-syringe"></i></div>
+                            <h5>Imunisasi</h5>
+                            <p>Vaksin Dasar & Tambahan</p>
+                        </button>
+                        <button class="mc-option" onclick="selectSpecialty(this, 'Konsultasi Laktasi', 'Rp 175.000')">
+                            <div class="mc-option-icon"><i class="fas fa-apple-alt"></i></div>
+                            <h5>Konsultasi Laktasi</h5>
+                            <p>Bimbingan ASI</p>
+                        </button>
+                        <button class="mc-option" onclick="selectSpecialty(this, 'Gigi Anak', 'Rp 200.000')">
+                            <div class="mc-option-icon"><i class="fas fa-tooth"></i></div>
+                            <h5>Gigi Anak</h5>
+                            <p>Perawatan Gigi Si Kecil</p>
+                        </button>
+                        <button class="mc-option" onclick="selectSpecialty(this, 'Telemedicine', 'Rp 75.000')">
+                            <div class="mc-option-icon"><i class="fas fa-video"></i></div>
+                            <h5>Telemedicine</h5>
+                            <p>Konsultasi video online</p>
+                        </button>
+                    </div>
+
+                    <div class="mc-modal-actions">
+                        <button class="mc-btn mc-btn-outline" onclick="closeBookingModal()">Batal</button>
+                        <button class="mc-btn mc-btn-primary" onclick="nextStep(2)" id="btnStep1Next" disabled>Lanjut <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Pilih Dokter -->
+                <div class="mc-modal-step" data-step="2">
+                    <h4>Pilih Dokter</h4>
+                    <p>Pilih dokter yang akan menangani Anda.</p>
+
+                    <button class="mc-doctor-select" onclick="selectDoctor(this, 'dr. Andini Pratiwi, Sp.OG')">
+                        <div class="mc-doctor-select-avatar" style="background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80');"></div>
+                        <div class="mc-doctor-select-info">
+                            <h5>dr. Andini Pratiwi, Sp.OG</h5>
+                            <p>⭐ 4.9 · 12 thn pengalaman · Hari ini tersedia</p>
+                            <span class="mc-doctor-select-price" id="priceDisplay1">Rp 250.000</span>
+                        </div>
+                    </button>
+
+                    <button class="mc-doctor-select" onclick="selectDoctor(this, 'dr. Budi Santoso, Sp.A')">
+                        <div class="mc-doctor-select-avatar" style="background-image: url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=200&q=80');"></div>
+                        <div class="mc-doctor-select-info">
+                            <h5>dr. Budi Santoso, Sp.A</h5>
+                            <p>⭐ 4.8 · 18 thn pengalaman · Besok tersedia</p>
+                            <span class="mc-doctor-select-price" id="priceDisplay2">Rp 250.000</span>
+                        </div>
+                    </button>
+
+                    <button class="mc-doctor-select" onclick="selectDoctor(this, 'dr. Citra Dewi, Sp.A')">
+                        <div class="mc-doctor-select-avatar" style="background-image: url('https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&q=80');"></div>
+                        <div class="mc-doctor-select-info">
+                            <h5>dr. Citra Dewi, Sp.A</h5>
+                            <p>⭐ 4.9 · 10 thn pengalaman · Senin tersedia</p>
+                            <span class="mc-doctor-select-price" id="priceDisplay3">Rp 250.000</span>
+                        </div>
+                    </button>
+
+                    <div class="mc-modal-actions">
+                        <button class="mc-btn mc-btn-outline" onclick="prevStep(1)"><i class="fas fa-arrow-left"></i> Kembali</button>
+                        <button class="mc-btn mc-btn-primary" onclick="nextStep(3)" id="btnStep2Next" disabled>Lanjut <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Pilih Waktu -->
+                <div class="mc-modal-step" data-step="3">
+                    <h4>Pilih Tanggal & Jam</h4>
+                    <p>Pilih jadwal yang sesuai dengan waktu luang Anda.</p>
+
+                    <div class="mc-field" style="margin-bottom: 16px;">
+                        <label style="display: block; font-size: 11px; font-weight: 700; color: var(--gray-700); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;">Tanggal Kunjungan</label>
+                        <div class="mc-field-input">
+                            <i class="fas fa-calendar"></i>
+                            <input type="date" id="bookingDate" min="2026-06-27" required onchange="selectDate()">
+                        </div>
+                    </div>
+
+                    <label style="display: block; font-size: 11px; font-weight: 700; color: var(--gray-700); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;">Jam Tersedia</label>
+                    <div class="mc-time-slots">
+                        <button class="mc-time-slot" onclick="selectTime(this, '09:00')">09:00</button>
+                        <button class="mc-time-slot" onclick="selectTime(this, '09:30')">09:30</button>
+                        <button class="mc-time-slot" onclick="selectTime(this, '10:00')">10:00</button>
+                        <button class="mc-time-slot disabled">10:30</button>
+                        <button class="mc-time-slot" onclick="selectTime(this, '11:00')">11:00</button>
+                        <button class="mc-time-slot" onclick="selectTime(this, '11:30')">11:30</button>
+                        <button class="mc-time-slot disabled">13:00</button>
+                        <button class="mc-time-slot" onclick="selectTime(this, '14:00')">14:00</button>
+                        <button class="mc-time-slot" onclick="selectTime(this, '14:30')">14:30</button>
+                        <button class="mc-time-slot" onclick="selectTime(this, '15:00')">15:00</button>
+                        <button class="mc-time-slot disabled">15:30</button>
+                        <button class="mc-time-slot" onclick="selectTime(this, '16:00')">16:00</button>
+                    </div>
+
+                    <div class="mc-modal-actions">
+                        <button class="mc-btn mc-btn-outline" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Kembali</button>
+                        <button class="mc-btn mc-btn-primary" onclick="nextStep(4)" id="btnStep3Next" disabled>Lanjut <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Data Pasien -->
+                <div class="mc-modal-step" data-step="4">
+                    <h4>Data Pasien</h4>
+                    <p>Lengkapi informasi pasien untuk proses registrasi.</p>
+
+                    <form class="mc-modal-form" id="patientForm">
+                        <div class="mc-modal-form-row">
+                            <div class="mc-field">
+                                <label>Nama Lengkap *</label>
+                                <div class="mc-field-input">
+                                    <input type="text" id="pName" placeholder="Nama sesuai KTP" required>
+                                </div>
+                            </div>
+                            <div class="mc-field">
+                                <label>No. KTP / NIK *</label>
+                                <div class="mc-field-input">
+                                    <input type="text" id="pNik" placeholder="16 digit NIK" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mc-modal-form-row">
+                            <div class="mc-field">
+                                <label>Tanggal Lahir *</label>
+                                <div class="mc-field-input">
+                                    <input type="date" id="pDob" required>
+                                </div>
+                            </div>
+                            <div class="mc-field">
+                                <label>Jenis Kelamin *</label>
+                                <div class="mc-field-input">
+                                    <select id="pGender" required>
+                                        <option value="">Pilih...</option>
+                                        <option>Laki-laki</option>
+                                        <option>Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mc-modal-form-row">
+                            <div class="mc-field">
+                                <label>No. HP (WhatsApp) *</label>
+                                <div class="mc-field-input">
+                                    <input type="tel" id="pPhone" placeholder="08xxxxxxxxxx" required>
+                                </div>
+                            </div>
+                            <div class="mc-field">
+                                <label>Email *</label>
+                                <div class="mc-field-input">
+                                    <input type="email" id="pEmail" placeholder="email@domain.com" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mc-field">
+                            <label>Keluhan / Catatan</label>
+                            <div class="mc-field-input">
+                                <textarea id="pComplaint" placeholder="Ceritakan keluhan Anda secara singkat..."></textarea>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="mc-modal-actions">
+                        <button class="mc-btn mc-btn-outline" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Kembali</button>
+                        <button class="mc-btn mc-btn-primary" onclick="nextStep(5)" id="btnStep4Next">Lanjut ke Pembayaran <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Pembayaran -->
+                <div class="mc-modal-step" data-step="5">
+                    <h4>Konfirmasi & Pembayaran</h4>
+                    <p>Periksa detail booking dan pilih metode pembayaran.</p>
+
+                    <div class="mc-booking-summary">
+                        <h5><i class="fas fa-receipt"></i> Ringkasan Booking</h5>
+                        <div class="mc-booking-summary-row">
+                            <span>Layanan:</span>
+                            <strong id="summarySpecialty">-</strong>
+                        </div>
+                        <div class="mc-booking-summary-row">
+                            <span>Dokter:</span>
+                            <strong id="summaryDoctor">-</strong>
+                        </div>
+                        <div class="mc-booking-summary-row">
+                            <span>Jadwal:</span>
+                            <strong id="summarySchedule">-</strong>
+                        </div>
+                        <div class="mc-booking-summary-row">
+                            <span>Pasien:</span>
+                            <strong id="summaryPatient">-</strong>
+                        </div>
+                        <div class="mc-booking-summary-row">
+                            <span>Biaya Konsultasi:</span>
+                            <strong id="summaryPrice">Rp 0</strong>
+                        </div>
+                        <div class="mc-booking-summary-row">
+                            <span>Biaya Admin:</span>
+                            <strong>Rp 5.000</strong>
+                        </div>
+                        <div class="mc-booking-summary-total">
+                            <span>TOTAL:</span>
+                            <strong id="summaryTotal">Rp 0</strong>
+                        </div>
+                    </div>
+
+                    <label style="display: block; font-size: 11px; font-weight: 700; color: var(--gray-700); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;">Metode Pembayaran</label>
+
+                    <button class="mc-payment-option" onclick="selectPayment(this, 'GoPay')">
+                        <div class="mc-payment-option-icon"><i class="fas fa-wallet"></i></div>
+                        <div class="mc-payment-option-info">
+                            <h5>GoPay</h5>
+                            <p>Bayar dengan saldo GoPay</p>
+                        </div>
+                    </button>
+
+                    <button class="mc-payment-option" onclick="selectPayment(this, 'BCA Virtual Account')">
+                        <div class="mc-payment-option-icon"><i class="fas fa-university"></i></div>
+                        <div class="mc-payment-option-info">
+                            <h5>BCA Virtual Account</h5>
+                            <p>Transfer via ATM / m-Banking BCA</p>
+                        </div>
+                    </button>
+
+                    <button class="mc-payment-option" onclick="selectPayment(this, 'Mandiri Virtual Account')">
+                        <div class="mc-payment-option-icon"><i class="fas fa-university"></i></div>
+                        <div class="mc-payment-option-info">
+                            <h5>Mandiri Virtual Account</h5>
+                            <p>Transfer via Livin by Mandiri</p>
+                        </div>
+                    </button>
+
+                    <button class="mc-payment-option" onclick="selectPayment(this, 'Kartu Kredit/Debit')">
+                        <div class="mc-payment-option-icon"><i class="fab fa-cc-visa"></i></div>
+                        <div class="mc-payment-option-info">
+                            <h5>Kartu Kredit / Debit</h5>
+                            <p>Visa, Mastercard, JCB, Amex</p>
+                        </div>
+                    </button>
+
+                    <button class="mc-payment-option" onclick="selectPayment(this, 'QRIS')">
+                        <div class="mc-payment-option-icon"><i class="fas fa-qrcode"></i></div>
+                        <div class="mc-payment-option-info">
+                            <h5>QRIS</h5>
+                            <p>Scan QR dari aplikasi apapun</p>
+                        </div>
+                    </button>
+
+                    <div class="mc-modal-actions">
+                        <button class="mc-btn mc-btn-outline" onclick="prevStep(4)"><i class="fas fa-arrow-left"></i> Kembali</button>
+                        <button class="mc-btn mc-btn-primary" onclick="confirmBooking()" id="btnConfirm" disabled>
+                            <i class="fas fa-lock"></i> Bayar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Sukses -->
+                <div class="mc-modal-step" data-step="6">
+                    <div class="mc-success-content">
+                        <div class="mc-success-icon"><i class="fas fa-check"></i></div>
+                        <h3>Booking Berhasil!</h3>
+                        <p>Terima kasih. Konfirmasi telah dikirim ke email & WhatsApp Anda.</p>
+
+                        <div class="mc-booking-id">
+                            <p>Booking ID</p>
+                            <strong id="bookingIdDisplay">MC-2026-00000</strong>
+                        </div>
+
+                        <div class="mc-booking-summary">
+                            <div class="mc-booking-summary-row">
+                                <span>Dokter:</span>
+                                <strong id="finalDoctor">-</strong>
+                            </div>
+                            <div class="mc-booking-summary-row">
+                                <span>Jadwal:</span>
+                                <strong id="finalSchedule">-</strong>
+                            </div>
+                            <div class="mc-booking-summary-row">
+                                <span>Total Bayar:</span>
+                                <strong id="finalTotal">-</strong>
+                            </div>
+                        </div>
+
+                        <div class="mc-modal-actions">
+                            <button class="mc-btn mc-btn-outline" onclick="closeBookingModal()">Tutup</button>
+                            <button class="mc-btn mc-btn-primary" onclick="downloadTicket()">
+                                <i class="fas fa-download"></i> Download E-Ticket
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating -->
+    <a href="https://wa.me/6281234567890" class="mc-wa-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#home" class="mc-back-top" id="mcBackTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+<script>
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('mcNavbar');
+const backTop = document.getElementById('mcBackTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+        backTop.classList.add('visible');
+    } else {
+        navbar.classList.remove('scrolled');
+        backTop.classList.remove('visible');
+    }
+});
+
+// ===== MOBILE MENU =====
+function toggleMobileMenu() {
+    document.getElementById('mcMobileMenu').classList.toggle('active');
+}
+
+// ===== REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.mc-reveal').forEach(el => revealObserver.observe(el));
+
+// ===== COUNTER =====
+function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'));
+    const sup = el.innerHTML.includes('+') ? '+' : '';
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.innerHTML = Math.floor(current).toLocaleString('id-ID') + sup;
+    }, duration / steps);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+            entry.target.dataset.counted = 'true';
+            animateCounter(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const id = this.getAttribute('href');
+        if (id === '#') return;
+        const target = document.querySelector(id);
+        if (target) {
+            e.preventDefault();
+            window.scrollTo({
+                top: target.getBoundingClientRect().top + window.pageYOffset - 90,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ===== QUICK BOOK =====
+function handleQuickBook(e) {
+    e.preventDefault();
+    openBookingModal();
+    return false;
+}
+
+// ===== TABS =====
+document.querySelectorAll('.mc-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        this.parentElement.querySelectorAll('.mc-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+document.querySelectorAll('.mc-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+        document.querySelectorAll('.mc-pill').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+document.querySelectorAll('.mc-record-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        document.querySelectorAll('.mc-record-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// ===== FAQ =====
+function toggleFaq(el) {
+    const item = el.parentElement;
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.mc-faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.mc-faq-answer').style.maxHeight = '0';
+    });
+    if (!isActive) {
+        item.classList.add('active');
+        const answer = item.querySelector('.mc-faq-answer');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+}
+
+// ===== BOOKING MODAL =====
+let bookingData = {
+    specialty: '',
+    price: 0,
+    doctor: '',
+    date: '',
+    time: '',
+    payment: ''
+};
+
+function openBookingModal(doctorName) {
+    document.getElementById('mcBookingModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    resetModal();
+    if (doctorName) {
+        document.getElementById('mcModalTitle').textContent = 'Booking: ' + doctorName;
+    }
+}
+
+function closeBookingModal() {
+    document.getElementById('mcBookingModal').classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(resetModal, 300);
+}
+
+function resetModal() {
+    bookingData = { specialty: '', price: 0, doctor: '', date: '', time: '', payment: '' };
+    document.querySelectorAll('.mc-modal-step').forEach((s, i) => {
+        s.classList.toggle('active', i === 0);
+    });
+    document.querySelectorAll('.mc-step-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === 0);
+    });
+    document.querySelectorAll('.mc-option, .mc-doctor-select, .mc-time-slot, .mc-payment-option').forEach(el => el.classList.remove('selected'));
+    document.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+    document.querySelectorAll('[id^="btnStep"], #btnConfirm').forEach(btn => btn.disabled = true);
+}
+
+function selectSpecialty(el, name, price) {
+    document.querySelectorAll('.mc-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    bookingData.specialty = name;
+    bookingData.price = parseInt(price.replace(/\D/g, ''));
+    document.getElementById('btnStep1Next').disabled = false;
+    // Update price display
+    ['priceDisplay1', 'priceDisplay2', 'priceDisplay3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = price;
+    });
+}
+
+function selectDoctor(el, name) {
+    document.querySelectorAll('.mc-doctor-select').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    bookingData.doctor = name;
+    document.getElementById('btnStep2Next').disabled = false;
+}
+
+function selectDate() {
+    bookingData.date = document.getElementById('bookingDate').value;
+    checkStep3();
+}
+
+function selectTime(el, time) {
+    if (el.classList.contains('disabled')) return;
+    document.querySelectorAll('.mc-time-slot').forEach(t => t.classList.remove('selected'));
+    el.classList.add('selected');
+    bookingData.time = time;
+    checkStep3();
+}
+
+function checkStep3() {
+    document.getElementById('btnStep3Next').disabled = !(bookingData.date && bookingData.time);
+}
+
+function selectPayment(el, method) {
+    document.querySelectorAll('.mc-payment-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    bookingData.payment = method;
+    document.getElementById('btnConfirm').disabled = false;
+}
+
+function nextStep(step) {
+    // Validate step 4
+    if (step === 5) {
+        const name = document.getElementById('pName').value.trim();
+        const nik = document.getElementById('pNik').value.trim();
+        const dob = document.getElementById('pDob').value;
+        const gender = document.getElementById('pGender').value;
+        const phone = document.getElementById('pPhone').value.trim();
+        const email = document.getElementById('pEmail').value.trim();
+        if (!name || !nik || !dob || !gender || !phone || !email) {
+            alert('Mohon lengkapi semua data yang wajib diisi (*)');
+            return;
+        }
+        updateSummary();
+    }
+
+    document.querySelectorAll('.mc-modal-step').forEach(s => s.classList.remove('active'));
+    document.querySelector(`.mc-modal-step[data-step="${step}"]`).classList.add('active');
+
+    document.querySelectorAll('.mc-step-dot').forEach((d, i) => {
+        d.classList.toggle('active', i < step);
+    });
+}
+
+function prevStep(step) {
+    document.querySelectorAll('.mc-modal-step').forEach(s => s.classList.remove('active'));
+    document.querySelector(`.mc-modal-step[data-step="${step}"]`).classList.add('active');
+    document.querySelectorAll('.mc-step-dot').forEach((d, i) => {
+        d.classList.toggle('active', i < step);
+    });
+}
+
+function updateSummary() {
+    document.getElementById('summarySpecialty').textContent = bookingData.specialty;
+    document.getElementById('summaryDoctor').textContent = bookingData.doctor;
+    const dateObj = new Date(bookingData.date);
+    const formattedDate = dateObj.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('summarySchedule').textContent = `${formattedDate}, ${bookingData.time}`;
+    document.getElementById('summaryPatient').textContent = document.getElementById('pName').value;
+    document.getElementById('summaryPrice').textContent = 'Rp ' + bookingData.price.toLocaleString('id-ID');
+    const total = bookingData.price + 5000;
+    document.getElementById('summaryTotal').textContent = 'Rp ' + total.toLocaleString('id-ID');
+}
+
+function confirmBooking() {
+    const bookingId = 'MC-2026-' + Math.floor(10000 + Math.random() * 90000);
+    document.getElementById('bookingIdDisplay').textContent = bookingId;
+    document.getElementById('finalDoctor').textContent = bookingData.doctor;
+    const dateObj = new Date(bookingData.date);
+    const formattedDate = dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+    document.getElementById('finalSchedule').textContent = `${formattedDate}, ${bookingData.time}`;
+    document.getElementById('finalTotal').textContent = 'Rp ' + (bookingData.price + 5000).toLocaleString('id-ID');
+    nextStep(6);
+}
+
+function downloadTicket() {
+    alert('🎫 E-Ticket berhasil didownload!\n\nBooking ID: ' + document.getElementById('bookingIdDisplay').textContent + '\n\nFile akan tersimpan di folder Downloads. Tunjukkan e-ticket saat datang ke klinik.');
+}
+
+// Close modal on overlay click
+document.getElementById('mcBookingModal').addEventListener('click', function(e) {
+    if (e.target === this) closeBookingModal();
+});
+</script>
+
+</body>
+</html>
