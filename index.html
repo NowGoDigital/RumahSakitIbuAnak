@@ -248,25 +248,36 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 .mc-record-item .jam{font-size:11px;font-weight:800;color:var(--primary);background:var(--sky);padding:4px 10px;border-radius:var(--radius-full);white-space:nowrap}
 
 /* JADWAL */
-.mc-jadwal{background:var(--gray-50)}
-.mc-jadwal-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
-.mc-jadwal-benefits{display:flex;flex-direction:column;gap:14px}
-.mc-jadwal-benefit{display:flex;gap:14px;align-items:flex-start;padding:16px;background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius-md);transition:all .3s}
-.mc-jadwal-benefit:hover{border-color:var(--gold);transform:translateX(6px);box-shadow:var(--shadow-md)}
-.mc-jadwal-benefit .icon{width:46px;height:46px;border-radius:12px;background:var(--gold-light);color:var(--gold-dark);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.mc-jadwal-benefit h4{font-size:15px;font-weight:800;color:var(--gray-900);margin-bottom:2px}
-.mc-jadwal-benefit p{font-size:13px;color:var(--gray-500)}
-.mc-jadwal-card{background:#fff;border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-md);border:1px solid var(--gray-100);border-top:5px solid var(--primary)}
-.mc-jadwal-card h3{font-size:18px;font-weight:800;color:var(--gray-900);margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.mc-jadwal-card h3 i{color:var(--primary)}
-.mc-jadwal-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 6px;border-bottom:1px dashed var(--gray-200);font-size:14px}
-.mc-jadwal-row:last-child{border-bottom:none}
-.mc-jadwal-row .layanan{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--gray-800)}
-.mc-jadwal-row .layanan i{color:var(--primary);width:20px;text-align:center}
-.mc-jadwal-row .jam{font-weight:800;font-size:12.5px;padding:6px 14px;border-radius:var(--radius-full);background:var(--sky);color:var(--primary);white-space:nowrap}
+.mc-jadwal{background:var(--gray-50);position:relative;overflow:hidden}
+.mc-jadwal::before{content:'';position:absolute;top:-160px;left:-160px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(11,93,78,.07) 0%,transparent 70%);pointer-events:none}
+.mc-jadwal::after{content:'';position:absolute;bottom:-160px;right:-160px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,28,.12) 0%,transparent 70%);pointer-events:none}
+.mc-jadwal .container{position:relative;z-index:1}
+.mc-jadwal .mc-section-header{margin-bottom:46px}
+.mc-jadwal-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+/* Kolom kiri — keunggulan minimalis */
+.mc-jadwal-benefits{display:flex;flex-direction:column}
+.mc-jadwal-benefits::before{content:'Kenapa Memilih Kami?';display:block;font-size:19px;font-weight:800;color:var(--gray-900);letter-spacing:-.3px;margin-bottom:10px;padding-left:14px;background:linear-gradient(var(--gold),var(--gold)) left center/4px 20px no-repeat}
+.mc-jadwal-benefit{display:flex;gap:16px;align-items:center;padding:17px 4px;background:transparent;border:none;border-bottom:1px solid var(--gray-200);border-radius:0;transition:all .3s}
+.mc-jadwal-benefit:last-child{border-bottom:none}
+.mc-jadwal-benefit:hover{transform:translateX(6px)}
+.mc-jadwal-benefit .icon{width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid var(--gray-200);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;box-shadow:var(--shadow-sm);transition:all .3s}
+.mc-jadwal-benefit:hover .icon{background:linear-gradient(135deg,var(--gold) 0%,#FFD84D 100%);border-color:var(--gold);color:var(--primary-dark);box-shadow:var(--shadow-gold)}
+.mc-jadwal-benefit h4{font-size:14.5px;font-weight:800;color:var(--gray-900);margin-bottom:2px}
+.mc-jadwal-benefit p{font-size:12.5px;color:var(--gray-500)}
+/* Kolom kanan — kartu jadwal ramping */
+.mc-jadwal-card{background:#fff;border-radius:var(--radius-xl);padding:26px 28px;box-shadow:var(--shadow-md);border:1px solid var(--gray-100);position:relative;overflow:hidden}
+.mc-jadwal-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--primary) 0%,var(--gold) 100%)}
+.mc-jadwal-card h3{font-size:16px;font-weight:800;color:var(--gray-900);margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:10px}
+.mc-jadwal-card h3 i{width:34px;height:34px;border-radius:10px;background:var(--sky);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:14px}
+.mc-jadwal-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:11px 4px;border-bottom:1px dashed var(--gray-200);font-size:13.5px;transition:all .25s}
+.mc-jadwal-row:hover{padding-left:10px}
+.mc-jadwal-row .layanan{display:flex;align-items:center;gap:11px;font-weight:700;color:var(--gray-700);transition:color .25s}
+.mc-jadwal-row:hover .layanan{color:var(--primary)}
+.mc-jadwal-row .layanan i{color:var(--primary-soft);width:18px;text-align:center;font-size:13px}
+.mc-jadwal-row .jam{font-weight:800;font-size:11.5px;padding:5px 12px;border-radius:var(--radius-full);background:var(--sky);color:var(--primary);white-space:nowrap}
 .mc-jadwal-row .jam.red{background:var(--red-light);color:var(--red)}
 .mc-jadwal-row .jam.gold{background:var(--gold-light);color:var(--gold-dark)}
-.mc-jadwal-note{margin-top:16px;font-size:12px;color:var(--gray-500);background:var(--gold-light);border-radius:var(--radius-md);padding:12px 14px;display:flex;gap:8px;align-items:flex-start}
+.mc-jadwal-note{margin-top:14px;font-size:11.5px;color:var(--gray-500);background:var(--gold-light);border-radius:var(--radius-md);padding:11px 14px;display:flex;gap:8px;align-items:flex-start;line-height:1.6}
 .mc-jadwal-note i{color:var(--gold-dark);margin-top:2px}
 
 /* TIM */
