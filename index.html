@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klinik Keluarga Anda — Ramah, Jujur, Disiplin dan Bertanggungjawab</title>
-<meta name="description" content="Klinik Keluarga Anda Lombok Barat — UGD 24 Jam, Rawat Inap, Dokter Umum, Poli Gigi, Persalinan KIA & KB, Apotek, Laboratorium, Ambulan. Sehat Bersama Kami, Aman & Nyaman untuk Anda.">
+<title>Klinik Gumitri Medika — Ramah, Jujur, Disiplin dan Bertanggungjawab</title>
+<meta name="description" content="Klinik Gumitri Medika Lombok Barat — UGD 24 Jam, Rawat Inap, Dokter Umum, Poli Gigi, Persalinan KIA & KB, Apotek, Laboratorium, Ambulan. Sehat Bersama Kami, Aman & Nyaman untuk Anda.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -106,7 +106,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 @keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @media (max-width:1024px){
   .mc-hero{padding:32px 0 80px}
-  .mc-hero-inner{grid-template-columns:1fr;gap:56px;text-align:center}
+  .mc-hero-inner{grid-template-columns:1fr;text-align:center}
   .mc-hero-desc{margin:0 auto 32px}
   .mc-hero-actions,.mc-hero-trust{justify-content:center}
   .mc-hero-visual{max-width:560px;margin:0 auto}
@@ -254,7 +254,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 .mc-jadwal .container{position:relative;z-index:1}
 .mc-jadwal .mc-section-header{margin-bottom:46px}
 .mc-jadwal-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
-/* Kolom kiri — keunggulan minimalis */
 .mc-jadwal-benefits{display:flex;flex-direction:column}
 .mc-jadwal-benefits::before{content:'Kenapa Memilih Kami?';display:block;font-size:19px;font-weight:800;color:var(--gray-900);letter-spacing:-.3px;margin-bottom:10px;padding-left:14px;background:linear-gradient(var(--gold),var(--gold)) left center/4px 20px no-repeat}
 .mc-jadwal-benefit{display:flex;gap:16px;align-items:center;padding:17px 4px;background:transparent;border:none;border-bottom:1px solid var(--gray-200);border-radius:0;transition:all .3s}
@@ -264,7 +263,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 .mc-jadwal-benefit:hover .icon{background:linear-gradient(135deg,var(--gold) 0%,#FFD84D 100%);border-color:var(--gold);color:var(--primary-dark);box-shadow:var(--shadow-gold)}
 .mc-jadwal-benefit h4{font-size:14.5px;font-weight:800;color:var(--gray-900);margin-bottom:2px}
 .mc-jadwal-benefit p{font-size:12.5px;color:var(--gray-500)}
-/* Kolom kanan — kartu jadwal ramping */
 .mc-jadwal-card{background:#fff;border-radius:var(--radius-xl);padding:26px 28px;box-shadow:var(--shadow-md);border:1px solid var(--gray-100);position:relative;overflow:hidden}
 .mc-jadwal-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--primary) 0%,var(--gold) 100%)}
 .mc-jadwal-card h3{font-size:16px;font-weight:800;color:var(--gray-900);margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--gray-100);display:flex;align-items:center;gap:10px}
@@ -494,7 +492,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   .mc-gallery-grid{grid-template-columns:1fr}
   .mc-gallery-video{grid-column:span 1}
 }
-  
+
 /* RESPONSIVE */
 @media (max-width:1024px){
   .mc-hero-inner{grid-template-columns:1fr;text-align:center}
@@ -523,6 +521,207 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   .mc-hero-float-2,.mc-hero-float-3{display:none}
   .mc-hero-board ul{columns:1}
   .mc-stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ============================================================
+   MOBILE POLISH — penyempurnaan tampilan HP (desktop tetap)
+   ============================================================ */
+@media (max-width:768px){
+  html{scroll-padding-top:76px}
+  .container{padding:0 20px}
+  .mc-navbar-inner{padding:0 20px;height:68px;gap:10px}
+  .mc-footer-grid,.mc-footer-bottom{padding-left:20px;padding-right:20px}
+
+  /* Navbar compact */
+  .mc-logo{gap:10px}
+  .mc-logo-mark{width:42px;height:42px;border-width:2.5px}
+  .mc-logo-mark svg{width:26px;height:26px}
+  .mc-logo-text h1{font-size:14.5px;letter-spacing:-.2px}
+  .mc-logo-text p{font-size:8px;letter-spacing:1.6px;margin-top:2px}
+  .mc-nav-actions .mc-btn{padding:9px 14px;font-size:11.5px;gap:6px}
+  .mc-menu-toggle{font-size:22px}
+
+  /* Menu mobile: bisa discroll & lengkap */
+  .mc-mobile-menu{top:68px;padding:12px 20px 18px;max-height:calc(100vh - 68px);overflow-y:auto}
+  .mc-mobile-menu ul li{padding:12px 0}
+  .mc-mobile-menu ul li a{font-size:14.5px}
+
+  /* Hero */
+  .mc-hero{padding:26px 0 76px}
+  .mc-hero-inner{gap:44px}
+  .mc-hero-badge{padding:9px 16px;font-size:10px;letter-spacing:1px;margin-bottom:20px}
+  .mc-hero-badge i{font-size:11px}
+  .mc-hero-title{font-size:clamp(30px,8.6vw,40px);letter-spacing:-1px}
+  .mc-hero-script{font-size:22px;margin-bottom:14px}
+  .mc-hero-desc{font-size:14px;margin-bottom:24px}
+  .mc-hero-actions{flex-direction:column;align-items:stretch;gap:10px;margin-bottom:30px}
+  .mc-hero-actions .mc-btn{justify-content:center}
+  .mc-hero-trust{padding-top:22px;gap:14px}
+  .mc-hero-avatars{padding-left:10px}
+  .mc-hero-avatars span{width:38px;height:38px;font-size:13px;border-width:2px}
+  .mc-hero-trust-text h4{font-size:12.5px}
+  .mc-hero-trust-text p{font-size:11px}
+  .mc-hero-trust-stat b{font-size:20px}
+  .mc-hero-visual{max-width:100%}
+  .mc-hero-photo{min-height:420px;border-width:7px;border-radius:24px}
+  .mc-hero-float-1{top:14px;right:8px}
+  .mc-hero-float-2{display:none}
+  .mc-hero-float-3{display:flex;bottom:14px;left:8px}
+
+  /* Quick booking */
+  .mc-quick-book{margin-top:-44px;padding:0 20px}
+  .mc-quick-book-inner{padding:22px 18px;border-radius:20px}
+  .mc-quick-book-header{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:16px;padding-bottom:14px}
+  .mc-quick-book-header h3{font-size:17px}
+  .mc-quick-book-form .mc-btn{width:100%;justify-content:center}
+  .mc-field-input input,.mc-field-input select,.mc-field-input textarea{font-size:16px}
+
+  /* Stats */
+  .mc-stats{padding:34px 0 26px}
+  .mc-stat{padding:12px 4px;gap:12px}
+  .mc-stat-icon{width:44px;height:44px;border-radius:12px;font-size:15px}
+  .mc-stat-value{font-size:21px}
+  .mc-stat-label{font-size:9.5px;letter-spacing:1.4px}
+
+  /* Section umum */
+  .mc-section{padding:52px 0}
+  .mc-section-header{margin-bottom:38px}
+  .mc-section-tag{font-size:10.5px;padding:6px 13px;margin-bottom:14px}
+  .mc-section-desc{font-size:14px}
+
+  /* Tentang */
+  .mc-about-grid{gap:44px}
+  .mc-about-visual{margin-bottom:30px}
+  .mc-about-panel{padding:30px 22px;border-radius:22px}
+  .mc-about-panel-icon{width:52px;height:52px;font-size:21px;margin-bottom:16px}
+  .mc-about-panel .script{font-size:22px}
+  .mc-about-panel h3{font-size:17px}
+  .mc-about-panel p{font-size:12.5px;margin-bottom:18px}
+  .mc-about-float{bottom:-18px;right:10px;padding:11px 14px}
+  .mc-about-float .icon{width:38px;height:38px;font-size:15px}
+  .mc-about-float h4{font-size:12.5px}
+  .mc-about-float p{font-size:10.5px}
+  .mc-about-values span{padding:8px 13px;font-size:11.5px}
+
+  /* Layanan */
+  .mc-specialty{padding:22px 18px}
+  .mc-specialty-icon{width:50px;height:50px;font-size:21px}
+
+  /* Cara booking */
+  .mc-how-grid{gap:26px}
+  .mc-how-num{width:64px;height:64px}
+  .mc-how-num i{font-size:22px}
+  .mc-how-step h3{font-size:16px}
+  .mc-how-step p{font-size:13px}
+
+  /* UGD */
+  .mc-ugd-card{padding:26px 20px;border-radius:22px}
+  .mc-ugd-siren{width:76px;height:76px;font-size:30px}
+  .mc-ugd-card h3{font-size:20px}
+  .mc-ugd-feature{padding:13px}
+
+  /* Persalinan */
+  .mc-record-preview-header{padding:16px 18px}
+  .mc-record-preview-header h3{font-size:15px}
+  .mc-record-preview-body{padding:16px 14px}
+  .mc-record-item{padding:12px 10px;gap:10px}
+  .mc-record-item-icon{width:38px;height:38px;font-size:14px}
+
+  /* Jadwal */
+  .mc-jadwal-grid{gap:34px}
+  .mc-jadwal-card{padding:20px 16px}
+  .mc-jadwal-row{flex-wrap:wrap;gap:6px 10px;font-size:13px;padding:10px 2px}
+  .mc-jadwal-row:hover{padding-left:2px}
+  .mc-jadwal-benefit{padding:14px 2px;gap:12px}
+  .mc-jadwal-benefit .icon{width:42px;height:42px;font-size:15px}
+  .mc-jadwal-benefits::before{font-size:17px}
+
+  /* Tim medis: kartu horizontal di HP */
+  .mc-doctors-grid{gap:14px}
+  .mc-doctor{display:flex;align-items:center;gap:16px;text-align:left;padding:18px 16px}
+  .mc-doctor-avatar{width:70px;height:70px;margin:0;font-size:26px;border-width:3px;flex-shrink:0}
+  .mc-doctor-badge{top:10px;left:auto;right:10px;font-size:9px;padding:4px 9px}
+  .mc-doctor h3{font-size:15px}
+  .mc-doctor-spec{font-size:11.5px;margin-bottom:8px}
+  .mc-doctor p.desc{font-size:11.5px;margin-bottom:10px}
+  .mc-doctor .sched{font-size:10.5px;padding:6px 10px}
+
+  /* Testimoni */
+  .mc-testimonial{padding:22px 18px}
+  .mc-testimonial-foot{flex-wrap:wrap;gap:10px}
+
+  /* Galeri: video full + foto 2 kolom */
+  .mc-gallery-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .mc-gallery-video{grid-column:span 2}
+  .mc-gallery-item{min-height:170px}
+  .mc-gallery-cap{padding:30px 10px 10px}
+  .mc-gallery-cap h4{font-size:11.5px}
+  .mc-gallery-cap span{font-size:8.5px;padding:3px 7px}
+  .mc-gallery-video-bar{padding:11px 14px;font-size:12px}
+
+  /* FAQ */
+  .mc-faq-question{padding:15px 16px}
+  .mc-faq-question h4{font-size:13.5px}
+  .mc-faq-answer-inner{padding:0 16px 16px;font-size:13px}
+  .mc-faq-contact{padding:20px 18px}
+
+  /* CTA */
+  .mc-cta{padding:64px 0}
+  .mc-cta-inner{padding:0 20px}
+  .mc-cta p{font-size:14px}
+
+  /* Kontak */
+  .mc-contact-map{height:300px}
+  .mc-map-header{padding:14px 18px}
+  .mc-map-header h3{font-size:16px}
+
+  /* Footer */
+  .mc-footer{padding-top:54px}
+  .mc-footer-grid{gap:28px;margin-bottom:36px}
+
+  /* Tombol melayang */
+  .mc-wa-float{width:52px;height:52px;bottom:20px;right:20px;font-size:23px}
+  .mc-back-top{width:40px;height:40px;bottom:20px;left:20px}
+
+  /* Modal booking */
+  .mc-modal-overlay{padding:12px}
+  .mc-modal{border-radius:20px;max-height:92vh}
+  .mc-modal-header{padding:16px 18px}
+  .mc-modal-header h3{font-size:15px;gap:8px}
+  .mc-modal-body{padding:20px 16px}
+  .mc-modal-step h4{font-size:15.5px}
+  .mc-modal-step>p{font-size:12.5px}
+  .mc-option{padding:12px}
+  .mc-option-icon{width:34px;height:34px;font-size:14px;margin-bottom:8px}
+  .mc-option h5{font-size:12.5px}
+  .mc-option p{font-size:10.5px}
+  .mc-modal-actions{flex-direction:column}
+  .mc-modal-actions .mc-btn{width:100%}
+  .mc-booking-summary{padding:14px}
+  .mc-booking-summary-row{font-size:12px;flex-wrap:wrap}
+  .mc-success-icon{width:68px;height:68px;font-size:26px}
+  .mc-success-content h3{font-size:19px}
+}
+
+/* HP layar kecil (≤400px) */
+@media (max-width:400px){
+  .container{padding:0 16px}
+  .mc-quick-book{padding:0 16px}
+  .mc-footer-grid,.mc-footer-bottom{padding-left:16px;padding-right:16px}
+  .mc-navbar-inner{padding:0 16px}
+  .mc-logo-text h1{font-size:13px}
+  .mc-nav-actions .mc-btn{padding:8px 12px;font-size:10.5px}
+  .mc-hero-title{font-size:28px}
+  .mc-hero-photo{min-height:380px}
+  .mc-hero-float{padding:10px 12px;gap:10px}
+  .mc-hero-float .icon{width:34px;height:34px;font-size:14px}
+  .mc-hero-float h4{font-size:12px}
+  .mc-hero-float p{font-size:10px}
+  .mc-stat-value{font-size:19px}
+  .mc-stat-label{font-size:9px}
+  .mc-gallery-grid{grid-template-columns:1fr}
+  .mc-gallery-video{grid-column:span 1}
+  .mc-doctor-avatar{width:60px;height:60px;font-size:22px}
 }
 </style>
 </head>
@@ -555,7 +754,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
         </svg>
       </div>
       <div class="mc-logo-text">
-        <h1><em>KLINIK</em> Keluarga Anda</h1>
+        <h1><em>KLINIK</em> GUMITRI MEDIKA</h1>
         <p>Ramah · Jujur · Disiplin</p>
       </div>
     </a>
@@ -580,17 +779,18 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 <div class="mc-mobile-menu" id="mcMobileMenu">
   <ul>
     <li><a href="#beranda" onclick="toggleMobileMenu()">Beranda</a></li>
+    <li><a href="#tentang" onclick="toggleMobileMenu()">Tentang</a></li>
     <li><a href="#layanan" onclick="toggleMobileMenu()">Layanan</a></li>
-    <li><a href="#jadwal" onclick="toggleMobileMenu()">Jadwal Layanan</a></li>
+    <li><a href="#jadwal" onclick="toggleMobileMenu()">Jadwal</a></li>
     <li><a href="#tim" onclick="toggleMobileMenu()">Tim Medis</a></li>
     <li><a href="#testimoni" onclick="toggleMobileMenu()">Testimoni</a></li>
+    <li><a href="#galeri" onclick="toggleMobileMenu()">Galeri</a></li>
     <li><a href="#faq" onclick="toggleMobileMenu()">FAQ</a></li>
     <li><a href="#kontak" onclick="toggleMobileMenu()">Kontak</a></li>
     <li><a href="#" onclick="toggleMobileMenu();openBookingModal();" style="color:var(--primary);">Booking Sekarang</a></li>
   </ul>
 </div>
 
-<!-- ===== HERO ===== -->
 <!-- ===== HERO ===== -->
 <section class="mc-hero" id="beranda">
   <div class="container">
@@ -599,7 +799,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
         <div class="mc-hero-badge"><i class="fas fa-star"></i> Grand Opening · 24 Juli 2026</div>
         <h1 class="mc-hero-title">Sehat Bersama <span class="highlight">Kami</span></h1>
         <span class="mc-hero-script">Aman &amp; Nyaman untuk Anda ✨</span>
-        <p class="mc-hero-desc">Klinik Keluarga Anda hadir untuk kesehatan Anda &amp; keluarga di Lombok Barat. UGD 24 jam, persalinan aman, tenaga medis profesional, dengan biaya pasti terjangkau.</p>
+        <p class="mc-hero-desc">Klinik Gumitri Medika hadir untuk kesehatan Anda &amp; keluarga di Lombok Barat. UGD 24 jam, persalinan aman, tenaga medis profesional, dengan biaya pasti terjangkau.</p>
         <div class="mc-hero-actions">
           <button class="mc-btn mc-btn-primary mc-btn-lg" onclick="openBookingModal()"><i class="fas fa-calendar-plus"></i> Buat Janji Temu</button>
           <a href="https://wa.me/6287819999491" target="_blank" class="mc-btn mc-btn-outline mc-btn-lg"><i class="fab fa-whatsapp"></i> Hubungi Kami</a>
@@ -620,11 +820,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
           <div class="mc-hero-trust-stat"><b>8</b><span>Layanan</span></div>
         </div>
       </div>
-
       <div class="mc-hero-visual">
-        <!-- Ganti url(...) di bawah dengan foto klinik Anda, contoh: 'foto-klinik.jpg' -->
         <div class="mc-hero-photo" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80')"></div>
-
         <div class="mc-hero-float mc-hero-float-1">
           <div class="icon red"><i class="fas fa-bell"></i></div>
           <div><h4>UGD 24 Jam</h4><p>Siap melayani kondisi darurat</p></div>
@@ -642,7 +839,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   </div>
 </section>
 
-<!-- ===== QUICK BOOKING (kirim ke WhatsApp) ===== -->
+<!-- ===== QUICK BOOKING ===== -->
 <div class="mc-quick-book">
   <div class="mc-quick-book-inner">
     <div class="mc-quick-book-header">
@@ -725,52 +922,50 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   </div>
 </section>
 
-<!-- ===== TENTANG KAMI ===== -->
+<!-- ===== TENTANG ===== -->
 <section class="mc-section mc-about" id="tentang">
   <div class="container">
     <div class="mc-about-grid">
       <div class="mc-about-visual mc-reveal">
         <div class="mc-about-panel">
           <div class="mc-about-panel-icon"><i class="fas fa-heart-pulse"></i></div>
-          <span class="script">Sejak 2026</span>
-          <h3>“Sehat Bersama Kami, Aman &amp; Nyaman untuk Anda”</h3>
-          <p>Klinik pelayanan kesehatan keluarga di Dusun Tambang Eleh, Desa Jagaraga, Kecamatan Kuripan, Kabupaten Lombok Barat — hadir dengan kepedulian yang tulus untuk Anda.</p>
-          <div class="mc-about-panel-foot"><i class="fas fa-star"></i> Grand Opening · 24 Juli 2026</div>
+          <span class="script">Sehat Bersama Kami</span>
+          <h3>Menjadi mitra kesehatan keluarga yang aman &amp; nyaman untuk Anda.</h3>
+          <p>Klinik Gumitri Medika menghadirkan pelayanan kesehatan menyeluruh — dari UGD 24 jam, persalinan, hingga laboratorium — dengan standar pelayanan yang ramah dan profesional.</p>
+          <div class="mc-about-panel-foot"><i class="fas fa-star"></i> Ramah · Jujur · Disiplin · Bertanggungjawab</div>
         </div>
         <div class="mc-about-float">
           <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
-          <div><h4>Pelayanan Tulus</h4><p>100% untuk keluarga Anda</p></div>
+          <div><h4>Melayani dengan Hati</h4><p>Untuk Anda &amp; keluarga</p></div>
         </div>
       </div>
-      <div class="mc-about-content mc-reveal mc-reveal-delay-1">
+      <div class="mc-about-content mc-reveal">
         <div class="mc-section-tag"><i class="fas fa-house-medical"></i> Tentang Kami</div>
-        <h2 class="mc-section-title">Melayani dengan Hati,<br><span class="accent">Tumbuh Bersama Masyarakat</span></h2>
-        <p class="mc-section-desc">Klinik Keluarga Anda hadir sebagai mitra kesehatan keluarga di Lombok Barat — dari UGD 24 jam hingga persalinan aman, kami berkomitmen memberikan pelayanan yang ramah, jujur, disiplin dan bertanggungjawab dengan biaya yang pasti terjangkau.</p>
+        <h2 class="mc-section-title">Klinik Keluarga yang<br><span class="accent">Ramah &amp; Terpercaya</span></h2>
+        <p class="mc-section-desc">Berlokasi di Dusun Tambang Eleh, Desa Jagaraga, Kecamatan Kuripan, Kabupaten Lombok Barat — kami hadir untuk kesehatan Anda &amp; keluarga dengan fasilitas lengkap dan tenaga medis profesional.</p>
         <div class="mc-about-vm">
           <div class="mc-about-vm-card">
             <div class="icon"><i class="fas fa-eye"></i></div>
             <h4>Visi</h4>
-            <p>Menjadi klinik keluarga yang terpercaya, aman &amp; nyaman bagi seluruh masyarakat.</p>
+            <p>Menjadi klinik pilihan keluarga yang aman, nyaman, dan terjangkau di Lombok Barat.</p>
           </div>
           <div class="mc-about-vm-card">
             <div class="icon"><i class="fas fa-bullseye"></i></div>
             <h4>Misi</h4>
-            <p>Melayani dengan tenaga profesional, fasilitas lengkap, dan kepedulian yang tulus.</p>
+            <p>Melayani dengan ramah, jujur, disiplin dan bertanggungjawab demi kesehatan masyarakat.</p>
           </div>
         </div>
         <div class="mc-about-values">
-          <span><i class="fas fa-smile"></i> Ramah</span>
-          <span><i class="fas fa-handshake"></i> Jujur</span>
-          <span><i class="fas fa-clock"></i> Disiplin</span>
-          <span><i class="fas fa-shield-heart"></i> Bertanggungjawab</span>
+          <span><i class="fas fa-check-circle"></i> Ramah</span>
+          <span><i class="fas fa-check-circle"></i> Jujur</span>
+          <span><i class="fas fa-check-circle"></i> Disiplin</span>
+          <span><i class="fas fa-check-circle"></i> Bertanggungjawab</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-  
 <!-- ===== LAYANAN ===== -->
 <section class="mc-section mc-specialties" id="layanan">
   <div class="container">
@@ -856,7 +1051,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
       <div class="mc-reveal">
         <div class="mc-section-tag"><i class="fas fa-bell"></i> UGD 24 Jam</div>
         <h2 class="mc-section-title">Siap Melayani dalam<br>Kondisi <span style="color:var(--gold)">Darurat</span></h2>
-        <p class="mc-section-desc">Kegawatdaruratan tidak mengenal waktu. Tim UGD Klinik Keluarga Anda siaga penuh 24 jam, didukung ambulan untuk antar jemput pasien.</p>
+        <p class="mc-section-desc">Kegawatdaruratan tidak mengenal waktu. Tim UGD Klinik Gumitri Medika siaga penuh 24 jam, didukung ambulan untuk antar jemput pasien.</p>
         <div class="mc-ugd-features">
           <div class="mc-ugd-feature"><div class="icon"><i class="fas fa-bolt"></i></div><div><h4>Respon Cepat</h4><p>Penanganan pertama yang sigap untuk kondisi darurat.</p></div></div>
           <div class="mc-ugd-feature"><div class="icon"><i class="fas fa-user-nurse"></i></div><div><h4>Tim Siaga 24 Jam</h4><p>Tenaga medis profesional siap setiap hari, termasuk hari libur.</p></div></div>
@@ -907,7 +1102,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   </div>
 </section>
 
-<!-- ===== JADWAL & NILAI ===== -->
+<!-- ===== JADWAL ===== -->
 <section class="mc-section mc-jadwal" id="jadwal">
   <div class="container">
     <div class="mc-section-header mc-reveal">
@@ -950,34 +1145,42 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
       <div class="mc-doctor mc-reveal">
         <span class="mc-doctor-badge">24 JAM</span>
         <div class="mc-doctor-avatar"><i class="fas fa-user-md"></i></div>
-        <h3>Dokter Umum</h3>
-        <div class="mc-doctor-spec">Pelayanan Kesehatan Keluarga</div>
-        <p class="desc">Pemeriksaan &amp; penanganan kesehatan untuk seluruh keluarga, siaga 24 jam.</p>
-        <span class="sched"><i class="fas fa-clock"></i> Setiap hari · 24 jam</span>
+        <div>
+          <h3>Dokter Umum</h3>
+          <div class="mc-doctor-spec">Pelayanan Kesehatan Keluarga</div>
+          <p class="desc">Pemeriksaan &amp; penanganan kesehatan untuk seluruh keluarga, siaga 24 jam.</p>
+          <span class="sched"><i class="fas fa-clock"></i> Setiap hari · 24 jam</span>
+        </div>
       </div>
       <div class="mc-doctor mc-reveal mc-reveal-delay-1">
         <span class="mc-doctor-badge">SENIN–SABTU</span>
         <div class="mc-doctor-avatar"><i class="fas fa-tooth"></i></div>
-        <h3>Dokter Gigi</h3>
-        <div class="mc-doctor-spec">Poli Gigi</div>
-        <p class="desc">Perawatan gigi &amp; mulut yang aman dan nyaman, untuk anak hingga dewasa.</p>
-        <span class="sched"><i class="fas fa-clock"></i> 17.00–20.00</span>
+        <div>
+          <h3>Dokter Gigi</h3>
+          <div class="mc-doctor-spec">Poli Gigi</div>
+          <p class="desc">Perawatan gigi &amp; mulut yang aman dan nyaman, untuk anak hingga dewasa.</p>
+          <span class="sched"><i class="fas fa-clock"></i> 17.00–20.00</span>
+        </div>
       </div>
       <div class="mc-doctor mc-reveal mc-reveal-delay-2">
         <span class="mc-doctor-badge">24 JAM</span>
         <div class="mc-doctor-avatar"><i class="fas fa-baby"></i></div>
-        <h3>Tim Bidan</h3>
-        <div class="mc-doctor-spec">Persalinan · KIA · KB</div>
-        <p class="desc">Persalinan aman dengan tenaga profesional, konsultasi ibu &amp; anak serta KB.</p>
-        <span class="sched"><i class="fas fa-clock"></i> Setiap hari · 24 jam</span>
+        <div>
+          <h3>Tim Bidan</h3>
+          <div class="mc-doctor-spec">Persalinan · KIA · KB</div>
+          <p class="desc">Persalinan aman dengan tenaga profesional, konsultasi ibu &amp; anak serta KB.</p>
+          <span class="sched"><i class="fas fa-clock"></i> Setiap hari · 24 jam</span>
+        </div>
       </div>
       <div class="mc-doctor mc-reveal mc-reveal-delay-3">
         <span class="mc-doctor-badge">08.00–22.00</span>
         <div class="mc-doctor-avatar"><i class="fas fa-flask"></i></div>
-        <h3>Tim Laboratorium</h3>
-        <div class="mc-doctor-spec">Analisis Kesehatan</div>
-        <p class="desc">Pemeriksaan lengkap &amp; akurat dengan hasil yang cepat dan terpercaya.</p>
-        <span class="sched"><i class="fas fa-clock"></i> Setiap hari · 08.00–22.00</span>
+        <div>
+          <h3>Tim Laboratorium</h3>
+          <div class="mc-doctor-spec">Analisis Kesehatan</div>
+          <p class="desc">Pemeriksaan lengkap &amp; akurat dengan hasil yang cepat dan terpercaya.</p>
+          <span class="sched"><i class="fas fa-clock"></i> Setiap hari · 08.00–22.00</span>
+        </div>
       </div>
     </div>
   </div>
@@ -995,7 +1198,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
       <div class="mc-testimonial mc-reveal">
         <div class="mc-testimonial-quote">“</div>
         <div class="mc-testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="mc-testimonial-text">Proses persalinan saya ditangani dengan sangat ramah dan profesional. Bidan siaga setiap saat, ruangan bersih dan nyaman. Terima kasih Klinik Keluarga Anda!</p>
+        <p class="mc-testimonial-text">Proses persalinan saya ditangani dengan sangat ramah dan profesional. Bidan siaga setiap saat, ruangan bersih dan nyaman. Terima kasih Klinik Gumitri Medika!</p>
         <div class="mc-testimonial-foot">
           <div class="mc-testimonial-avatar">BN</div>
           <div class="mc-testimonial-info"><h4>Baiq Nurul</h4><p>Jagaraga, Kuripan</p></div>
@@ -1026,42 +1229,39 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   </div>
 </section>
 
-<!-- ===== GALERI KEGIATAN ===== -->
+<!-- ===== GALERI ===== -->
 <section class="mc-section mc-gallery" id="galeri">
   <div class="container">
     <div class="mc-section-header mc-reveal">
       <div class="mc-section-tag"><i class="fas fa-images"></i> Galeri</div>
-      <h2 class="mc-section-title">Galeri Kegiatan &amp; <span class="accent">Momen Klinik</span></h2>
-      <p class="mc-section-desc">Dokumentasi kegiatan, pelayanan, dan suasana Klinik Keluarga Anda — dekat, hangat, dan penuh kepedulian.</p>
+      <h2 class="mc-section-title">Suasana <span class="accent">Klinik Kami</span></h2>
+      <p class="mc-section-desc">Intip kenyamanan fasilitas Klinik Gumitri Medika — aman &amp; nyaman untuk Anda.</p>
     </div>
     <div class="mc-gallery-grid">
-      <!-- Ganti ID video (aqz-KE-bpKQ) dengan ID video YouTube klinik Anda -->
       <div class="mc-gallery-video mc-reveal">
-        <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="Video Profil Klinik Keluarga Anda" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="mc-gallery-video-bar"><i class="fas fa-circle-play"></i> Profil &amp; Kegiatan Klinik <span class="chip">YOUTUBE</span></div>
+        <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="Profil Klinik Gumitri Medika" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="mc-gallery-video-bar"><i class="fab fa-youtube"></i> Video Profil Klinik <span class="chip">SEGERA</span></div>
       </div>
-      <!-- Ganti src img di bawah dengan foto kegiatan klinik Anda -->
       <div class="mc-gallery-item mc-reveal mc-reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Pemeriksaan dokter umum" loading="lazy">
-        <div class="mc-gallery-cap"><h4>Pemeriksaan Dokter Umum</h4><span>Kegiatan</span></div>
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Gedung Klinik" loading="lazy">
+        <div class="mc-gallery-cap"><h4>Gedung Klinik</h4><span>Fasilitas</span></div>
       </div>
       <div class="mc-gallery-item mc-reveal">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Konsultasi pasien" loading="lazy">
-        <div class="mc-gallery-cap"><h4>Konsultasi Pasien</h4><span>Kegiatan</span></div>
+        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80" alt="Ruang Pemeriksaan" loading="lazy">
+        <div class="mc-gallery-cap"><h4>Ruang Pemeriksaan</h4><span>Nyaman</span></div>
       </div>
       <div class="mc-gallery-item mc-reveal mc-reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80" alt="Fasilitas klinik" loading="lazy">
-        <div class="mc-gallery-cap"><h4>Fasilitas Klinik</h4><span>Fasilitas</span></div>
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="Poli Gigi" loading="lazy">
+        <div class="mc-gallery-cap"><h4>Poli Gigi</h4><span>Modern</span></div>
       </div>
       <div class="mc-gallery-item mc-reveal mc-reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80" alt="Peralatan medis" loading="lazy">
-        <div class="mc-gallery-cap"><h4>Peralatan Medis</h4><span>Fasilitas</span></div>
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Persalinan dan KIA" loading="lazy">
+        <div class="mc-gallery-cap"><h4>Persalinan &amp; KIA</h4><span>24 Jam</span></div>
       </div>
     </div>
   </div>
 </section>
 
-  
 <!-- ===== FAQ ===== -->
 <section class="mc-section" id="faq">
   <div class="container">
@@ -1146,16 +1346,13 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
         </div>
         <div class="mc-contact-card">
           <div class="icon"><i class="fas fa-share-alt"></i></div>
-          <div><h4>Media Sosial</h4><p>Facebook: Klinik Keluarga Anda · Instagram: <a href="https://instagram.com/gumitrimedika" target="_blank">@gumitrimedika</a></p></div>
+          <div><h4>Media Sosial</h4><p>Facebook: Klinik Gumitri Medika · Instagram: <a href="https://instagram.com/gumitrimedika" target="_blank">@gumitrimedika</a></p></div>
         </div>
       </div>
       <div class="mc-contact-map mc-reveal">
-        <div class="mc-map-header">
-           <i class="fas fa-map-location-dot" aria-hidden="true"></i>
-               <h3>Lokasi Klinik Keluarga Anda</h3>
-        </div>
-              <iframe src="https://www.google.com/maps?q=Desa+Jagaraga,+Kecamatan+Kuripan,+Kabupaten+Lombok+Barat&output=embed" loading="lazy" title="Lokasi Klinik Keluarga Anda"></iframe>
-        </div>
+        <div class="mc-map-header"><i class="fas fa-location-dot"></i><h3>Klinik Gumitri Medika</h3></div>
+        <iframe src="https://www.google.com/maps?q=Desa+Jagaraga,+Kecamatan+Kuripan,+Kabupaten+Lombok+Barat&output=embed" loading="lazy" title="Lokasi Klinik Gumitri Medika"></iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -1172,7 +1369,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
           </svg>
         </div>
         <div class="mc-logo-text">
-          <h1><em style="color:var(--red)">KLINIK</em> Keluarga Anda</h1>
+          <h1><em style="color:var(--red)">KLINIK</em> GUMITRI MEDIKA</h1>
           <p>Sehat Bersama Kami</p>
         </div>
       </a>
@@ -1199,9 +1396,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
       <h4>Navigasi</h4>
       <ul>
         <li><a href="#beranda"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+        <li><a href="#tentang"><i class="fas fa-chevron-right"></i> Tentang</a></li>
         <li><a href="#jadwal"><i class="fas fa-chevron-right"></i> Jadwal Layanan</a></li>
         <li><a href="#tim"><i class="fas fa-chevron-right"></i> Tim Medis</a></li>
-        <li><a href="#testimoni"><i class="fas fa-chevron-right"></i> Testimoni</a></li>
+        <li><a href="#galeri"><i class="fas fa-chevron-right"></i> Galeri</a></li>
         <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
       </ul>
     </div>
@@ -1214,7 +1412,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
     </div>
   </div>
   <div class="mc-footer-bottom">
-    <p>© 2026 Klinik Keluarga Anda. Seluruh hak cipta dilindungi.</p>
+    <p>© 2026 Klinik Gumitri Medika. Seluruh hak cipta dilindungi.</p>
     <span class="script">Ramah, Jujur, Disiplin dan Bertanggungjawab</span>
   </div>
 </footer>
@@ -1238,7 +1436,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
         <div class="mc-step-dot" data-step="4"></div>
       </div>
 
-      <!-- STEP 1: LAYANAN -->
       <div class="mc-modal-step active" data-step="1">
         <h4>Pilih Layanan</h4>
         <p>Layanan apa yang Anda butuhkan?</p>
@@ -1255,7 +1452,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
         <div class="mc-modal-actions"><button class="mc-btn mc-btn-primary" onclick="bmNext(1)">Lanjut <i class="fas fa-arrow-right"></i></button></div>
       </div>
 
-      <!-- STEP 2: JADWAL -->
       <div class="mc-modal-step" data-step="2">
         <h4>Tentukan Jadwal</h4>
         <p>Pilih tanggal &amp; waktu kunjungan Anda.</p>
@@ -1279,7 +1475,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
         </div>
       </div>
 
-      <!-- STEP 3: DATA PASIEN -->
       <div class="mc-modal-step" data-step="3">
         <h4>Data Pasien</h4>
         <p>Isi data Anda agar admin dapat menghubungi Anda.</p>
@@ -1296,7 +1491,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
         </div>
       </div>
 
-      <!-- STEP 4: RINGKASAN -->
       <div class="mc-modal-step" data-step="4">
         <h4>Konfirmasi Booking</h4>
         <p>Periksa kembali detail booking Anda.</p>
@@ -1315,12 +1509,11 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
         </div>
       </div>
 
-      <!-- SUKSES -->
       <div class="mc-modal-step" data-step="5">
         <div class="mc-success-content">
           <div class="mc-success-icon"><i class="fas fa-check"></i></div>
           <h3>Permintaan Terkirim!</h3>
-          <p>WhatsApp akan terbuka otomatis. Admin Klinik Keluarga Anda akan segera mengonfirmasi jadwal Anda. Terima kasih 🙏</p>
+          <p>WhatsApp akan terbuka otomatis. Admin Klinik Gumitri Medika akan segera mengonfirmasi jadwal Anda. Terima kasih 🙏</p>
           <button class="mc-btn mc-btn-gold mc-btn-lg" onclick="closeBookingModal()">Selesai</button>
         </div>
       </div>
@@ -1329,21 +1522,21 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 </div>
 
 <script>
-/* ===== NAVBAR & BACKTOP ===== */
+/* NAVBAR & BACKTOP */
 const mcNavbar=document.getElementById('mcNavbar');
 window.addEventListener('scroll',()=>{
   mcNavbar.classList.toggle('scrolled',window.scrollY>10);
   document.getElementById('mcBackTop').classList.toggle('visible',window.scrollY>600);
 });
 
-/* ===== MOBILE MENU ===== */
+/* MOBILE MENU */
 function toggleMobileMenu(){document.getElementById('mcMobileMenu').classList.toggle('active');}
 
-/* ===== SCROLL REVEAL ===== */
+/* SCROLL REVEAL */
 const mcIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');mcIO.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.mc-reveal').forEach(el=>mcIO.observe(el));
 
-/* ===== COUNTER ===== */
+/* COUNTER */
 const mcCIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
   const el=e.target,target=+el.dataset.count,suffix=el.dataset.suffix||'';let cur=0;
   const step=Math.max(1,Math.round(target/40));
@@ -1352,7 +1545,7 @@ const mcCIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
 }});},{threshold:.5});
 document.querySelectorAll('.mc-stat-value').forEach(el=>mcCIO.observe(el));
 
-/* ===== FAQ ===== */
+/* FAQ */
 document.querySelectorAll('.mc-faq-question').forEach(q=>{
   q.addEventListener('click',()=>{
     const item=q.parentElement,ans=item.querySelector('.mc-faq-answer');
@@ -1361,11 +1554,10 @@ document.querySelectorAll('.mc-faq-question').forEach(q=>{
     if(!open){item.classList.add('active');ans.style.maxHeight=ans.scrollHeight+'px';}
   });
 });
-/* buka FAQ pertama */
 const firstFaq=document.querySelector('.mc-faq-item.active .mc-faq-answer');
 if(firstFaq)firstFaq.style.maxHeight=firstFaq.scrollHeight+'px';
 
-/* ===== QUICK BOOKING -> WHATSAPP ===== */
+/* QUICK BOOKING -> WHATSAPP */
 const WA_NUMBER='6287819999491';
 function handleQuickBook(e){
   e.preventDefault();
@@ -1373,12 +1565,12 @@ function handleQuickBook(e){
   const service=document.getElementById('qbService').value;
   const date=document.getElementById('qbDate').value;
   const time=document.getElementById('qbTime').value;
-  const msg=`Halo Klinik Keluarga Anda 🙏\nSaya *${name}* ingin booking:\n• Layanan: ${service}\n• Tanggal: ${date}\n• Waktu: ${time}\nMohon konfirmasi ketersediaannya. Terima kasih.`;
+  const msg=`Halo Klinik Gumitri Medika 🙏\nSaya *${name}* ingin booking:\n• Layanan: ${service}\n• Tanggal: ${date}\n• Waktu: ${time}\nMohon konfirmasi ketersediaannya. Terima kasih.`;
   window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
   return false;
 }
 
-/* ===== MODAL BOOKING ===== */
+/* MODAL BOOKING */
 let bmState={service:'',date:'',time:'',name:'',phone:'',note:''};
 function openBookingModal(service){
   bmState.service=service||'';
@@ -1426,12 +1618,12 @@ function renderSummary(){
   if(bmState.note){nr.style.display='flex';document.getElementById('sumNote').textContent=bmState.note;}else{nr.style.display='none';}
 }
 function sendBooking(){
-  const msg=`Halo Klinik Keluarga Anda 🙏\nSaya ingin booking layanan:\n• Layanan: ${bmState.service}\n• Tanggal: ${document.getElementById('sumDate').textContent}\n• Waktu: ${bmState.time}\n• Nama: ${bmState.name}\n• No. WA: ${bmState.phone}${bmState.note?'\n• Catatan: '+bmState.note:''}\nMohon konfirmasi ketersediaannya. Terima kasih.`;
+  const msg=`Halo Klinik Gumitri Medika 🙏\nSaya ingin booking layanan:\n• Layanan: ${bmState.service}\n• Tanggal: ${document.getElementById('sumDate').textContent}\n• Waktu: ${bmState.time}\n• Nama: ${bmState.name}\n• No. WA: ${bmState.phone}${bmState.note?'\n• Catatan: '+bmState.note:''}\nMohon konfirmasi ketersediaannya. Terima kasih.`;
   window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
   showStep(5);
 }
 
-/* ===== MIN DATE ===== */
+/* MIN DATE */
 const today=new Date().toISOString().split('T')[0];
 ['bmDate','qbDate'].forEach(id=>{const el=document.getElementById(id);if(el)el.min=today;});
 </script>
