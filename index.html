@@ -1593,6 +1593,10 @@ document.querySelectorAll('.mc-faq-question').forEach(q=>{
 const firstFaq=document.querySelector('.mc-faq-item.active .mc-faq-answer');
 if(firstFaq)firstFaq.style.maxHeight=firstFaq.scrollHeight+'px';
 
+/* SIMPAN KE DATABASE LOKAL (dibaca oleh dashboard.html) */
+const KA_DB='ka_bookings';
+function kaSaveBooking(b){try{const db=JSON.parse(localStorage.getItem(KA_DB)||'[]');b.id=Date.now();b.status='baru';b.dibuat=new Date().toISOString();db.unshift(b);localStorage.setItem(KA_DB,JSON.stringify(db));}catch(e){}}
+
 /* QUICK BOOKING -> WHATSAPP */
 const WA_NUMBER='628175761165';
 function handleQuickBook(e){
@@ -1602,6 +1606,7 @@ function handleQuickBook(e){
   const date=document.getElementById('qbDate').value;
   const time=document.getElementById('qbTime').value;
   const msg=`Halo Klinik Keluarga Anda 🙏\nSaya *${name}* ingin booking:\n• Layanan: ${service}\n• Tanggal: ${date}\n• Waktu: ${time}\nMohon konfirmasi ketersediaannya. Terima kasih.`;
+  kaSaveBooking({nama:name,wa:'',layanan:service,tanggal:date,waktu:time,catatan:'',sumber:'Booking Cepat'});
   window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
   return false;
 }
@@ -1655,6 +1660,7 @@ function renderSummary(){
 }
 function sendBooking(){
   const msg=`Halo Klinik Keluarga Anda 🙏\nSaya ingin booking layanan:\n• Layanan: ${bmState.service}\n• Tanggal: ${document.getElementById('sumDate').textContent}\n• Waktu: ${bmState.time}\n• Nama: ${bmState.name}\n• No. WA: ${bmState.phone}${bmState.note?'\n• Catatan: '+bmState.note:''}\nMohon konfirmasi ketersediaannya. Terima kasih.`;
+  kaSaveBooking({nama:bmState.name,wa:bmState.phone,layanan:bmState.service,tanggal:bmState.date,waktu:bmState.time,catatan:bmState.note,sumber:'Modal Booking'});
   window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
   showStep(5);
 }
