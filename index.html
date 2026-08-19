@@ -424,6 +424,8 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 .mc-mobile-menu ul li{padding:14px 0;border-bottom:1px solid var(--gray-100)}
 .mc-mobile-menu ul li:last-child{border-bottom:none}
 .mc-mobile-menu ul li a{text-decoration:none;color:var(--gray-800);font-size:15px;font-weight:700;display:block}
+.mc-mobile-menu ul li.mc-mobile-booking{border-bottom:none;padding:18px 0 6px;text-align:center}
+.mc-mobile-menu ul li.mc-mobile-booking .mc-btn{width:100%;justify-content:center;padding:14px 20px;font-size:14px;box-shadow:var(--shadow-gold)}
 
 /* REVEAL */
 .mc-reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.4,0,.2,1)}
@@ -513,6 +515,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 @media (max-width:768px){
   .mc-topbar{display:none}
   .mc-nav-links{display:none}
+  .mc-nav-actions{display:none}
   .mc-menu-toggle{display:block}
   .mc-section{padding:48px 0}
   .mc-specialties-grid,.mc-how-grid,.mc-doctors-grid,.mc-quick-book-form,.mc-footer-grid,.mc-records-features,.mc-modal-form-row,.mc-option-grid{grid-template-columns:1fr}
@@ -787,7 +790,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
     <li><a href="#galeri" onclick="toggleMobileMenu()">Galeri</a></li>
     <li><a href="#faq" onclick="toggleMobileMenu()">FAQ</a></li>
     <li><a href="#kontak" onclick="toggleMobileMenu()">Kontak</a></li>
-    <li><a href="#" onclick="toggleMobileMenu();openBookingModal();" style="color:var(--primary);">Booking Sekarang</a></li>
+    <li class="mc-mobile-booking">
+      <button type="button" class="mc-btn mc-btn-gold" onclick="toggleMobileMenu();openBookingModal();"><i class="fas fa-calendar-check"></i> Booking Sekarang</button>
+    </li>
   </ul>
 </div>
 
