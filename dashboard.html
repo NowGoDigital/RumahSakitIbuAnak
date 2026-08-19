@@ -1,1 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin — Klinik Keluarga Anda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0B1512; --card:#12211B; --card2:#0F1A17;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --primary:#0B5D4E; --primary-light:#147A66; --soft:#3FA98F;
+  --gold:#F5C51C; --gold-dark:#D9A800;
+  --text:#EAF4F0; --muted:#8FB0A7;
+  --amber:#FBBF24; --blue:#38BDF8; --green:#34D399; --red:#FF5A76;
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:
+  radial-gradient(1100px 520px at 88% -10%,rgba(245,197,28,.07),transparent 60%),
+  radial-gradient(900px 520px at -10% 110%,rgba(20,122,102,.16),transparent 60%),
+  var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+.script{font-family:'Caveat',cursive}
+button{font-family:inherit;cursor:pointer}
+::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#1E3A31;border-radius:99px}::-webkit-scrollbar-track{background:transparent}
 
+/* ============ LOGIN ============ */
+#loginScreen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
+#loginScreen.off{display:none}
+.d-login-card{width:100%;max-width:400px;background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:26px;padding:38px 30px;text-align:center;backdrop-filter:blur(14px);box-shadow:0 30px 80px rgba(0,0,0,.5);animation:up .6s both}
+.d-login-logo{width:74px;height:74px;margin:0 auto 14px;border-radius:50%;background:var(--card2);border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(245,197,28,.08),0 14px 34px rgba(0,0,0,.45)}
+.d-login-card h1{font-size:20px;font-weight:800;letter-spacing:-.3px}
+.d-login-card h1 em{font-style:normal;color:var(--red)}
+.d-login-card .script{display:block;color:var(--gold);font-size:19px;margin:2px 0 22px}
+.d-login-card label{display:block;text-align:left;font-size:10.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.d-input{position:relative;margin-bottom:14px}
+.d-input i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--soft);font-size:14px}
+.d-input input{width:100%;padding:13px 14px 13px 42px;background:rgba(255,255,255,.05);border:1.5px solid var(--line2);border-radius:12px;color:var(--text);font-family:inherit;font-size:14px;font-weight:600;outline:none;transition:.3s}
+.d-input input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(245,197,28,.12)}
+.d-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:12px 20px;font-size:13px;font-weight:800;transition:.3s;text-decoration:none}
+.d-btn-gold{background:linear-gradient(135deg,var(--gold),#FFD84D);color:#08322A;box-shadow:0 10px 26px rgba(245,197,28,.28)}
+.d-btn-gold:hover{transform:translateY(-2px)}
+.d-btn-ghost{background:rgba(255,255,255,.04);border:1px solid var(--line2);color:var(--muted)}
+.d-btn-ghost:hover{color:var(--gold);border-color:var(--gold)}
+.d-login-card .d-btn-gold{width:100%}
+.d-login-hint{margin-top:16px;font-size:11px;color:var(--muted)}
+.d-login-hint b{color:var(--gold)}
+.d-login-back{display:inline-flex;gap:7px;align-items:center;margin-top:14px;font-size:12px;color:var(--muted);text-decoration:none}
+.d-login-back:hover{color:var(--text)}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============ APP LAYOUT ============ */
+#appScreen{display:none}
+#appScreen.on{display:flex}
+.d-sidebar{width:250px;position:fixed;inset:0 auto 0 0;background:linear-gradient(180deg,#0E1B16,#0B1512);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:24px 16px;z-index:20}
+.d-side-logo{display:flex;gap:12px;align-items:center;padding:0 8px 22px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.d-side-logo .mark{width:44px;height:44px;border-radius:50%;background:var(--card2);border:2.5px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.d-side-logo h1{font-size:14.5px;font-weight:800;line-height:1.1}
+.d-side-logo h1 em{font-style:normal;color:var(--red)}
+.d-side-logo p{font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:800;margin-top:2px}
+.d-side-nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.d-side-nav a{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:700;transition:.25s;border:1px solid transparent}
+.d-side-nav a i{width:18px;text-align:center}
+.d-side-nav a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+.d-side-nav a.active{color:var(--gold);background:rgba(245,197,28,.08);border-color:rgba(245,197,28,.25)}
+.d-side-tag{margin:0 8px 12px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:800}
+.d-side-foot{border-top:1px solid var(--line);padding-top:14px}
+.d-side-foot button{width:100%;background:rgba(255,90,118,.08);border:1px solid rgba(255,90,118,.3);color:var(--red);border-radius:12px;padding:11px;font-size:12.5px;font-weight:800;display:flex;gap:10px;align-items:center;justify-content:center;transition:.25s}
+.d-side-foot button:hover{background:rgba(255,90,118,.16)}
+
+.d-main{flex:1;margin-left:250px;padding:26px 30px 70px;max-width:1460px}
+.d-topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.d-topbar h2{font-size:22px;font-weight:800;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}
+.d-live{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.d-topbar p{font-size:12px;color:var(--muted);margin-top:3px}
+.d-topbar-actions{display:flex;gap:9px;flex-wrap:wrap}
+.d-mob-logo{display:none}
+
+/* ============ CARDS / STATS ============ */
+.d-card{background:linear-gradient(165deg,rgba(255,255,255,.045),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(10px);animation:up .55s both}
+.d-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:18px}
+.d-stat{padding:18px 16px;position:relative;overflow:hidden}
+.d-stat::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac,var(--gold));opacity:.9}
+.d-stat .ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:15px;margin-bottom:12px;background:color-mix(in srgb,var(--ac) 14%,transparent);color:var(--ac)}
+.d-stat b{display:block;font-size:26px;font-weight:800;letter-spacing:-1px;line-height:1}
+.d-stat span{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-weight:800}
+
+/* ============ CHARTS ============ */
+.d-charts{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:18px}
+.d-chart{padding:20px}
+.d-chart h3{font-size:13.5px;font-weight:800;margin-bottom:14px;display:flex;gap:9px;align-items:center}
+.d-chart h3 i{color:var(--gold)}
+.d-chart-bar{height:250px;position:relative}
+.d-chart-donut{height:250px;position:relative;display:flex;align-items:center;justify-content:center}
+
+/* ============ TABLE ============ */
+.d-table-card{padding:20px;animation-delay:.1s}
+.d-table-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.d-table-head h3{font-size:15px;font-weight:800;display:flex;gap:9px;align-items:center}
+.d-table-head h3 i{color:var(--gold)}
+.d-count{font-size:11px;color:var(--muted);font-weight:700;background:rgba(255,255,255,.05);padding:5px 12px;border-radius:999px;border:1px solid var(--line)}
+.d-tools{display:flex;gap:9px;flex-wrap:wrap}
+.d-tools input,.d-tools select{background:rgba(255,255,255,.05);border:1px solid var(--line2);border-radius:10px;padding:9px 12px;color:var(--text);font-family:inherit;font-size:12px;font-weight:600;outline:none;transition:.25s}
+.d-tools input:focus,.d-tools select:focus{border-color:var(--gold)}
+.d-tools select option{background:var(--card2)}
+.d-tools input[type="date"]{color-scheme:dark}
+.d-table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:860px}
+thead th{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-weight:800;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line2)}
+tbody td{padding:13px 12px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:middle}
+tbody tr{transition:.2s}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+tbody tr:last-child td{border-bottom:none}
+.d-pat{display:flex;gap:11px;align-items:center;min-width:190px}
+.d-ava{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
+.d-pat b{display:block;font-size:13px}
+.d-pat small{color:var(--muted);font-size:11px}
+.d-layanan{background:rgba(63,169,143,.12);border:1px solid rgba(63,169,143,.3);color:var(--soft);padding:5px 11px;border-radius:999px;font-size:11px;font-weight:800;white-space:nowrap}
+td small{color:var(--muted)}
+.d-note{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
+select.d-status{appearance:none;-webkit-appearance:none;border-radius:999px;padding:6px 12px;font-size:11px;font-weight:800;border:1px solid;outline:none;cursor:pointer;font-family:inherit}
+select.d-status option{background:var(--card2);color:var(--text)}
+.st-baru{color:var(--amber);border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.1)}
+.st-dikonfirmasi{color:var(--blue);border-color:rgba(56,189,248,.4);background:rgba(56,189,248,.1)}
+.st-selesai{color:var(--green);border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.1)}
+.st-dibatalkan{color:var(--red);border-color:rgba(255,90,118,.4);background:rgba(255,90,118,.1)}
+.d-acts{display:flex;gap:7px}
+.d-act{width:34px;height:34px;border-radius:10px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--muted);font-size:13px;transition:.25s;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.d-act.wa:hover{background:#25D366;border-color:#25D366;color:#fff}
+.d-act.del:hover{background:var(--red);border-color:var(--red);color:#fff}
+.d-act.dis{opacity:.35;pointer-events:none}
+.d-empty{text-align:center;padding:50px 20px;color:var(--muted)}
+.d-empty i{font-size:40px;color:var(--gold);opacity:.6;margin-bottom:14px}
+.d-empty h4{color:var(--text);font-size:15px;margin-bottom:6px}
+.d-empty p{font-size:12.5px;margin-bottom:18px}
+
+/* ============ TOAST ============ */
+#dToast{position:fixed;bottom:24px;right:24px;z-index:99;display:flex;flex-direction:column;gap:10px}
+.d-toast{background:linear-gradient(135deg,#12271F,#0E1B16);border:1px solid rgba(245,197,28,.35);border-left:4px solid var(--gold);color:var(--text);padding:13px 18px;border-radius:12px;font-size:12.5px;font-weight:700;box-shadow:0 16px 40px rgba(0,0,0,.5);animation:tin .35s both;max-width:320px}
+.d-toast.err{border-color:rgba(255,90,118,.4);border-left-color:var(--red)}
+@keyframes tin{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1200px){.d-stats{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:1024px){
+  .d-sidebar{display:none}
+  .d-main{margin-left:0;padding:18px 16px 60px}
+  .d-mob-logo{display:flex;align-items:center;gap:10px;width:100%;margin-bottom:6px}
+  .d-mob-logo .mark{width:38px;height:38px;border-radius:50%;border:2px solid var(--gold);background:var(--card2);display:flex;align-items:center;justify-content:center}
+  .d-mob-logo b{font-size:14px}
+  .d-mob-logo button{margin-left:auto}
+  .d-charts{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .d-stats{grid-template-columns:repeat(2,1fr)}
+  .d-topbar h2{font-size:18px}
+  .d-tools{width:100%}
+  .d-tools input,.d-tools select{flex:1;min-width:120px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= LOGIN ================= -->
+<div id="loginScreen">
+  <div class="d-login-card" id="loginCard">
+    <div class="d-login-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <text x="6" y="48" font-size="46" font-weight="800" fill="#F5C51C" font-family="Plus Jakarta Sans, sans-serif">G</text>
+        <path d="M41 20v16M33 28h16" stroke="#3FA98F" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1><em>KLINIK</em> Keluarga Anda</h1>
+    <span class="script">Dashboard Admin ✨</span>
+    <form onsubmit="return doLogin(event)">
+      <label>PIN Admin</label>
+      <div class="d-input"><i class="fas fa-lock"></i><input type="password" id="loginPass" placeholder="••••••••" required autocomplete="current-password"></div>
+      <button class="d-btn d-btn-gold" type="submit"><i class="fas fa-right-to-bracket"></i> Masuk Dashboard</button>
+    </form>
+    <p class="d-login-hint">PIN bawaan: <b>admin123</b> · ganti pada <b>const ADMIN_PASS</b> di kode</p>
+    <a class="d-login-back" href="index.html"><i class="fas fa-arrow-left"></i> Kembali ke Website</a>
+  </div>
+</div>
+
+<!-- ================= APP ================= -->
+<div id="appScreen">
+  <aside class="d-sidebar">
+    <div class="d-side-logo">
+      <div class="mark">
+        <svg width="24" height="24" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <text x="6" y="48" font-size="46" font-weight="800" fill="#F5C51C" font-family="Plus Jakarta Sans, sans-serif">G</text>
+          <path d="M41 20v16M33 28h16" stroke="#3FA98F" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div><h1><em>KLINIK</em> Keluarga Anda</h1><p>Admin Dashboard</p></div>
+    </div>
+    <div class="d-side-tag">Menu Utama</div>
+    <nav class="d-side-nav">
+      <a href="#" class="active"><i class="fas fa-gauge-high"></i> Ringkasan</a>
+      <a href="#tabelSection"><i class="fas fa-calendar-check"></i> Data Booking</a>
+      <a href="index.html" target="_blank"><i class="fas fa-globe"></i> Lihat Website</a>
+    </nav>
+    <div class="d-side-foot"><button onclick="doLogout()"><i class="fas fa-right-from-bracket"></i> Keluar</button></div>
+  </aside>
+
+  <main class="d-main">
+    <header class="d-topbar">
+      <div class="d-mob-logo">
+        <div class="mark">
+          <svg width="20" height="20" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <text x="6" y="48" font-size="46" font-weight="800" fill="#F5C51C" font-family="Plus Jakarta Sans, sans-serif">G</text>
+            <path d="M41 20v16M33 28h16" stroke="#3FA98F" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <b>Dashboard Admin</b>
+        <button class="d-btn d-btn-ghost" onclick="doLogout()" style="padding:9px 14px;font-size:11px"><i class="fas fa-right-from-bracket"></i></button>
+      </div>
+      <div>
+        <h2><span class="d-live"></span> Dashboard Admin</h2>
+        <p id="todayLabel">—</p>
+      </div>
+      <div class="d-topbar-actions">
+        <button class="d-btn d-btn-ghost" onclick="seed()"><i class="fas fa-wand-magic-sparkles"></i> Data Contoh</button>
+        <button class="d-btn d-btn-ghost" onclick="exportCSV()"><i class="fas fa-file-csv"></i> Export CSV</button>
+        <button class="d-btn d-btn-ghost" onclick="refresh(true)"><i class="fas fa-rotate"></i></button>
+      </div>
+    </header>
+
+    <!-- STATS -->
+    <section class="d-stats">
+      <div class="d-card d-stat" style="--ac:var(--gold)"><div class="ic"><i class="fas fa-calendar-check"></i></div><b id="stTotal">0</b><span>Total Booking</span></div>
+      <div class="d-card d-stat" style="--ac:var(--amber)"><div class="ic"><i class="fas fa-hourglass-half"></i></div><b id="stBaru">0</b><span>Perlu Follow-up</span></div>
+      <div class="d-card d-stat" style="--ac:var(--blue)"><div class="ic"><i class="fas fa-user-check"></i></div><b id="stKonf">0</b><span>Dikonfirmasi</span></div>
+      <div class="d-card d-stat" style="--ac:var(--green)"><div class="ic"><i class="fas fa-check-double"></i></div><b id="stSelesai">0</b><span>Selesai</span></div>
+      <div class="d-card d-stat" style="--ac:var(--red)"><div class="ic"><i class="fas fa-xmark"></i></div><b id="stBatal">0</b><span>Dibatalkan</span></div>
+      <div class="d-card d-stat" style="--ac:var(--soft)"><div class="ic"><i class="fas fa-bolt"></i></div><b id="stHari">0</b><span>Hari Ini</span></div>
+    </section>
+
+    <!-- CHARTS -->
+    <section class="d-charts">
+      <div class="d-card d-chart"><h3><i class="fas fa-chart-column"></i> Booking · 7 Hari Terakhir</h3><div class="d-chart-bar"><canvas id="chartBar"></canvas></div></div>
+      <div class="d-card d-chart"><h3><i class="fas fa-chart-pie"></i> Komposisi Status</h3><div class="d-chart-donut"><canvas id="chartDonut"></canvas></div></div>
+    </section>
+
+    <!-- TABLE -->
+    <section class="d-card d-table-card" id="tabelSection">
+      <div class="d-table-head">
+        <h3><i class="fas fa-inbox"></i> Data Booking Pasien <span class="d-count" id="countLabel">0 data</span></h3>
+        <div class="d-tools">
+          <input type="text" id="qSearch" placeholder="🔍 Cari nama / layanan / no. WA...">
+          <select id="qStatus">
+            <option value="">Semua Status</option>
+            <option value="baru">Baru</option>
+            <option value="dikonfirmasi">Dikonfirmasi</option>
+            <option value="selesai">Selesai</option>
+            <option value="dibatalkan">Dibatalkan</option>
+          </select>
+          <input type="date" id="qDate">
+          <button class="d-btn d-btn-ghost" onclick="resetFilter()" style="padding:9px 14px"><i class="fas fa-filter-circle-xmark"></i></button>
+        </div>
+      </div>
+      <div class="d-table-wrap">
+        <table>
+          <thead><tr><th>Pasien</th><th>Layanan</th><th>Jadwal</th><th>Catatan</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody id="bookingTbody"></tbody>
+        </table>
+        <div class="d-empty" id="emptyState" style="display:none">
+          <i class="fas fa-inbox"></i>
+          <h4 id="emptyTitle">Belum ada data booking</h4>
+          <p id="emptyDesc">Booking dari website akan otomatis masuk ke sini.</p>
+          <button class="d-btn d-btn-gold" onclick="seed()"><i class="fas fa-wand-magic-sparkles"></i> Muat Data Contoh</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="dToast"></div>
+
+<script>
+/* =====================================================
+   KONFIGURASI
+===================================================== */
+const LS='ka_bookings';              // harus sama dengan di index.html
+const ADMIN_PASS='admin123';         // ⚠️ GANTI PIN ADMIN DI SINI
+
+const STATUS_LABEL={baru:'Baru',dikonfirmasi:'Dikonfirmasi',selesai:'Selesai',dibatalkan:'Dibatalkan'};
+let bookings=[], chartBar=null, chartDonut=null, donutTotal=0;
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const normWA=p=>{let d=String(p||'').replace(/\D/g,'');if(d.startsWith('0'))d='62'+d.slice(1);return d;};
+const fmtDate=iso=>{if(!iso)return '-';return new Date(iso+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'});};
+
+/* ============ LOGIN / LOGOUT ============ */
+function doLogin(e){
+  e.preventDefault();
+  if($('#loginPass').value===ADMIN_PASS){
+    sessionStorage.setItem('ka_admin','1'); enter(); toast('Selamat datang, Admin 🙏');
+  }else{
+    $('#loginCard').classList.add('shake'); setTimeout(()=>$('#loginCard').classList.remove('shake'),450);
+    toast('PIN salah! Coba lagi.','err');
+  }
+  return false;
+}
+function doLogout(){ sessionStorage.removeItem('ka_admin'); location.reload(); }
+function enter(){ $('#loginScreen').classList.add('off'); $('#appScreen').classList.add('on'); init(); }
+
+/* ============ INIT ============ */
+function init(){
+  $('#todayLabel').textContent=new Date().toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+' · Data tersimpan di perangkat ini';
+  refresh(false);
+}
+function load(){ try{bookings=JSON.parse(localStorage.getItem(LS)||'[]');}catch(e){bookings=[];} }
+function refresh(manual){ load(); renderAll(); if(manual) toast('Data dimuat ulang 🔄'); }
+
+/* ============ RENDER ============ */
+function renderAll(){ renderStats(); renderCharts(); renderTable(); }
+
+function countUp(el,val){ const t0=performance.now(),dur=650;
+  (function f(t){const p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(val*p);if(p<1)requestAnimationFrame(f);})(t0);
+}
+function renderStats(){
+  const c=s=>bookings.filter(b=>b.status===s).length;
+  const today=new Date().toISOString().split('T')[0];
+  countUp($('#stTotal'),bookings.length);
+  countUp($('#stBaru'),c('baru'));
+  countUp($('#stKonf'),c('dikonfirmasi'));
+  countUp($('#stSelesai'),c('selesai'));
+  countUp($('#stBatal'),c('dibatalkan'));
+  countUp($('#stHari'),bookings.filter(b=>b.tanggal===today).length);
+}
+
+function renderCharts(){
+  if(typeof Chart==='undefined')return;
+  /* Bar: 7 hari terakhir */
+  const labels=[],counts=[];
+  for(let i=6;i>=0;i--){
+    const d=new Date(); d.setDate(d.getDate()-i);
+    const key=d.toISOString().split('T')[0];
+    labels.push(d.toLocaleDateString('id-ID',{weekday:'short',day:'numeric'}));
+    counts.push(bookings.filter(b=>b.tanggal===key).length);
+  }
+  if(chartBar){ chartBar.data.labels=labels; chartBar.data.datasets[0].data=counts; chartBar.update(); }
+  else{
+    Chart.defaults.color='#8FB0A7'; Chart.defaults.font.family="'Plus Jakarta Sans',sans-serif";
+    chartBar=new Chart($('#chartBar'),{type:'bar',
+      data:{labels,datasets:[{data:counts,backgroundColor:'rgba(245,197,28,.85)',hoverBackgroundColor:'#FFD84D',borderRadius:9,maxBarThickness:36}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{x:{grid:{display:false}},y:{beginAtZero:true,ticks:{stepSize:1},grid:{color:'rgba(255,255,255,.06)'}}}}});
+  }
+  /* Donut: status */
+  const vals=['baru','dikonfirmasi','selesai','dibatalkan'].map(s=>bookings.filter(b=>b.status===s).length);
+  donutTotal=bookings.length;
+  if(chartDonut){ chartDonut.data.datasets[0].data=vals; chartDonut.update(); }
+  else{
+    chartDonut=new Chart($('#chartDonut'),{type:'doughnut',
+      data:{labels:['Baru','Dikonfirmasi','Selesai','Dibatalkan'],
+        datasets:[{data:vals,backgroundColor:['#FBBF24','#38BDF8','#34D399','#FF5A76'],borderColor:'#0F1A17',borderWidth:4,hoverOffset:8}]},
+      options:{responsive:true,maintainAspectRatio:false,cutout:'70%',
+        plugins:{legend:{position:'bottom',labels:{usePointStyle:true,pointStyle:'circle',boxWidth:7,padding:14,font:{size:10.5,weight:700}}}}},
+      plugins:[{id:'centerText',afterDraw(c){
+        const m=c.getDatasetMeta(0); if(!m.data.length)return; const {x,y}=m.data[0],ctx=c.ctx;
+        ctx.save(); ctx.textAlign='center'; ctx.textBaseline='middle';
+        ctx.fillStyle='#EAF4F0'; ctx.font="800 26px 'Plus Jakarta Sans'"; ctx.fillText(donutTotal,x,y-7);
+        ctx.fillStyle='#8FB0A7'; ctx.font="800 8.5px 'Plus Jakarta Sans'"; ctx.fillText('TOTAL BOOKING',x,y+13); ctx.restore();
+      }}]});
+  }
+}
+
+function renderTable(){
+  const q=$('#qSearch').value.toLowerCase(), st=$('#qStatus').value, dt=$('#qDate').value;
+  const list=bookings.filter(b=>
+    (!q||(b.nama||'').toLowerCase().includes(q)||(b.layanan||'').toLowerCase().includes(q)||(b.wa||'').includes(q)) &&
+    (!st||b.status===st) && (!dt||b.tanggal===dt));
+  $('#countLabel').textContent=list.length+' dari '+bookings.length+' booking';
+  const tb=$('#bookingTbody');
+  if(!bookings.length){ tb.innerHTML=''; $('#emptyState').style.display='block'; $('#emptyTitle').textContent='Belum ada data booking'; $('#emptyDesc').textContent='Booking dari website akan otomatis masuk ke sini.'; return; }
+  if(!list.length){ tb.innerHTML=''; $('#emptyState').style.display='block'; $('#emptyTitle').textContent='Tidak ada yang cocok'; $('#emptyDesc').textContent='Coba ubah kata kunci atau filter Anda.'; return; }
+  $('#emptyState').style.display='none';
+  tb.innerHTML=list.map(b=>{
+    const ini=(b.nama||'?').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    const waNum=normWA(b.wa);
+    return `<tr>
+      <td><div class="d-pat"><span class="d-ava">${esc(ini)}</span><div><b>${esc(b.nama)}</b><small>${esc(b.wa||'No. WA tidak diisi')} · ${esc(b.sumber||'-')}</small></div></div></td>
+      <td><span class="d-layanan">${esc(b.layanan)}</span></td>
+      <td><b>${fmtDate(b.tanggal)}</b><br><small>${esc(b.waktu||'-')}</small></td>
+      <td class="d-note" title="${esc(b.catatan)}">${esc(b.catatan||'—')}</td>
+      <td><select class="d-status st-${b.status}" data-id="${b.id}">
+        ${Object.keys(STATUS_LABEL).map(k=>`<option value="${k}" ${k===b.status?'selected':''}>${STATUS_LABEL[k]}</option>`).join('')}
+      </select></td>
+      <td><div class="d-acts">
+        <a class="d-act wa ${waNum?'':'dis'}" data-id="${b.id}" title="Follow-up via WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <button class="d-act del" data-id="${b.id}" title="Hapus"><i class="fas fa-trash"></i></button>
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+
+/* ============ AKSI ============ */
+function setStatus(id,val){ const b=bookings.find(x=>x.id===id); if(!b)return; b.status=val;
+  localStorage.setItem(LS,JSON.stringify(bookings)); renderAll(); toast('Status → '+STATUS_LABEL[val]+' ✔'); }
+function delBooking(id){ if(!confirm('Hapus booking ini?'))return;
+  bookings=bookings.filter(x=>x.id!==id); localStorage.setItem(LS,JSON.stringify(bookings)); renderAll(); toast('Booking dihapus 🗑'); }
+
+function waFollow(b){
+  const wa=normWA(b.wa); if(!wa){toast('Pasien tidak mengisi nomor WA.','err');return;}
+  const tgl=fmtDate(b.tanggal);
+  const tpl={
+    baru:`Halo ${b.nama} 🙏 Kami dari *Klinik Keluarga Anda*. Permintaan booking Anda (${b.layanan}, ${tgl} · ${b.waktu}) sudah kami terima dan akan segera kami konfirmasi. Terima kasih.`,
+    dikonfirmasi:`Halo ${b.nama} 😊 Jadwal Anda di *Klinik Keluarga Anda* sudah DIKONFIRMASI: ${b.layanan}, ${tgl} · ${b.waktu}. Mohon datang 10 menit lebih awal. Terima kasih.`,
+    selesai:`Halo ${b.nama} 💚 Terima kasih telah mempercayakan kesehatan Anda kepada *Klinik Keluarga Anda*. Semoga sehat selalu — Ramah, Jujur, Disiplin dan Bertanggungjawab.`,
+    dibatalkan:`Halo ${b.nama} 🙏 Booking Anda (${b.layanan}, ${tgl}) dibatalkan. Bila ingin menjadwal ulang, balas pesan ini ya. Terima kasih.`
+  };
+  window.open('https://wa.me/'+wa+'?text='+encodeURIComponent(tpl[b.status]||tpl.baru),'_blank');
+  toast('Membuka WhatsApp → '+b.nama+' 📱');
+}
+
+function exportCSV(){
+  if(!bookings.length){toast('Belum ada data untuk diexport.','err');return;}
+  const head=['ID','Nama','WhatsApp','Layanan','Tanggal','Waktu','Catatan','Status','Sumber','Dibuat'];
+  const rows=bookings.map(b=>[b.id,b.nama,b.wa,b.layanan,b.tanggal,b.waktu,b.catatan,STATUS_LABEL[b.status],b.sumber,b.dibuat]);
+  const csv='\uFEFF'+[head,...rows].map(r=>r.map(c=>'"'+String(c??'').replace(/"/g,'""')+'"').join(',')).join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+  a.download='booking-klinik-'+new Date().toISOString().split('T')[0]+'.csv'; a.click();
+  toast('CSV terunduh 📄');
+}
+
+function seed(){
+  if(bookings.length && !confirm('Sudah ada data. Tambahkan data contoh juga?'))return;
+  const N=['Baiq Nurul','Lalu Rahman','Sri Wahyuni','Hj. Aminah','M. Farhan','Rosa Amelia','Lalu Satriawan','Ni Made Sari','Baiq Anggi','H. Huldi'];
+  const S=['Dokter Umum','Poli Gigi','Persalinan / KIA / KB','Laboratorium','UGD','Rawat Inap'];
+  const T=['Pagi (08.00–12.00)','Siang (12.00–17.00)','Malam (17.00–21.00)'];
+  const ST=['baru','baru','dikonfirmasi','dikonfirmasi','selesai','selesai','selesai','dibatalkan','baru','dikonfirmasi'];
+  const C=['Kontrol gigi anak','Cek lab lengkap','Demam 2 hari','Kontrol kehamilan 7 bulan','','Nyeri gigi belakang',''];
+  for(let i=0;i<10;i++){
+    const d=new Date(); d.setDate(d.getDate()-Math.floor(Math.random()*7));
+    bookings.push({id:Date.now()+i,nama:N[i],wa:'081234567'+(10+i),layanan:S[i%S.length],tanggal:d.toISOString().split('T')[0],waktu:T[i%T.length],catatan:C[i%C.length],status:ST[i],sumber:i%2?'Modal Booking':'Booking Cepat',dibuat:d.toISOString()});
+  }
+  localStorage.setItem(LS,JSON.stringify(bookings)); renderAll(); toast('Data contoh dimuat ✨');
+}
+
+/* ============ FILTER & EVENT ============ */
+function resetFilter(){ $('#qSearch').value=''; $('#qStatus').value=''; $('#qDate').value=''; renderTable(); }
+['qSearch','qStatus','qDate'].forEach(id=>$('#'+id).addEventListener('input',renderTable));
+
+$('#bookingTbody').addEventListener('change',e=>{ if(e.target.matches('select.d-status')) setStatus(+e.target.dataset.id,e.target.value); });
+$('#bookingTbody').addEventListener('click',e=>{
+  const wa=e.target.closest('.d-act.wa'), del=e.target.closest('.d-act.del');
+  if(wa){ const b=bookings.find(x=>x.id===+wa.dataset.id); if(b)waFollow(b); }
+  if(del){ delBooking(+del.dataset.id); }
+});
+window.addEventListener('storage',e=>{ if(e.key===LS && $('#appScreen').classList.contains('on')) refresh(false); });
+
+/* ============ TOAST ============ */
+function toast(msg,type){
+  const t=document.createElement('div'); t.className='d-toast'+(type==='err'?' err':''); t.textContent=msg;
+  $('#dToast').appendChild(t); setTimeout(()=>{t.style.opacity='0';t.style.transition='.4s';setTimeout(()=>t.remove(),400);},2600);
+}
+
+/* ============ START ============ */
+if(sessionStorage.getItem('ka_admin')==='1') enter();
+</script>
+</body>
+</html>
