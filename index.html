@@ -432,6 +432,69 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
 .mc-reveal.visible{opacity:1;transform:translateY(0)}
 .mc-reveal-delay-1{transition-delay:.1s}.mc-reveal-delay-2{transition-delay:.2s}.mc-reveal-delay-3{transition-delay:.3s}
 
+/* TENTANG KAMI */
+.mc-about{background:linear-gradient(180deg,#fff 0%,var(--sky-light) 100%)}
+.mc-about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
+.mc-about-visual{position:relative}
+.mc-about-panel{background:linear-gradient(150deg,var(--primary-dark) 0%,var(--primary) 60%,var(--primary-light) 100%);border-radius:var(--radius-xl);padding:44px 40px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-xl)}
+.mc-about-panel::before{content:'';position:absolute;top:-90px;right:-90px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,28,.25) 0%,transparent 70%)}
+.mc-about-panel::after{content:'';position:absolute;bottom:-120px;left:-60px;width:260px;height:260px;border-radius:50%;border:1.5px dashed rgba(255,255,255,.18)}
+.mc-about-panel-icon{width:64px;height:64px;border-radius:18px;background:var(--gold);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px;box-shadow:var(--shadow-gold)}
+.mc-about-panel .script{display:block;font-size:26px;color:var(--gold);margin-bottom:6px}
+.mc-about-panel h3{font-size:21px;font-weight:800;line-height:1.4;margin-bottom:12px;letter-spacing:-.3px}
+.mc-about-panel p{font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:26px}
+.mc-about-panel-foot{padding-top:18px;border-top:1px solid rgba(255,255,255,.15);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:8px}
+.mc-about-panel-foot i{color:var(--gold)}
+.mc-about-float{position:absolute;bottom:-26px;right:-14px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:12px;border:1px solid var(--gray-100)}
+.mc-about-float .icon{width:44px;height:44px;border-radius:12px;background:var(--gold-light);color:var(--gold-dark);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.mc-about-float h4{font-size:13.5px;font-weight:800;color:var(--gray-900)}
+.mc-about-float p{font-size:11.5px;color:var(--gray-500)}
+.mc-about-content .mc-section-title{margin-bottom:14px}
+.mc-about-content .mc-section-desc{margin-bottom:28px}
+.mc-about-vm{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.mc-about-vm-card{background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius-md);padding:18px;transition:all .3s}
+.mc-about-vm-card:hover{border-color:var(--primary-soft);box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.mc-about-vm-card .icon{width:40px;height:40px;border-radius:10px;background:var(--sky);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:15px;margin-bottom:12px}
+.mc-about-vm-card h4{font-size:14px;font-weight:800;color:var(--gray-900);margin-bottom:4px}
+.mc-about-vm-card p{font-size:12.5px;color:var(--gray-500);line-height:1.6}
+.mc-about-values{display:flex;gap:10px;flex-wrap:wrap}
+.mc-about-values span{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--radius-full);background:#fff;border:1px solid var(--gray-200);font-size:12.5px;font-weight:700;color:var(--gray-700);transition:all .3s}
+.mc-about-values span i{color:var(--gold-dark)}
+.mc-about-values span:hover{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px)}
+.mc-about-values span:hover i{color:var(--gold)}
+
+/* GALERI */
+.mc-gallery{background:linear-gradient(180deg,var(--sky-light) 0%,#fff 100%);position:relative;overflow:hidden}
+.mc-gallery::before{content:'';position:absolute;top:-140px;right:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,28,.10) 0%,transparent 70%);pointer-events:none}
+.mc-gallery .container{position:relative;z-index:1}
+.mc-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mc-gallery-video{grid-column:span 2;background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);display:flex;flex-direction:column;transition:all .3s}
+.mc-gallery-video:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.mc-gallery-video iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.mc-gallery-video-bar{display:flex;align-items:center;gap:10px;padding:13px 18px;font-size:13px;font-weight:700;color:var(--gray-700)}
+.mc-gallery-video-bar i{color:var(--red);font-size:15px}
+.mc-gallery-video-bar .chip{margin-left:auto;background:var(--red-light);color:var(--red);font-size:10.5px;font-weight:800;padding:4px 10px;border-radius:var(--radius-full);letter-spacing:.5px}
+.mc-gallery-item{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:230px;box-shadow:var(--shadow-sm);transition:all .3s}
+.mc-gallery-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.mc-gallery-item:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.mc-gallery-item:hover img{transform:scale(1.07)}
+.mc-gallery-cap{position:absolute;left:0;right:0;bottom:0;padding:38px 16px 14px;background:linear-gradient(180deg,transparent 0%,rgba(15,26,23,.78) 100%);color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.mc-gallery-cap h4{font-size:13.5px;font-weight:800;letter-spacing:.2px}
+.mc-gallery-cap span{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;background:var(--gold);color:var(--primary-dark);padding:4px 9px;border-radius:var(--radius-full);white-space:nowrap}
+
+/* Responsif khusus section baru */
+@media (max-width:1024px){
+  .mc-about-grid{grid-template-columns:1fr;gap:56px}
+  .mc-about-float{right:0}
+  .mc-gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .mc-gallery-video{grid-column:span 2}
+}
+@media (max-width:768px){
+  .mc-about-vm{grid-template-columns:1fr}
+  .mc-gallery-grid{grid-template-columns:1fr}
+  .mc-gallery-video{grid-column:span 1}
+}
+  
 /* RESPONSIVE */
 @media (max-width:1024px){
   .mc-hero-inner{grid-template-columns:1fr;text-align:center}
@@ -660,6 +723,52 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   </div>
 </section>
 
+<!-- ===== TENTANG KAMI ===== -->
+<section class="mc-section mc-about" id="tentang">
+  <div class="container">
+    <div class="mc-about-grid">
+      <div class="mc-about-visual mc-reveal">
+        <div class="mc-about-panel">
+          <div class="mc-about-panel-icon"><i class="fas fa-heart-pulse"></i></div>
+          <span class="script">Sejak 2026</span>
+          <h3>“Sehat Bersama Kami, Aman &amp; Nyaman untuk Anda”</h3>
+          <p>Klinik pelayanan kesehatan keluarga di Dusun Tambang Eleh, Desa Jagaraga, Kecamatan Kuripan, Kabupaten Lombok Barat — hadir dengan kepedulian yang tulus untuk Anda.</p>
+          <div class="mc-about-panel-foot"><i class="fas fa-star"></i> Grand Opening · 24 Juli 2026</div>
+        </div>
+        <div class="mc-about-float">
+          <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <div><h4>Pelayanan Tulus</h4><p>100% untuk keluarga Anda</p></div>
+        </div>
+      </div>
+      <div class="mc-about-content mc-reveal mc-reveal-delay-1">
+        <div class="mc-section-tag"><i class="fas fa-house-medical"></i> Tentang Kami</div>
+        <h2 class="mc-section-title">Melayani dengan Hati,<br><span class="accent">Tumbuh Bersama Masyarakat</span></h2>
+        <p class="mc-section-desc">Klinik Gumitri Medika hadir sebagai mitra kesehatan keluarga di Lombok Barat — dari UGD 24 jam hingga persalinan aman, kami berkomitmen memberikan pelayanan yang ramah, jujur, disiplin dan bertanggungjawab dengan biaya yang pasti terjangkau.</p>
+        <div class="mc-about-vm">
+          <div class="mc-about-vm-card">
+            <div class="icon"><i class="fas fa-eye"></i></div>
+            <h4>Visi</h4>
+            <p>Menjadi klinik keluarga yang terpercaya, aman &amp; nyaman bagi seluruh masyarakat.</p>
+          </div>
+          <div class="mc-about-vm-card">
+            <div class="icon"><i class="fas fa-bullseye"></i></div>
+            <h4>Misi</h4>
+            <p>Melayani dengan tenaga profesional, fasilitas lengkap, dan kepedulian yang tulus.</p>
+          </div>
+        </div>
+        <div class="mc-about-values">
+          <span><i class="fas fa-smile"></i> Ramah</span>
+          <span><i class="fas fa-handshake"></i> Jujur</span>
+          <span><i class="fas fa-clock"></i> Disiplin</span>
+          <span><i class="fas fa-shield-heart"></i> Bertanggungjawab</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
 <!-- ===== LAYANAN ===== -->
 <section class="mc-section mc-specialties" id="layanan">
   <div class="container">
@@ -915,6 +1024,42 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:va
   </div>
 </section>
 
+<!-- ===== GALERI KEGIATAN ===== -->
+<section class="mc-section mc-gallery" id="galeri">
+  <div class="container">
+    <div class="mc-section-header mc-reveal">
+      <div class="mc-section-tag"><i class="fas fa-images"></i> Galeri</div>
+      <h2 class="mc-section-title">Galeri Kegiatan &amp; <span class="accent">Momen Klinik</span></h2>
+      <p class="mc-section-desc">Dokumentasi kegiatan, pelayanan, dan suasana Klinik Gumitri Medika — dekat, hangat, dan penuh kepedulian.</p>
+    </div>
+    <div class="mc-gallery-grid">
+      <!-- Ganti ID video (aqz-KE-bpKQ) dengan ID video YouTube klinik Anda -->
+      <div class="mc-gallery-video mc-reveal">
+        <iframe src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="Video Profil Klinik Gumitri Medika" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="mc-gallery-video-bar"><i class="fas fa-circle-play"></i> Profil &amp; Kegiatan Klinik <span class="chip">YOUTUBE</span></div>
+      </div>
+      <!-- Ganti src img di bawah dengan foto kegiatan klinik Anda -->
+      <div class="mc-gallery-item mc-reveal mc-reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Pemeriksaan dokter umum" loading="lazy">
+        <div class="mc-gallery-cap"><h4>Pemeriksaan Dokter Umum</h4><span>Kegiatan</span></div>
+      </div>
+      <div class="mc-gallery-item mc-reveal">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Konsultasi pasien" loading="lazy">
+        <div class="mc-gallery-cap"><h4>Konsultasi Pasien</h4><span>Kegiatan</span></div>
+      </div>
+      <div class="mc-gallery-item mc-reveal mc-reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80" alt="Fasilitas klinik" loading="lazy">
+        <div class="mc-gallery-cap"><h4>Fasilitas Klinik</h4><span>Fasilitas</span></div>
+      </div>
+      <div class="mc-gallery-item mc-reveal mc-reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80" alt="Peralatan medis" loading="lazy">
+        <div class="mc-gallery-cap"><h4>Peralatan Medis</h4><span>Fasilitas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
 <!-- ===== FAQ ===== -->
 <section class="mc-section" id="faq">
   <div class="container">
